@@ -1,14 +1,35 @@
 extends layout
 
 block content
-  div.ui.large.top.fixed.hidden.menu
-    div.ui.container
-      a.active.item Home
-      a.item Work
-      a.item Company
-      a.item Careers
-      div.right.menu
-        div.item
-          a.ui.button log in
-        div.item
-          a.ui.primary.button sign up
+  div.pusher
+    div.ui.inverted.vertical.masthead.center.aligned.segment
+      div.ui.container
+        div.ui.large.secondary.inverted.pointing.menu
+          //a.toc.item
+            //i.sidebar.icon
+          a.item 首页
+          a.item 书库
+          a.item 荐购
+          a.item 个人中心
+          div.right.menu
+            div.item
+              a.ui.button log in
+            div.item
+              a.ui.primary.button sign up
+      div.ui.text.container
+        h1.ui.inverted.header 读书馆
+        h2 想经历一百种人生，不必亲自活上一百次。
+        div.ui.huge.primary.button 开启阅读之旅
+
+
+
+
+  div.ui.five.cards.container
+    div.ui.card
+      div.blurring.dimmable.image
+        div.ui.dimmer.transition.hidden
+          div.content
+            div.center
+        img(src="images/21_avatar_middle.jpg")
+      div.content
+      div.extra.content
