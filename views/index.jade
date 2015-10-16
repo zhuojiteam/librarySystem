@@ -1,6 +1,29 @@
 extends layout
 
 block content
+  //Following Menu
+  div.ui.large.top.fixed.hidden.menu
+    div.ui.container
+      a.item 首页
+      a.item 书库
+      a.item 荐购
+      a.item 个人中心
+      div.right.menu
+        div.item
+          a.ui.button log in
+        div.item
+          a.ui.primary.button sign up
+  //Sidebar Menu
+
+  div.ui.vertical.inverted.sidebar.menu
+    a.item 首页
+    a.item 书库
+    a.item 荐购
+    a.item 个人中心
+    a.item log in
+    a.item sign up
+
+   //Page Contents
   div.pusher
     div.ui.inverted.vertical.masthead.center.aligned.segment
       div.ui.container
