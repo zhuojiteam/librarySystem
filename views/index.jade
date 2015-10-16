@@ -2,7 +2,7 @@ extends layout
 
 block content
   //Following Menu
-  div.ui.large.top.fixed.hidden.transition.menu
+  div.ui.large.top.fixed.hidden.menu
     div.ui.container
       a.item 首页
       a.item 书库
@@ -15,13 +15,13 @@ block content
           a.ui.primary.button Sign Up
   //Sidebar Menu
 
-  div.ui.vertical.inverted.sidebar.menu.left
+  div.ui.vertical.inverted.sidebar.menu
     a.item 首页
     a.item 书库
     a.item 荐购
     a.item 个人中心
-    a.item log in
-    a.item sign up
+    a.item Log In
+    a.item Sign Up
 
    //Page Contents
   div.pusher
@@ -36,22 +36,30 @@ block content
           a.item 个人中心
           div.right.menu
             div.item
-              a.ui.button log in
+              a.ui.inverted.button Log In
             div.item
-              a.ui.primary.button sign up
+              a.ui.inverted.button Sign Up
       div.ui.text.container
         h1.ui.inverted.header Lulu的图书馆
         h2 想经历一百种人生，不必亲自活上一百次。
         div.ui.huge.primary.button 开始阅读
+          i.right.arrow.icon
 
-
-
-  div.ui.five.cards.container
-    div.ui.card
-      div.blurring.dimmable.image
-        div.ui.dimmer.transition.hidden
+    div.ui.vertical.stripe.segment
+      div.ui.four.cards
+        div.ui.card
+          div.blurring.dimmable.image
+            div.ui.dimmer.transition.hidden
+              div.content
+                div.center
+            img(src="images/21_avatar_middle.jpg")
           div.content
-            div.center
-        img(src="images/21_avatar_middle.jpg")
-      div.content
-      div.extra.content
+          div.extra.content
+        div.ui.card
+          div.blurring.dimmable.image
+            div.ui.dimmer.transition.hidden
+              div.content
+                div.center
+            img(src="images/21_avatar_middle.jpg")
+          div.content
+          div.extra.content
