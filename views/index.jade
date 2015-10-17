@@ -64,7 +64,8 @@ block content
                   each book in hotBookList
                     a.item
                       i.right.triangle.icon
-                      div=book.name
+                      div.content
+                        div.headr=book.name
               div.extra.content
                 a.right.floated.created More +
         div.column
@@ -84,7 +85,8 @@ block content
                   each book in newBookList
                     a.item
                       i.right.triangle.icon
-                      div=book.name
+                      div.content
+                        div.header=book.name
               div.extra.content
                 a.right.floated.created More +
         div.column
