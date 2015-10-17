@@ -48,7 +48,7 @@ block content
     div.ui.vertical.stripe.segment
       div.ui.two.column.stackable.grid.container
         div.column
-          div.ui.two.cards
+          div.ui.one.cards
             div.ui.card
               div.dimmable.image
                 div.ui.blurring.inverted.dimmer
@@ -78,12 +78,14 @@ block content
                     我是一本热门图书
               div.extra.content
                 a.right.floated.created More +
+        div.column
+          div.ui.one.cards
             div.ui.card
               div.blurring.dimmable.image
                 div.ui.dimmer
                   div.content
                     div.center
-                      div.ui.inverted.button 热门图书
+                      div.ui.inverted.button 新书速递
                 img(src='images/21_avatar_middle.jpg')
               div.content
                 a.header 新书速递
@@ -108,16 +110,16 @@ block content
               div.extra.content
                 a.right.floated.created More +
         div.column
-          div.ui.container
-            div.ui.relaxed.divided.items
-              div.item
-                div.ui.small.image
-                  img(src='images/21_avatar_middle.jpg')
-                div.content
-                  a.header 分类浏览
-                  div.meta
-              div.item
-                div.ui.small.image
-                  img(src='images/21_avatar_middle.jpg')
-                div.content
-                  a.header 读者荐购
+        div.ui.container
+          div.ui.relaxed.divided.items
+            div.item
+              div.ui.small.image
+                img(src='images/21_avatar_middle.jpg')
+              div.content
+                a.header 分类浏览
+              div.meta
+            div.item
+              div.ui.small.image
+                img(src='images/21_avatar_middle.jpg')
+              div.content
+                a.header 读者荐购
