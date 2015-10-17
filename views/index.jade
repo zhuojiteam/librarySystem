@@ -48,13 +48,16 @@ block content
     div.ui.vertical.stripe.segment
       div.ui.two.column.stackable.grid.container
         div.column
-          div.ui.card
-            div.image.blurring.dimmable
-              div.ui.dimmer
-                div.content
-                  div.center
-                    div.ui.inverted.button 热门图书
-              img(src='images/21_avatar_middle.jpg')
+          div.ui.one.cards
+            div.ui.card
+              div.dimmable.image
+                div.ui.blurring.inverted.dimmer
+                  div.content
+                    div.center
+                      div.ui.inverted.button 热门图书
+                img(src='images/21_avatar_middle.jpg')
+          div.content
+            a.header 热门图书
         div.column 新书
         div.column 分类
         div.column 荐购
