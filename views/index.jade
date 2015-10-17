@@ -48,19 +48,18 @@ block content
     div.ui.vertical.stripe.segment
       div.ui.two.column.stackable.grid.container
         div.column
-          div.ui.one.cards
+          div.ui.two.cards
             div.ui.card
-              div.blurring.dimmable.image
-                div.ui.dimmer
+              div.dimmable.image
+                div.ui.blurring.inverted.dimmer
                   div.content
                     div.center
-                      div.ui.inverted.button 热门图书
+                      div.ui.teal.button 热门图书
                 img(src='images/21_avatar_middle.jpg')
               div.content
                 a.header 热门图书
                 div.meta
                   span.group 一个月内
-              div.content
                 div.ui.link.list
                   a.item
                     i.right.triangle.icon
@@ -74,7 +73,51 @@ block content
                   a.item
                     i.right.triangle.icon
                     我是一本热门图书
-
-div.column 新书
-        div.column 分类
-        div.column 荐购
+                  a.item
+                    i.right.triangle.icon
+                    我是一本热门图书
+              div.extra.content
+                a.right.floated.created More +
+            div.ui.card
+              div.blurring.dimmable.image
+                div.ui.dimmer
+                  div.content
+                    div.center
+                      div.ui.inverted.button 热门图书
+                img(src='images/21_avatar_middle.jpg')
+              div.content
+                a.header 新书速递
+                div.meta
+                  span.group 最近一周
+                div.ui.link.list
+                  a.item
+                    i.right.triangle.icon
+                    我是一本热门图书
+                  a.item
+                    i.right.triangle.icon
+                    我是一本热门图书
+                  a.item
+                    i.right.triangle.icon
+                    我是一本热门图书
+                  a.item
+                    i.right.triangle.icon
+                    我是一本热门图书
+                  a.item
+                    i.right.triangle.icon
+                    我是一本热门图书
+              div.extra.content
+                a.right.floated.created More +
+        div.column
+          div.ui.container
+            div.ui.relaxed.divided.items
+              div.item
+                div.ui.small.image
+                  img(src='images/21_avatar_middle.jpg')
+                div.content
+                  a.header 分类浏览
+                  div.meta
+              div.item
+                div.ui.small.image
+                  img(src='images/21_avatar_middle.jpg')
+                div.content
+                  a.header 读者荐购
