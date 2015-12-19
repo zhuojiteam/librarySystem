@@ -1,0 +1,15 @@
+extends ../layout
+
+block content
+    h1 提交新书
+    form.books-create.ui.form(method='post')
+        .field
+            label 标题
+            input(type='text', name='title')
+        .field
+            label 作者
+            input(type='text', name='author')
+        .field
+            label 年份
+            input(type='text', name='year')
+        button.ui.button 提交
