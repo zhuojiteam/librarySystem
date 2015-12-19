@@ -29,13 +29,13 @@ router.get('/index', function(req, res, next) {
     });
 });
 
-router.get('/create', function(req, res) {
-   res.render('books/create', {
+router.get('/hot', function(req, res) {
+   res.render('books/hot', {
 
    });
 });
 
-router.post('/create', function(req, res) {
+router.post('/hot', function(req, res) {
     console.log(req.body);
     knex('books').insert({
         title: req.body.title,
@@ -47,6 +47,18 @@ router.post('/create', function(req, res) {
         });
     });
 
+});
+
+router.get('/new', function (req, res) {
+   res.render('books/new', {
+
+   });
+});
+
+router.get('/catelogue', function (req, res) {
+   res.render('books/new', {
+
+   });
 });
 
 //router.get('/detail/1', function(req, res) {
