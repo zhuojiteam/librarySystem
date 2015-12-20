@@ -4,8 +4,8 @@ block content
   //Following Menu
   div.ui.large.top.fixed.hidden.menu
     div.ui.container
-      a.item 书目检索
-      a.item 书库博览
+      a.item 首页
+      a.item(href='/books/catalogue.html') 书库博览
       a.item 读者荐购
       a.item 个人中心
       div.right.menu
@@ -16,7 +16,7 @@ block content
   //Sidebar Menu
 
   div.ui.vertical.inverted.sidebar.menu
-    a.item 书目检索
+    a.item 首页
     a.item 书库博览
     a.item 读者荐购
     a.item 个人中心
@@ -30,7 +30,7 @@ block content
         div.ui.large.secondary.inverted.pointing.menu
           a.toc.item
             i.sidebar.icon
-          a.item 书目检索
+          a.item 首页
           a.item 书库博览
           a.item 读者荐购
           a.item 个人中心
@@ -40,13 +40,16 @@ block content
             div.item
               a.ui.inverted.button Sign Up
       div.ui.text.container
-        h1.ui.inverted.header Lulu的图书馆
+        h1.ui.inverted.header 一个图书馆
         h2 想经历一百种人生，不必亲自活上一百次。
-        div.ui.huge.primary.button 开始阅读
-          i.right.arrow.icon
+        div.ui.remote.search
+          div.ui.icon.input
+            input.prompt(type='text',placeholder='搜索')
+            i.search.icon
+          div.results
 
     div.ui.vertical.stripe.segment
-      div.ui.two.column.stackable.grid.container
+      div.ui.three.column.stackable.grid.container
         div.column
           div.ui.one.cards
             div.ui.card
@@ -55,7 +58,7 @@ block content
                   div.content
                     div.center
                       div.ui.teal.button 热门图书
-                img(src='images/21_avatar_middle.jpg')
+                img(src='images/hot.png')
               div.content
                 a.header 热门图书
                 div.meta
@@ -76,7 +79,7 @@ block content
                   div.content
                     div.center
                       div.ui.inverted.button 新书速递
-                img(src='images/21_avatar_middle.jpg')
+                img(src='images/new.png')
               div.content
                 a.header 新书速递
                 div.meta
@@ -90,16 +93,26 @@ block content
               div.extra.content
                 a.right.floated.created More +
         div.column
-        div.ui.container
-          div.ui.relaxed.divided.items
-            div.item
-              div.ui.small.image
-                img(src='images/21_avatar_middle.jpg')
-              div.content
-                a.header 分类浏览
-              div.meta
-            div.item
-              div.ui.small.image
-                img(src='images/21_avatar_middle.jpg')
+          div.ui.one.cards
+            div.ui.card
+              div.dimmable.image
+                div.ui.blurring.inverted.dimmer
+                  div.content
+                    div.center
+                      div.ui.teal.button 读者荐购
+                img(src='images/you.png')
               div.content
                 a.header 读者荐购
+                div.meta
+                  span.group 荐购历史
+                div.ui.link.list
+                  each book in hotBookList
+                    a.item
+                      i.right.triangle.icon
+                      div.content
+                        div.headr=book.name
+              div.extra.content
+                a.right.floated.created More +
+    div.ui.black.inverted.vertical.footer.segment
+      div.ui.center.aligned.container
+          div Designed by Chen Yulu

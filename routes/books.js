@@ -55,11 +55,6 @@ router.get('/new', function (req, res) {
    });
 });
 
-router.get('/catelogue', function (req, res) {
-   res.render('books/new', {
-
-   });
-});
 
 //router.get('/detail/1', function(req, res) {
 //    var id = req.params.id;
