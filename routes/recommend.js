@@ -20,11 +20,6 @@ router.get('/', function(req, res, next){
     });
 });
 
-router.get('/history', function(req, res) {
-   res.render('recommend/history', {
-
-   });
-});
 
 router.get('/create', function(req, res) {
    res.render('recommend/create', {

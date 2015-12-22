@@ -6,7 +6,7 @@ var newBooks = require('../services/new-books');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Lulu的图书馆', hotBookList: hotBooks, newBookList: newBooks });
+  res.render('index', { title: '一个 图书馆', hotBookList: hotBooks, newBookList: newBooks });
 });
 
 module.exports = router;

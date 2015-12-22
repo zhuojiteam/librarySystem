@@ -5,10 +5,10 @@ extends ../layout
 block content
     div.ui.large.top.fixed.hidden.menu
         div.ui.container
-            a.item 书目检索
-            a.item 书库博览
-            a.item 读者荐购
-            a.item 个人中心
+            a.item(href='/') 首页
+            a.item(href='books') 书库博览
+            a.active.item 读者荐购
+            a.item(href='/users') 个人中心
             div.right.menu
                 div.item
                     a.ui.button Log In
@@ -17,10 +17,10 @@ block content
     //Sidebar Menu
 
     div.ui.vertical.inverted.sidebar.menu
-        a.item 书目检索
-        a.item 书库博览
-        a.item 读者荐购
-        a.item 个人中心
+        a.item(href='/') 首页
+        a.item(href='books') 书库博览
+        a.active.item 读者荐购
+        a.item(href='/users') 个人中心
         a.item Log In
         a.item Sign Up
 
@@ -31,12 +31,28 @@ block content
                 div.ui.large.secondary.inverted.pointing.menu
                     a.toc.item
                         i.sidebar.icon
-                    a.item 书目检索
-                    a.item 书库博览
-                    a.item 读者荐购
-                    a.item 个人中心
+                    a.item(href='/') 首页
+                    a.item(href='books') 书库博览
+                    a.active.item 读者荐购
+                    a.item(href='/users') 个人中心
                 div.right.menu
                     div.item
                         a.ui.inverted.button Log In
                     div.item
                         a.ui.inverted.button Sign Up
+        div.ui.tabular.menu
+            a.item(href='/recommend') 荐购历史
+            a.active.item 我要荐购
+        div.ui.container
+            div.ui.top.attached.segment
+                div.ui.top.attached.label 带*项必填
+                form.ui.form
+                    h4.ui.dividing.header 请填入您要荐购的图书的信息
+                    div.field
+                        div.two.fields
+                            div.field
+                                label 题名
+                                input(type='text', name='bookname', placeholder='图书全称')
+                            div.field
+                                label 作者
+                                input(type='text', name='author', placeholder='主要作者全名')

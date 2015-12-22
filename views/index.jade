@@ -5,9 +5,9 @@ block content
   div.ui.large.top.fixed.hidden.menu
     div.ui.container
       a.item 首页
-      a.item(href='/books/catalogue.html') 书库博览
-      a.item 读者荐购
-      a.item 个人中心
+      a.item(href='/books') 书库博览
+      a.item(href='/recommend') 读者荐购
+      a.item(href='users') 个人中心
       div.right.menu
         div.item
           a.ui.button Log In
@@ -17,9 +17,9 @@ block content
 
   div.ui.vertical.inverted.sidebar.menu
     a.item 首页
-    a.item 书库博览
-    a.item 读者荐购
-    a.item 个人中心
+    a.item(href='/books') 书库博览
+    a.item(href='/recommend') 读者荐购
+    a.item(href='/users') 个人中心
     a.item Log In
     a.item Sign Up
 
@@ -31,18 +31,18 @@ block content
           a.toc.item
             i.sidebar.icon
           a.item 首页
-          a.item 书库博览
-          a.item 读者荐购
-          a.item 个人中心
+          a.item(href='/books') 书库博览
+          a.item(href='/recommend') 读者荐购
+          a.item(href='/users') 个人中心
           div.right.menu
             div.item
               a.ui.inverted.button Log In
             div.item
               a.ui.inverted.button Sign Up
       div.ui.text.container
-        h1.ui.inverted.header 一个图书馆
+        h1.ui.inverted.header 一个 图书馆
         h2 想经历一百种人生，不必亲自活上一百次。
-        div.ui.remote.search
+        div.ui.remote.search#search
           div.ui.icon.input
             input.prompt(type='text',placeholder='搜索')
             i.search.icon

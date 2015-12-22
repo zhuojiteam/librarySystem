@@ -3,10 +3,10 @@ extends layout
 block content
     div.ui.large.top.fixed.hidden.menu
         div.ui.container
-            a.item 首页
-            a.item 书库博览
-            a.item 读者荐购
-            a.item 个人中心
+            a.item(href='/') 首页
+            a.active.item 书库博览
+            a.item(href='/recommend') 读者荐购
+            a.item(href='/users') 个人中心
             div.right.menu
                 div.item
                     a.ui.button Log In
@@ -15,10 +15,10 @@ block content
     //Sidebar Menu
 
     div.ui.vertical.inverted.sidebar.menu
-        a.item 首页
-        a.item 书库博览
-        a.item 读者荐购
-        a.item 个人中心
+        a.item(href='/') 首页
+        a.active.item 书库博览
+        a.item(href='/recommend') 读者荐购
+        a.item(href='/users') 个人中心
         a.item Log In
         a.item Sign Up
 
@@ -29,24 +29,136 @@ block content
                 div.ui.large.secondary.inverted.pointing.menu
                     a.toc.item
                         i.sidebar.icon
-                    a.item 首页
-                    a.item 书库博览
-                    a.item 读者荐购
-                    a.item 个人中心
+                    a.item(href='/') 首页
+                    a.active.item 书库博览
+                    a.item(href='/recommend') 读者荐购
+                    a.item(href='/users') 个人中心
                 div.right.menu
                     div.item
                         a.ui.inverted.button Log In
                     div.item
                         a.ui.inverted.button Sign Up
-        div.ui.tabular.menu#navbar
-            a.item
-            a.item
-            a.item 分类浏览
-            a.item 热门图书
-            a.item 新书速递
+        div.ui.tabular.menu
+            a.active.item 分类浏览
+            a.item(href='/books/hot') 热门图书
+            a.item(href='/books/new') 新书速递
 
-        div.ui.vertical.inverted.sticky.menu#navbar
-            div.item fssss
+        div.full.height
+            div.toc
+                div.ui.vertical.sticky.accordion.menu
+                    div.item
+                        div.ui.icon.input
+                            input(type='text', placeholder='搜索')
+                            i.search.icon
+                    div.item
+                        a.title.header 全部分类
+                    div.item
+                        a.title.header A 马列主义、毛泽东思想、邓小平理论
+                            i.dropdown.icon
+                        div.content
+                            div.ui.form
+                                div.grouped.fields
+                                    div.field#catalogue
+                                        a.item A1 马克思、恩格斯著作
+                                    div.field#catalogue
+                                        a.item A2 列宁著作
+                                    div.field#catalogue
+                                        a.item A3 斯大林著作
+                                    div.field#catalogue
+                                        a.item A4 毛泽东著作
+                                    div.field#catalogue
+                                        a.item A49 邓小平著作
+
+                    div.item
+                        a.title.header B 哲学、宗教
+                            i.dropdown.icon
+                        div.content
+                            div.ui.form
+                                div.grouped.fields
+                                    div.field#catalogue
+                                        a.item B0 哲学理论
+                                    div.field#catalogue
+                                        a.item B1 世界哲学
+                                    div.field#catalogue
+                                        a.item B2 中国哲学
+                                    div.field#catalogue
+                                        a.item B80 思维科学
+                                    div.field#catalogue
+                                        a.item B83 美学
+                                    div.field#catalogue
+                                        a.item B84 心理学
+                                    div.field#catalogue
+                                        a.item B9 宗教
+                    div.item
+                        a.title.header C 社会科学总论
+                            i.dropdown.icon
+                        div.content
+                            div.ui.form
+                                div.grouped.fields
+                                    div.field#catalogue
+                                        a.item C0 社会科学理论与方法论
+                                    div.field#catalogue
+                                        a.item C6 社会科学参考工具书
+                                    div.field#catalogue
+                                        a.item C8 统计学
+                                    div.field#catalogue
+                                        a.item C91 社会学
+                                    div.field#catalogue
+                                        a.item C92 人口学
+                                    div.field#catalogue
+                                        a.item C93 管理学
+                                    div.field#catalogue
+                                        a.item C95 民族学
+            div.article
+                //div.ui.masthead.vertical.segment
+                div.ui.header#navbar 分类: B 哲学、宗教
+                    div.ui.text.menu#navbar
+                        a.header.item(style='padding-left: 0;') 结果
+                        a.active.item 5
+                table.ui.celled.table
+                    thead
+                        tr
+                            th 题名
+                            th 作者
+                            th 出版信息
+                            th ISBN
+                            th 索书号
+                            th 馆藏
+                    tbody
+                        tr
+                            td lulucici
+                            td lulucici
+                            td lulucici
+                            td lulucici
+                            td lulucici
+                            td lulucici
+                        tr
+                            td lulucici
+                            td lulucici
+                            td lulucici
+                            td lulucici
+                            td lulucici
+                            td lulucici
+                        tr
+                            td lulucici
+                            td lulucici
+                            td lulucici
+                            td lulucici
+                            td lulucici
+                            td lulucici
+                    tfoot
+                        tr
+                            th(colspan= 6)
+                                div.ui.right.floated.pagination.menu
+                                    a.icon.item
+                                        i.left.chevron.icon
+                                    a.item 1
+                                    a.item 2
+                                    a.item 3
+                                    a.item 4
+                                    a.icon.item
+                                        i.right.chevron.icon
+
         div.ui.black.inverted.vertical.footer.segment
             div.ui.center.aligned.container
                 div Designed by Chen Yulu
