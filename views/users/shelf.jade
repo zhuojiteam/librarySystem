@@ -1,12 +1,14 @@
-extends layout
+//
+   Created by chenyulu on 15/12/20.
+extends ../layout
 
 block content
     div.ui.large.top.fixed.hidden.menu
         div.ui.container
             a.item(href='/') 首页
             a.item(href='/books') 书库博览
-            a.active.item 读者荐购
-            a.item(href='/users') 个人中心
+            a.item(href='/recommend/history') 读者荐购
+            a.item.active 个人中心
             div.right.menu
                 div.item
                     a.ui.button Log In
@@ -17,8 +19,8 @@ block content
     div.ui.vertical.inverted.sidebar.menu
         a.item(href='/') 首页
         a.item(href='/books') 书库博览
-        a.active.item 读者荐购
-        a.item(href='/users') 个人中心
+        a.item(href='/recommend/history') 读者荐购
+        a.item.active 个人中心
         a.item Log In
         a.item Sign Up
 
@@ -31,27 +33,35 @@ block content
                         i.sidebar.icon
                     a.item(href='/') 首页
                     a.item(href='/books') 书库博览
-                    a.active.item 读者荐购
-                    a.item(href='/users') 个人中心
+                    a.item(href='/recommend/history') 读者荐购
+                    a.item.active 个人中心
                 div.right.menu
                     div.item
                         a.ui.inverted.button Log In
                     div.item
                         a.ui.inverted.button Sign Up
         div.ui.tabular.menu
-            a.active.item 荐购历史
-            a.item(href='/recommend/create') 我要荐购
-        table.ui.celled.table
-            thead
+            a.active.item 暂存书架
+            a.item(href='/users/b_history') 借阅历史
+            a.item(href='/users/a_history') 我的预约
+            a.item(href='/users/r_history') 我的荐购
+            a.item(href='/users/setting') 个人设置
+        table.ui.compact.celled.definition.table
+            thead.full-width
                 tr
+                    th
                     th 题名
                     th 作者
                     th 出版信息
                     th ISBN
-                    th 荐购日期
-                    th 荐购状态
+                    th 索书号
+                    th 馆藏
             tbody
                 tr
+                    td.collapsing
+                        div.ui.fitted.toggle.checkbox
+                            input(type='checkbox')
+                            label
                     td lulucici
                     td lulucici
                     td lulucici
@@ -59,31 +69,22 @@ block content
                     td lulucici
                     td lulucici
                 tr
+                    td.collapsing
+                        div.ui.fitted.toggle.checkbox
+                            input(type='checkbox')
+                            label
                     td lulucici
                     td lulucici
                     td lulucici
                     td lulucici
                     td lulucici
                     td lulucici
+            tfoot.full-width
                 tr
-                    td lulucici
-                    td lulucici
-                    td lulucici
-                    td lulucici
-                    td lulucici
-                    td lulucici
-            tfoot
-                tr
-                    th(colspan= 6)
-                        div.ui.right.floated.pagination.menu
-                            a.icon.item
-                                i.left.chevron.icon
-                            a.item 1
-                            a.item 2
-                            a.item 3
-                            a.item 4
-                            a.icon.item
-                                i.right.chevron.icon
+                    th
+                    th(colspan='6')
+                        a.ui.right.floated.small.button(href='/book') 全部预约
+                        a.ui.right.floated.small.button(href='/book') 预约
 
     div.ui.black.inverted.vertical.footer.segment
         div.ui.center.aligned.container

@@ -4,10 +4,10 @@ block content
   //Following Menu
   div.ui.large.top.fixed.hidden.menu
     div.ui.container
-      a.item 首页
+      a.active.item 首页
       a.item(href='/books') 书库博览
-      a.item(href='/recommend') 读者荐购
-      a.item(href='users') 个人中心
+      a.item(href='/recommend/history') 读者荐购
+      a.item(href='/users/shelf') 个人中心
       div.right.menu
         div.item
           a.ui.button Log In
@@ -16,10 +16,10 @@ block content
   //Sidebar Menu
 
   div.ui.vertical.inverted.sidebar.menu
-    a.item 首页
+    a.active.item 首页
     a.item(href='/books') 书库博览
-    a.item(href='/recommend') 读者荐购
-    a.item(href='/users') 个人中心
+    a.item(href='/recommend/history') 读者荐购
+    a.item(href='/users/shelf') 个人中心
     a.item Log In
     a.item Sign Up
 
@@ -30,10 +30,10 @@ block content
         div.ui.large.secondary.inverted.pointing.menu
           a.toc.item
             i.sidebar.icon
-          a.item 首页
+          a.active.item 首页
           a.item(href='/books') 书库博览
-          a.item(href='/recommend') 读者荐购
-          a.item(href='/users') 个人中心
+          a.item(href='/recommend/history') 读者荐购
+          a.item(href='/users//shelf') 个人中心
           div.right.menu
             div.item
               a.ui.inverted.button Log In

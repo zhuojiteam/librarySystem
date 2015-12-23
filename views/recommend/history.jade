@@ -1,0 +1,90 @@
+extends ../layout
+
+block content
+    div.ui.large.top.fixed.hidden.menu
+        div.ui.container
+            a.item(href='/') 首页
+            a.item(href='/books') 书库博览
+            a.active.item 读者荐购
+            a.item(href='/users/shelf') 个人中心
+            div.right.menu
+                div.item
+                    a.ui.button Log In
+                div.item
+                    a.ui.primary.button Sign Up
+    //Sidebar Menu
+
+    div.ui.vertical.inverted.sidebar.menu
+        a.item(href='/') 首页
+        a.item(href='/books') 书库博览
+        a.active.item 读者荐购
+        a.item(href='/users/shelf') 个人中心
+        a.item Log In
+        a.item Sign Up
+
+    //Page Contents
+    div.pusher
+        div.ui.inverted.main.menu#navbar
+            div.ui.container
+                div.ui.large.secondary.inverted.pointing.menu
+                    a.toc.item
+                        i.sidebar.icon
+                    a.item(href='/') 首页
+                    a.item(href='/books') 书库博览
+                    a.active.item 读者荐购
+                    a.item(href='/users/shelf') 个人中心
+                div.right.menu
+                    div.item
+                        a.ui.inverted.button Log In
+                    div.item
+                        a.ui.inverted.button Sign Up
+        div.ui.tabular.menu
+            a.active.item 荐购历史
+            a.item(href='/recommend/create') 我要荐购
+        table.ui.celled.table
+            thead
+                tr
+                    th 题名
+                    th 作者
+                    th 出版信息
+                    th ISBN
+                    th 荐购日期
+                    th 荐购状态
+            tbody
+                tr
+                    td lulucici
+                    td lulucici
+                    td lulucici
+                    td lulucici
+                    td lulucici
+                    td lulucici
+                tr
+                    td lulucici
+                    td lulucici
+                    td lulucici
+                    td lulucici
+                    td lulucici
+                    td lulucici
+                tr
+                    td lulucici
+                    td lulucici
+                    td lulucici
+                    td lulucici
+                    td lulucici
+                    td lulucici
+            tfoot
+                tr
+                    th(colspan= 6)
+                        div.ui.right.floated.pagination.menu
+                            a.icon.item
+                                i.left.chevron.icon
+                            a.item 1
+                            a.item 2
+                            a.item 3
+                            a.item 4
+                            a.icon.item
+                                i.right.chevron.icon
+
+    div.ui.black.inverted.vertical.footer.segment
+        div.ui.center.aligned.container
+            div Designed by Chen Yulu

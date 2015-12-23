@@ -14,8 +14,8 @@ var knex = require('knex')({
     }
 });
 
-router.get('/', function(req, res, next){
-    res.render('recommend', {
+router.get('/history', function(req, res, next){
+    res.render('recommend/history', {
 
     });
 });

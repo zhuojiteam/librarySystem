@@ -1,0 +1,105 @@
+//
+   Created by chenyulu on 15/12/24.
+
+extends ../layout
+
+block content
+    div.ui.large.top.fixed.hidden.menu
+        div.ui.container
+            a.item(href='/') 首页
+            a.item(href='/books') 书库博览
+            a.item(href='/recommend/history') 读者荐购
+            a.item.active 个人中心
+            div.right.menu
+                div.item
+                    a.ui.button Log In
+                div.item
+                    a.ui.primary.button Sign Up
+    //Sidebar Menu
+
+    div.ui.vertical.inverted.sidebar.menu
+        a.item(href='/') 首页
+        a.item(href='/books') 书库博览
+        a.item(href='/recommend/history') 读者荐购
+        a.item.active 个人中心
+        a.item Log In
+        a.item Sign Up
+
+    //Page Contents
+    div.pusher
+        div.ui.inverted.main.menu#navbar
+            div.ui.container
+                div.ui.large.secondary.inverted.pointing.menu
+                    a.toc.item
+                        i.sidebar.icon
+                    a.item(href='/') 首页
+                    a.item(href='/books') 书库博览
+                    a.item(href='/recommend/history') 读者荐购
+                    a.item.active 个人中心
+                div.right.menu
+                    div.item
+                        a.ui.inverted.button Log In
+                    div.item
+                        a.ui.inverted.button Sign Up
+        div.ui.tabular.menu
+            a.item(href='/users/shelf') 暂存书架
+            a.item(href='/users/b_history') 借阅历史
+            a.item(href='/users/a_history') 我的预约
+            a.item.active 我的荐购
+            a.item(href='/users/setting') 个人设置
+        div.full.height
+            div.toc
+                div.ui.vertical.sticky.accordion.menu
+                    div.item
+                        div.ui.icon.input
+                            input(type='text', placeholder='搜索')
+                            i.search.icon
+                    a.item 待处理
+                    a.item 订购中
+                    a.item 不订购
+                    a.item 已订购
+            div.article
+                div.ui.header 荐购状态: 待处理
+                table.ui.celled.table
+                    thead
+                        tr
+                            th 题名
+                            th 作者
+                            th 出版信息
+                            th ISBN
+                            th 荐购状态
+                    tbody
+                        tr
+                            td lulucici
+                            td lulucici
+                            td lulucici
+                            td lulucici
+                            td lulucici
+                        tr
+                            td lulucici
+                            td lulucici
+                            td lulucici
+                            td lulucici
+                            td lulucici
+                        tr
+                            td lulucici
+                            td lulucici
+                            td lulucici
+                            td lulucici
+                            td lulucici
+                    tfoot
+                        tr
+                            th(colspan= 6)
+                                div.ui.right.floated.pagination.menu
+                                    a.icon.item
+                                        i.left.chevron.icon
+                                    a.item 1
+                                    a.item 2
+                                    a.item 3
+                                    a.item 4
+                                    a.icon.item
+                                        i.right.chevron.icon
+
+    div.ui.black.inverted.vertical.footer.segment
+        div.ui.center.aligned.container
+            div Designed by Chen Yulu
