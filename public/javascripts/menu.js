@@ -30,5 +30,9 @@ $(document)
         $('.ui.accordion')
             .accordion()
         ;
+        $('.ui.checkbox')
+            .checkbox()
+        ;
     })
 ;
+
