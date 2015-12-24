@@ -1,0 +1,76 @@
+//
+   Created by chenyulu on 15/12/23.
+extends ../layout
+
+block content
+    div.ui.large.top.fixed.hidden.menu
+        div.ui.container
+            a.item(href='/') 首页
+            a.item(href='/books') 书库博览
+            a.item(href='/recommend/history') 读者荐购
+            a.item.active 管理中心
+            div.right.menu
+                div.item
+                    a.ui.button Log In
+                div.item
+                    a.ui.primary.button Sign Up
+    //Sidebar Menu
+
+    div.ui.vertical.inverted.sidebar.menu
+        a.item(href='/') 首页
+        a.item(href='/books') 书库博览
+        a.item(href='/recommend/history') 读者荐购
+        a.item.active 管理中心
+        a.item Log In
+        a.item Sign Up
+
+    //Page Contents
+    div.pusher
+        div.ui.inverted.main.menu#navbar
+            div.ui.container
+                div.ui.large.secondary.inverted.pointing.menu
+                    a.toc.item
+                        i.sidebar.icon
+                    a.item(href='/') 首页
+                    a.item(href='/books') 书库博览
+                    a.item(href='/recommend/history') 读者荐购
+                    a.item.active 管理中心
+                div.right.menu
+                    div.item
+                        a.ui.inverted.button Log In
+                    div.item
+                        a.ui.inverted.button Sign Up
+        div.ui.tabular.menu
+            a.item(href='/users/shelf') 暂存书架
+            a.item(href='/users/b_history') 借阅历史
+            a.item(href='/users/a_history') 我的预约
+            a.item(href='/users/r_history') 我的荐购
+            a.item.active 个人设置
+        div.full.height
+            div.toc
+                div.ui.vertical.sticky.accordion.menu
+                    div.item
+                        div.item
+                    a.active.item 个人信息
+                    a.item(href='/users/mailchange') 更改邮箱
+                    a.item(href='/users/pwchange') 更改密码
+            div.article
+                div.ui.header 个人信息
+                form.ui.form(style='width: 20em;')
+                    div.field
+                        label 姓名
+                        input(placeholder='陈雨露', readonly='', type='text')
+                    div.field
+                        label 学号
+                        input(placeholder='3140101569', readonly='', type='text')
+                    div.field
+                        label 昵称
+                        input(placeholder='lulucici', readonly='', type='text')
+                    div.field
+                        label 邮箱
+                        input(placeholder='lulucici77@gmailc.com', readonly='', type='text')
+
+
+    div.ui.black.inverted.vertical.footer.segment
+        div.ui.center.aligned.container
+            div Designed by Chen Yulu
