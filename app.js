@@ -9,6 +9,7 @@ var routes = require('./routes/index');
 var users = require('./routes/users');
 var books = require('./routes/books');
 var recommend = require('./routes/recommend');
+var admin = require('./routes/admin');
 
 
 var knex = require('knex')({
@@ -47,7 +48,7 @@ app.use('/', routes);
 app.use('/users', users);
 app.use('/books', books);
 app.use('/recommend', recommend);
-
+app.use('/admin', admin);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
