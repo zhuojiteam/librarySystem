@@ -10,18 +10,7 @@ var users = require('./routes/users');
 var books = require('./routes/books');
 var recommend = require('./routes/recommend');
 var admin = require('./routes/admin');
-
-
-var knex = require('knex')({
-    client: 'mysql',
-    connection: {
-        host: 'localhost',
-        port: 3307,
-        user: 'library',
-        password: 'library',
-        database: 'library'
-    }
-});
+var test = require('./routes/test');
 
 var app = express();
 // view engine setup
@@ -49,6 +38,7 @@ app.use('/users', users);
 app.use('/books', books);
 app.use('/recommend', recommend);
 app.use('/admin', admin);
+app.use('/test', test);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
