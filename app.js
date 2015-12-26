@@ -5,6 +5,11 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+var session = require('express-session');
+var bcrypt = require('bcrypt-nodejs');
+var passport = require('passport');
+var LocalStrategy = require('passport-local').Strategy;
+
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var books = require('./routes/books');
@@ -12,7 +17,36 @@ var recommend = require('./routes/recommend');
 var admin = require('./routes/admin');
 var test = require('./routes/test');
 
+var models = require('./models');
+
 var app = express();
+
+passport.use(new LocalStrategy(function(email, password, done) {
+    new model.User({email: email}).fetch().then(function(data) {
+        var user = data;
+        if(user === null) {
+            return done(null, false, {message: 'Invalid username or password'});
+        } else {
+            user = data.toJSON();
+            if(!bcrypt.compareSync(password, user.password)) {
+                return done(null, false, {message: 'Invalid username or password'});
+            } else {
+                return done(null, user);
+            }
+        }
+    });
+}));
+
+passport.serializeUser(function(user, done) {
+    done(null, user.username);
+});
+
+passport.deserializeUser(function(username, done) {
+    new Model.User({username: username}).fetch().then(function(user) {
+        done(null, user);
+    });
+});
+
 // view engine setup
 
 var server = app.listen(11011, function () {
@@ -31,6 +65,14 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser());
+app.use(session({
+    secret: 'secret strategic xxzzz code',
+    resave: true,
+    saveUninitialized: true
+}));
+app.use(passport.initialize());
+app.use(passport.session());
+
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);

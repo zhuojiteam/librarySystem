@@ -21,6 +21,13 @@ router.get('/', function(req, res, next) {
 
 });
 
+router.get('/:id(\\d+)/', function(req, res) {
+
+    res.render('books/detail/detail', {
+
+    });
+});
+
 router.get('/index', function(req, res, next) {
     //res.send('there are books.');
     knex.select('title', 'author', 'year').from('books').then(function(data){
