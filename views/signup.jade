@@ -1,0 +1,35 @@
+//
+   Created by chenyulu on 15/12/27.
+
+extends layout
+
+block content
+
+    //Page Contents
+    div.pusher
+        div.ui.container
+            form.ui.form
+                h4.ui.dividing.header 请填入您要荐购的图书的信息
+                div.field
+                    div.two.fields
+                        div.required.field
+                            label 题名
+                            input(type='text', name='bookname', placeholder='图书全称')
+                        div.required.field
+                            label 作者
+                            input(type='text', name='author', placeholder='主要作者全名')
+                div.required.field
+                    label 出版信息
+                    div.fields
+                        div.ten.wide.field
+                            input(type='text', name='publisher', placeholder='出版方')
+                        div.six.wide.field
+                            input(type='text', name='publishtime', placeholder='出版时间/版次')
+                div.required.field
+                    label ISBN
+                    input(type='text', name='isbn', placeholder='ISBN')
+                //div.required.inline.field
+                //    div.ui.toggle.checkbox
+                //        input.hidden(type='checkbox', tabindex='0')
+                //        label 是否预约
+                button.ui.button(type='submit') 提交

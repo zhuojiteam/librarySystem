@@ -10,6 +10,7 @@ var users = require('./routes/users');
 var books = require('./routes/books');
 var recommend = require('./routes/recommend');
 var admin = require('./routes/admin');
+var account = require('./routes/account');
 
 
 var knex = require('knex')({
@@ -49,6 +50,7 @@ app.use('/users', users);
 app.use('/books', books);
 app.use('/recommend', recommend);
 app.use('/admin', admin);
+app.use('/account', account);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

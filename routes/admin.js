@@ -38,4 +38,12 @@ router.get('/recommend', function(req, res, next) {
 
 });
 
+router.get('/buy', function(req, res, next) {
+    //res.send('there are books.');
+    res.render('admin/buy', {
+
+    });
+
+});
+
 module.exports = router;

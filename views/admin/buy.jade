@@ -1,5 +1,6 @@
 //
-   Created by chenyulu on 15/12/24.
+   Created by chenyulu on 15/12/27.
+
 extends ../layout
 
 block content
@@ -8,7 +9,7 @@ block content
             a.item(href='/') 首页
             a.item(href='/books') 书库博览
             a.item(href='/recommend/history') 读者荐购
-            a.item.active 个人中心
+            a.item.active 管理中心
             div.right.menu
                 div.item
                     a.ui.button Log In
@@ -20,7 +21,7 @@ block content
         a.item(href='/') 首页
         a.item(href='/books') 书库博览
         a.item(href='/recommend/history') 读者荐购
-        a.item.active 个人中心
+        a.item.active 管理中心
         a.item Log In
         a.item Sign Up
 
@@ -34,41 +35,39 @@ block content
                     a.item(href='/') 首页
                     a.item(href='/books') 书库博览
                     a.item(href='/recommend/history') 读者荐购
-                    a.item.active 个人中心
+                    a.item.active 管理中心
                 div.right.menu
                     div.item
                         a.ui.inverted.button Log In
                     div.item
                         a.ui.inverted.button Sign Up
         div.ui.tabular.menu
-            a.item.active 借阅历史
-            a.item(href='/users/a_history') 我的预约
-            a.item(href='/users/r_history') 我的荐购
-            a.item(href='/users/setting') 个人设置
+            a.item(href='/admin') 借阅管理
+            a.item(href='/admin/appoint') 预约管理
+            a.item.active 荐购管理
         div.full.height
             div.toc
                 div.ui.vertical.sticky.accordion.menu
-                    //div.item
-                    //    div.ui.icon.input
-                    //        input(type='text', placeholder='搜索')
-                    //        i.search.icon
                     div.item
-                        div.item
-                    a.item 借阅中
-                    a.item 已超期
-                    a.item 已归还
+                        div.ui.icon.input
+                            input(type='text', placeholder='搜索')
+                            i.search.icon
+                    a.item 待处理
+                    a.item 不订购
+                    a.item 已订购
             div.article
-                div.ui.header 借阅状态: 已归还
+                div.ui.header 基本订购信息
                 table.ui.celled.table
                     thead
                         tr
+                            th 用户
                             th 题名
                             th 作者
-                            th 出版方
+                            th 出版信息
                             th 出版年份
                             th ISBN
-                            th 借阅日期
-                            th 借阅期限
+                            th 荐购日期
+                            th 荐购状态
                     tbody
                         tr
                             td lulucici
@@ -78,34 +77,19 @@ block content
                             td lulucici
                             td lulucici
                             td lulucici
-                        tr
                             td lulucici
-                            td lulucici
-                            td lulucici
-                            td lulucici
-                            td lulucici
-                            td lulucici
-                            td lulucici
-                        tr
-                            td lulucici
-                            td lulucici
-                            td lulucici
-                            td lulucici
-                            td lulucici
-                            td lulucici
-                            td lulucici
-                    tfoot
-                        tr
-                            th(colspan= 7)
-                                div.ui.right.floated.pagination.menu
-                                    a.icon.item
-                                        i.left.chevron.icon
-                                    a.item 1
-                                    a.item 2
-                                    a.item 3
-                                    a.item 4
-                                    a.icon.item
-                                        i.right.chevron.icon
+                form.ui.form
+                    h3.ui.header 添加书籍详情
+                    div.field
+                        div.six.fields
+                            div.required.field
+                                label 数目
+                                input(type='text', name='bookname', placeholder='数目')
+
+                    div.required.field
+                        label 摘要
+                        textarea
+                    button.ui.button(type='submit') 确认订购
 
     div.ui.black.inverted.vertical.footer.segment
         div.ui.center.aligned.container
