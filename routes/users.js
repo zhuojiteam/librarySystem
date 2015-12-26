@@ -2,13 +2,13 @@ var express = require('express');
 var router = express.Router();
 
 /* GET users listing. */
-router.get('/shelf', function(req, res, next) {
-  res.render('users/shelf', {
+//router.get('/shelf', function(req, res, next) {
+//  res.render('users/shelf', {
+//
+//  //});
+//});
 
-  });
-});
-
-router.get('/b_history', function(req, res, next) {
+router.get('/', function(req, res, next) {
   res.render('users/b_history', {
 
   });

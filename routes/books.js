@@ -56,6 +56,12 @@ router.get('/new', function (req, res) {
 });
 
 
+router.get('/detail', function (req, res) {
+    res.render('books/detail', {
+
+    });
+});
+
 //router.get('/detail/1', function(req, res) {
 //    var id = req.params.id;
 //    res.send(req.params);

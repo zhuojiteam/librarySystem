@@ -8,7 +8,7 @@ block content
             a.item(href='/') 首页
             a.item(href='/books') 书库博览
             a.active.item 读者荐购
-            a.item(href='/users/shelf') 个人中心
+            a.item(href='/users') 个人中心
             div.right.menu
                 div.item
                     a.ui.button Log In
@@ -20,7 +20,7 @@ block content
         a.item(href='/') 首页
         a.item(href='/books') 书库博览
         a.active.item 读者荐购
-        a.item(href='/users/shelf') 个人中心
+        a.item(href='/users') 个人中心
         a.item Log In
         a.item Sign Up
 
@@ -34,7 +34,7 @@ block content
                     a.item(href='/') 首页
                     a.item(href='/books') 书库博览
                     a.active.item 读者荐购
-                    a.item(href='/users/shelf') 个人中心
+                    a.item(href='/users') 个人中心
                 div.right.menu
                     div.item
                         a.ui.inverted.button Log In
@@ -63,9 +63,9 @@ block content
                                 input(type='text', name='publisher', placeholder='出版方')
                             div.six.wide.field
                                 input(type='text', name='publishtime', placeholder='出版时间/版次')
-                    div.field
-                        label 备注
-                        textarea(rows=2)
+                    div.required.field
+                        label ISBN
+                        input(type='text', name='isbn', placeholder='ISBN')
                     div.required.inline.field
                         div.ui.toggle.checkbox
                             input.hidden(type='checkbox', tabindex='0')

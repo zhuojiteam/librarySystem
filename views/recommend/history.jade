@@ -6,7 +6,7 @@ block content
             a.item(href='/') 首页
             a.item(href='/books') 书库博览
             a.active.item 读者荐购
-            a.item(href='/users/shelf') 个人中心
+            a.item(href='/users') 个人中心
             div.right.menu
                 div.item
                     a.ui.button Log In
@@ -18,7 +18,7 @@ block content
         a.item(href='/') 首页
         a.item(href='/books') 书库博览
         a.active.item 读者荐购
-        a.item(href='/users/shelf') 个人中心
+        a.item(href='/users') 个人中心
         a.item Log In
         a.item Sign Up
 
@@ -32,7 +32,7 @@ block content
                     a.item(href='/') 首页
                     a.item(href='/books') 书库博览
                     a.active.item 读者荐购
-                    a.item(href='/users/shelf') 个人中心
+                    a.item(href='/users') 个人中心
                 div.right.menu
                     div.item
                         a.ui.inverted.button Log In
@@ -41,48 +41,59 @@ block content
         div.ui.tabular.menu
             a.active.item 荐购历史
             a.item(href='/recommend/create') 我要荐购
-        table.ui.celled.table
-            thead
-                tr
-                    th 题名
-                    th 作者
-                    th 出版信息
-                    th 荐购日期
-                    th 荐购状态
-            tbody
-                tr
-                    td lulucici
-                    td lulucici
-                    td lulucici
-                    td lulucici
-                    td lulucici
-                tr
-                    td lulucici
-                    td lulucici
-                    td lulucici
-                    td lulucici
-                    td lulucici
-                tr
-                    td lulucici
-                    td lulucici
-                    td lulucici
-                    td lulucici
-                    td lulucici
-            tfoot
-                tr
-                    th(colspan= 6)
-                        div.ui.icon.input
-                            input(type='text', placeholder='搜索')
-                            i.search.icon
-                        div.ui.right.floated.pagination.menu
-                            a.icon.item
-                                i.left.chevron.icon
-                            a.item 1
-                            a.item 2
-                            a.item 3
-                            a.item 4
-                            a.icon.item
-                                i.right.chevron.icon
+
+        div.full.height
+            div.article
+                table.ui.celled.table
+                    thead
+                        tr
+                            th 题名
+                            th 作者
+                            th 出版方
+                            th 出版年份
+                            th ISBN
+                            th 荐购日期
+                            th 荐购状态
+                    tbody
+                        tr
+                            td lulucici
+                            td lulucici
+                            td lulucici
+                            td lulucici
+                            td lulucici
+                            td lulucici
+                            td lulucici
+                        tr
+                            td lulucici
+                            td lulucici
+                            td lulucici
+                            td lulucici
+                            td lulucici
+                            td lulucici
+                            td lulucici
+                        tr
+                            td lulucici
+                            td lulucici
+                            td lulucici
+                            td lulucici
+                            td lulucici
+                            td lulucici
+                            td lulucici
+                    tfoot
+                        tr
+                            th(colspan= 7)
+                                div.ui.icon.input
+                                    input(type='text', placeholder='搜索')
+                                    i.search.icon
+                                div.ui.right.floated.pagination.menu
+                                    a.icon.item
+                                        i.left.chevron.icon
+                                    a.item 1
+                                    a.item 2
+                                    a.item 3
+                                    a.item 4
+                                    a.icon.item
+                                        i.right.chevron.icon
 
     div.ui.black.inverted.vertical.footer.segment
         div.ui.center.aligned.container

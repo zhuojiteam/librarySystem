@@ -20,7 +20,21 @@ router.get('/', function(req, res, next) {
 
     });
 
+});
 
+router.get('/appoint', function(req, res, next) {
+    //res.send('there are books.');
+    res.render('admin/appoint', {
+
+    });
+
+});
+
+router.get('/recommend', function(req, res, next) {
+    //res.send('there are books.');
+    res.render('admin/recommend', {
+
+    });
 
 });
 

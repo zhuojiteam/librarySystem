@@ -18,7 +18,7 @@ block content
         a.item(href='/') 首页
         a.active.item 书库博览
         a.item(href='/recommend/history') 读者荐购
-        a.item(href='/users') 个人中心
+        a.item(href='/user') 个人中心
         a.item Log In
         a.item Sign Up
 
@@ -41,7 +41,7 @@ block content
         div.ui.tabular.menu
             a.item(href='/books') 分类浏览
             //a.item(href='/books/hot') 热门图书
-            a.active.item 新书速递
+            a.item(href='/books/new') 新书速递
 
         div.full.height
             div.toc
@@ -75,61 +75,48 @@ block content
                     a.item Z 综合性图书
 
             div.article
-                //div.ui.masthead.vertical.segment
-                div.ui.header 分类: B 哲学、宗教
-                div
-                    a.ui.label 最近一天
-                    a.ui.label 最近三天
-                    a.ui.label 最近一周
-                    a.ui.label 最近一月
-                table.ui.celled.table
-                    thead
-                        tr
-                            th 题名
-                            th 作者
-                            th 出版方
-                            th 出版年份
-                            th ISBN
-                            th 馆藏
-                            th 入馆日期
-                    tbody
-                        tr
-                            td lulucici
-                            td lulucici
-                            td lulucici
-                            td lulucici
-                            td lulucici
-                            td lulucici
-                            td lulucici
-                        tr
-                            td lulucici
-                            td lulucici
-                            td lulucici
-                            td lulucici
-                            td lulucici
-                            td lulucici
-                            td lulucici
-                        tr
-                            td lulucici
-                            td lulucici
-                            td lulucici
-                            td lulucici
-                            td lulucici
-                            td lulucici
-                            td lulucici
-                    tfoot
-                        tr
-                            th(colspan= 7)
-                                div.ui.right.floated.pagination.menu
-                                    a.icon.item
-                                        i.left.chevron.icon
-                                    a.item 1
-                                    a.item 2
-                                    a.item 3
-                                    a.item 4
-                                    a.icon.item
-                                        i.right.chevron.icon
-
+                div.ui.container
+                    div.ui.header 书目信息
+                div.ui.segment.piled.container
+                    h2.ui.header 梵高传
+                    div.ui.relaxed.divided.list
+                        div.item
+                            div.content
+                                h4.header 作者
+                                div.description lulucici
+                        div.item
+                            div.content
+                                h4.header 出版方
+                                div.description lulucici
+                        div.item
+                            div.content
+                                h4.header 出版年份
+                                div.description lulucici
+                        div.item
+                            div.content
+                                h4.header ISBN
+                                div.description 123456
+                        div.item
+                            div.content
+                                h4.header 馆藏
+                                div.description l4
+                                    span  本
+                        div.item
+                            div.content
+                                h4.header 外借
+                                div.description 1
+                                    span  本
+                        div.item
+                            div.content
+                                h4.header 入馆日期
+                                div.description lulucici
+                        div.item
+                            div.content
+                                h4.header 摘要
+                                div.description 留传世间的《向日葵》和《星夜》是怎么诞生的？真的是他亲手结束了热烈的一生吗？依托梵高博物馆档案和学术研究，取材自数千封书信和海量文献，《梵高传》收录了近200幅代表画作及照片，珍贵图片首次发表；20余位梵高研究专家参与幕后创作，评注超28000条，打印稿逾5000页；首创特别软件解析10万张数码卡片，数字技术引领传记写作和艺术史研究，更加真实可靠；开设持续更新的全面支持网站，深度整合参考文献、文本注释、画作和照片。
+                        div.item
+                            button.ui.button 预约
+                            button.ui.disabled.button 已预约
 
     div.ui.black.inverted.vertical.footer.segment
         div.ui.center.aligned.container

@@ -41,34 +41,87 @@ block content
                     div.item
                         a.ui.inverted.button Sign Up
         div.ui.tabular.menu
-            a.item(href='/users/shelf') 暂存书架
-            a.item(href='/users/b_history') 借阅历史
-            a.item(href='/users/a_history') 我的预约
-            a.item(href='/users/r_history') 我的荐购
-            a.item.active 个人设置
+            a.item.active 借阅管理
+            a.item(href='/admin/appoint') 预约管理
+            a.item(href='/admin/recommend') 荐购管理
         div.full.height
             div.toc
                 div.ui.vertical.sticky.accordion.menu
                     div.item
-                        div.item
-                    a.active.item 个人信息
-                    a.item(href='/users/mailchange') 更改邮箱
-                    a.item(href='/users/pwchange') 更改密码
+                        div.ui.icon.input
+                            input(type='text', placeholder='搜索')
+                            i.search.icon
+                    a.item 借阅中
+                    a.item 已超期
+                    a.item 已归还
             div.article
-                div.ui.header 个人信息
-                form.ui.form(style='width: 20em;')
-                    div.field
-                        label 姓名
-                        input(placeholder='陈雨露', readonly='', type='text')
-                    div.field
-                        label 学号
-                        input(placeholder='3140101569', readonly='', type='text')
-                    div.field
-                        label 昵称
-                        input(placeholder='lulucici', readonly='', type='text')
-                    div.field
-                        label 邮箱
-                        input(placeholder='lulucici77@gmailc.com', readonly='', type='text')
+                div.ui.header 借阅状态:借阅中
+                table.ui.celled.table
+                    thead
+                        tr
+                            th.collapsing
+                                div.ui.fitted.checkbox
+                                    input(type='checkbox')
+                            th 用户
+                            th 题名
+                            th 作者
+                            th 出版信息
+                            th 出版年份
+                            th ISBN
+                            th 借阅日期
+                            th 借阅期限
+                    tbody
+                        tr
+                            td.collapsing
+                                div.ui.fitted.checkbox
+                                    input(type='checkbox')
+                            td lulucici
+                            td lulucici
+                            td lulucici
+                            td lulucici
+                            td lulucici
+                            td lulucici
+                            td lulucici
+                            td lulucici
+                        tr
+                            td.collapsing
+                                div.ui.fitted.checkbox
+                                    input(type='checkbox')
+                            td lulucici
+                            td lulucici
+                            td lulucici
+                            td lulucici
+                            td lulucici
+                            td lulucici
+                            td lulucici
+                            td lulucici
+                        tr
+                            td.collapsing
+                                div.ui.fitted.checkbox
+                                    input(type='checkbox')
+                            td lulucici
+                            td lulucici
+                            td lulucici
+                            td lulucici
+                            td lulucici
+                            td lulucici
+                            td lulucici
+                            td lulucici
+                    tfoot
+                        tr
+                            th(colspan= 9)
+                                a.ui.small.button 收回
+                                a.ui.small.disabled.button 已收回
+                                div.ui.right.floated.pagination.menu
+                                    a.icon.item
+                                        i.left.chevron.icon
+                                    a.item 1
+                                    a.item 2
+                                    a.item 3
+                                    a.item 4
+                                    a.icon.item
+                                        i.right.chevron.icon
+
 
 
     div.ui.black.inverted.vertical.footer.segment

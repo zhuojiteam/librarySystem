@@ -41,7 +41,6 @@ block content
                     div.item
                         a.ui.inverted.button Sign Up
         div.ui.tabular.menu
-            a.item(href='/users/shelf') 暂存书架
             a.item.active 借阅历史
             a.item(href='/users/a_history') 我的预约
             a.item(href='/users/r_history') 我的荐购
@@ -63,9 +62,9 @@ block content
                         tr
                             th 题名
                             th 作者
-                            th 出版信息
+                            th 出版方
+                            th 出版年份
                             th ISBN
-                            th 索书号
                             th 借阅日期
                             th 借阅期限
                     tbody
@@ -95,7 +94,7 @@ block content
                             td lulucici
                     tfoot
                         tr
-                            th(colspan= 6)
+                            th(colspan= 7)
                                 div.ui.right.floated.pagination.menu
                                     a.icon.item
                                         i.left.chevron.icon
