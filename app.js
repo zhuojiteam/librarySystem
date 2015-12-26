@@ -16,6 +16,7 @@ var books = require('./routes/books');
 var recommend = require('./routes/recommend');
 var admin = require('./routes/admin');
 var test = require('./routes/test');
+var account = require('./routes/account');
 
 var models = require('./models');
 
@@ -81,6 +82,7 @@ app.use('/books', books);
 app.use('/recommend', recommend);
 app.use('/admin', admin);
 app.use('/test', test);
+app.use('/account', account);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
