@@ -1,129 +1,88 @@
 extends layout
 
 block content
-    div.ui.large.top.fixed.hidden.menu
-        div.ui.container
-            a.item(href='/') 首页
-            a.active.item 书库博览
-            a.item(href='/recommend/history') 读者荐购
-            a.item(href='/users') 个人中心
-            div.right.menu
-                div.item
-                    a.ui.button Log In
-                div.item
-                    a.ui.primary.button Sign Up
-    //Sidebar Menu
+    div.ui.tabular.menu
+        a.active.item 分类浏览
+        //a.item(href='/books/hot') 热门图书
+        a.item(href='/books/new') 新书速递
 
-    div.ui.vertical.inverted.sidebar.menu
-        a.item(href='/') 首页
-        a.active.item 书库博览
-        a.item(href='/recommend/history') 读者荐购
-        a.item(href='/users') 个人中心
-        a.item Log In
-        a.item Sign Up
+    div.full.height
+        div.toc
+            div.ui.vertical.sticky.accordion.menu
+                //div.item
+                //    div.ui.icon.input
+                //        input(type='text', placeholder='搜索')
+                //        i.search.icon
+                a.item.header 全部分类
+                a.item A 马列主义、毛泽东思想、邓小平理论
+                a.item B 哲学、宗教
+                a.item C 社会科学总论
+                a.item D 政治、法律
+                a.item E 军事
+                a.item F 经济
+                a.item G 文化、科学、教育、体育
+                a.item H 语言、文字
+                a.item I 文学
+                a.item J 艺术
+                a.item K 历史、地理
+                a.item N 自然科学总论
+                a.item O 数理科学与化学
+                a.item P 天文学、地球科学
+                a.item Q 生物科学
+                a.item R 医药、卫生
+                a.item S 农业科学
+                a.item T 工业技术
+                a.item U 交通运输
+                a.item V 航空、航天
+                a.item X 环境科学,安全科学
+                a.item Z 综合性图书
 
-    //Page Contents
-    div.pusher
-        div.ui.inverted.main.menu#navbar
-            div.ui.container
-                div.ui.large.secondary.inverted.pointing.menu
-                    a.toc.item
-                        i.sidebar.icon
-                    a.item(href='/') 首页
-                    a.active.item 书库博览
-                    a.item(href='/recommend/history') 读者荐购
-                    a.item(href='/users') 个人中心
-                div.right.menu
-                    div.item
-                        a.ui.inverted.button Log In
-                    div.item
-                        a.ui.inverted.button Sign Up
-        div.ui.tabular.menu
-            a.active.item 分类浏览
-            //a.item(href='/books/hot') 热门图书
-            a.item(href='/books/new') 新书速递
-
-        div.full.height
-            div.toc
-                div.ui.vertical.sticky.accordion.menu
-                    //div.item
-                    //    div.ui.icon.input
-                    //        input(type='text', placeholder='搜索')
-                    //        i.search.icon
-                    a.item.header 全部分类
-                    a.item A 马列主义、毛泽东思想、邓小平理论
-                    a.item B 哲学、宗教
-                    a.item C 社会科学总论
-                    a.item D 政治、法律
-                    a.item E 军事
-                    a.item F 经济
-                    a.item G 文化、科学、教育、体育
-                    a.item H 语言、文字
-                    a.item I 文学
-                    a.item J 艺术
-                    a.item K 历史、地理
-                    a.item N 自然科学总论
-                    a.item O 数理科学与化学
-                    a.item P 天文学、地球科学
-                    a.item Q 生物科学
-                    a.item R 医药、卫生
-                    a.item S 农业科学
-                    a.item T 工业技术
-                    a.item U 交通运输
-                    a.item V 航空、航天
-                    a.item X 环境科学,安全科学
-                    a.item Z 综合性图书
-
-            div.article
-                //div.ui.masthead.vertical.segment
-                div.ui.header#navbar 分类: B 哲学、宗教
-                    div.ui.text.menu#navbar
-                        a.header.item(style='padding-left: 0;') 结果
-                        a.active.item 5
-                table.ui.celled.table
-                    thead
-                        tr
-                            th 题名
-                            th 作者
-                            th 出版方
-                            th 出版年份
-                            th ISBN
-                            th 馆藏
-                    tbody
-                        tr
-                            td lulucici
-                            td lulucici
-                            td lulucici
-                            td lulucici
-                            td lulucici
-                            td lulucici
-                        tr
-                            td lulucici
-                            td lulucici
-                            td lulucici
-                            td lulucici
-                            td lulucici
-                            td lulucici
-                        tr
-                            td lulucici
-                            td lulucici
-                            td lulucici
-                            td lulucici
-                            td lulucici
-                            td lulucici
-                    tfoot
-                        tr
-                            th(colspan= 6)
-                                div.ui.right.floated.pagination.menu
-                                    a.icon.item
-                                        i.left.chevron.icon
-                                    a.item 1
-                                    a.item 2
-                                    a.item 3
-                                    a.item 4
-                                    a.icon.item
-                                        i.right.chevron.icon
-
-    div.ui.black.inverted.vertical.footer.segment
-        div.ui.center.aligned.container
-            div Designed by Chen Yulu
+        div.article
+            //div.ui.masthead.vertical.segment
+            div.ui.header#navbar 分类: B 哲学、宗教
+                div.ui.text.menu#navbar
+                    a.header.item(style='padding-left: 0;') 结果
+                    a.active.item 5
+            table.ui.celled.table
+                thead
+                    tr
+                        th 题名
+                        th 作者
+                        th 出版方
+                        th 出版年份
+                        th ISBN
+                        th 馆藏
+                tbody
+                    tr
+                        td lulucici
+                        td lulucici
+                        td lulucici
+                        td lulucici
+                        td lulucici
+                        td lulucici
+                    tr
+                        td lulucici
+                        td lulucici
+                        td lulucici
+                        td lulucici
+                        td lulucici
+                        td lulucici
+                    tr
+                        td lulucici
+                        td lulucici
+                        td lulucici
+                        td lulucici
+                        td lulucici
+                        td lulucici
+                tfoot
+                    tr
+                        th(colspan= 6)
+                            div.ui.right.floated.pagination.menu
+                                a.icon.item
+                                    i.left.chevron.icon
+                                a.item 1
+                                a.item 2
+                                a.item 3
+                                a.item 4
+                                a.icon.item
+                                    i.right.chevron.icon

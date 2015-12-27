@@ -1,7 +1,10 @@
 extends layout
 
 block content
-    div fucked
-  h1= message
-  h2= error.status
-  pre #{error.stack}
+    div.full.height
+        div.article
+            div.ui.container
+                h1.ui.header 页面错误
+                h1= message
+                h2= error.status
+                //pre #{error.stack}

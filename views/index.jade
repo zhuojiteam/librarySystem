@@ -1,119 +1,79 @@
 extends layout
 
 block content
-  //Following Menu
-  div.ui.large.top.fixed.hidden.menu
-    div.ui.container
-      a.active.item 首页
-      a.item(href='/books') 书库博览
-      a.item(href='/recommend/history') 读者荐购
-      a.item(href='/users') 个人中心
-      div.right.menu
-        div.item
-          a.ui.button Log In
-        div.item
-          a.ui.primary.button Sign Up
-  //Sidebar Menu
-
-  div.ui.vertical.inverted.sidebar.menu
-    a.active.item 首页
-    a.item(href='/books') 书库博览
-    a.item(href='/recommend/history') 读者荐购
-    a.item(href='/users') 个人中心
-    a.item Log In
-    a.item Sign Up
-
-   //Page Contents
-  div.pusher
     div.ui.inverted.vertical.masthead.center.aligned.segment
-      div.ui.container
-        div.ui.large.secondary.inverted.pointing.menu
-          a.toc.item
-            i.sidebar.icon
-          a.active.item 首页
-          a.item(href='/books') 书库博览
-          a.item(href='/recommend/history') 读者荐购
-          a.item(href='/users') 个人中心
-          div.right.menu
-            div.item
-              a.ui.inverted.button Log In
-            div.item
-              a.ui.inverted.button Sign Up
-      div.ui.text.container
-        h1.ui.inverted.header 一个 图书馆
-        h2 想经历一百种人生，不必亲自活上一百次。
-        //div.ui.remote.search#search
-        //  div.ui.icon.input
-        //    input.prompt(type='text',placeholder='搜索')
-        //    i.search.icon
-        //  div.results
+        div.ui.text.container
+            h1.ui.inverted.header 一个 图书馆
+            h2 想经历一百种人生，不必亲自活上一百次。
+            //div.ui.remote.search#search
+            //  div.ui.icon.input
+            //    input.prompt(type='text',placeholder='搜索')
+            //    i.search.icon
+            //  div.results
 
     div.ui.vertical.stripe.segment
-      div.ui.three.column.stackable.grid.container
-        div.column
-          div.ui.one.cards
-            div.ui.card
-              div.dimmable.image
-                div.ui.blurring.inverted.dimmer
-                  div.content
-                    div.center
-                      div.ui.teal.button 热门图书
-                img(src='images/hot.png')
-              div.content
-                a.header 热门图书
-                div.meta
-                  span.group 一个月内
-                div.ui.link.list
-                  each book in hotBookList
-                    a.item
-                      i.right.triangle.icon
-                      div.content
-                        div.headr=book.name
-              div.extra.content
-                a.right.floated.created More +
-        div.column
-          div.ui.one.cards
-            div.ui.card
-              div.blurring.dimmable.image
-                div.ui.dimmer
-                  div.content
-                    div.center
-                      div.ui.inverted.button 新书速递
-                img(src='images/new.png')
-              div.content
-                a.header 新书速递
-                div.meta
-                  span.group 最近一周
-                div.ui.link.list
-                  each book in newBookList
-                    a.item
-                      i.right.triangle.icon
-                      div.content
-                        div.header=book.name
-              div.extra.content
-                a.right.floated.created More +
-        div.column
-          div.ui.one.cards
-            div.ui.card
-              div.dimmable.image
-                div.ui.blurring.inverted.dimmer
-                  div.content
-                    div.center
-                      div.ui.teal.button 读者荐购
-                img(src='images/you.png')
-              div.content
-                a.header 读者荐购
-                div.meta
-                  span.group 荐购历史
-                div.ui.link.list
-                  each book in hotBookList
-                    a.item
-                      i.right.triangle.icon
-                      div.content
-                        div.headr=book.name
-              div.extra.content
-                a.right.floated.created More +
+        div.ui.three.column.stackable.grid.container
+            div.column
+                div.ui.one.cards
+                    div.ui.card
+                        div.dimmable.image
+                            div.ui.blurring.inverted.dimmer
+                                div.content
+                                    div.center
+                                        div.ui.teal.button 热门图书
+                            img(src='images/hot.png')
+                        div.content
+                            a.header 热门图书
+                            div.meta
+                                span.group 一个月内
+                            div.ui.link.list
+                                each book in hotBookList
+                                    a.item
+                                        i.right.triangle.icon
+                                        div.content
+                                            div.headr=book.name
+                        div.extra.content
+                            a.right.floated.created More +
+            div.column
+                div.ui.one.cards
+                    div.ui.card
+                        div.blurring.dimmable.image
+                            div.ui.dimmer
+                                div.content
+                                    div.center
+                                        div.ui.inverted.button 新书速递
+                            img(src='images/new.png')
+                        div.content
+                            a.header 新书速递
+                            div.meta
+                                span.group 最近一周
+                            div.ui.link.list
+                                each book in newBookList
+                                    a.item
+                                        i.right.triangle.icon
+                                        div.content
+                                            div.header=book.name
+                        div.extra.content
+                            a.right.floated.created More +
+            div.column
+                div.ui.one.cards
+                    div.ui.card
+                        div.dimmable.image
+                            div.ui.blurring.inverted.dimmer
+                                div.content
+                                    div.center
+                                        div.ui.teal.button 读者荐购
+                            img(src='images/you.png')
+                        div.content
+                            a.header 读者荐购
+                            div.meta
+                                span.group 荐购历史
+                            div.ui.link.list
+                                each book in hotBookList
+                                    a.item
+                                        i.right.triangle.icon
+                                        div.content
+                                            div.headr=book.name
+                        div.extra.content
+                            a.right.floated.created More +
 
-  div.ui.black.inverted.vertical.footer.segment
-    div.ui.center.aligned.container
-      div Designed by Chen Yulu

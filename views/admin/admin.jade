@@ -3,127 +3,86 @@
 extends ../layout
 
 block content
-    div.ui.large.top.fixed.hidden.menu
-        div.ui.container
-            a.item(href='/') 首页
-            a.item(href='/books') 书库博览
-            a.item(href='/recommend/history') 读者荐购
-            a.item.active 管理中心
-            div.right.menu
+    div.ui.tabular.menu
+        a.item.active 借阅管理
+        a.item(href='/admin/appoint') 预约管理
+        a.item(href='/admin/recommend') 荐购管理
+    div.full.height
+        div.toc
+            div.ui.vertical.sticky.accordion.menu
                 div.item
-                    a.ui.button Log In
-                div.item
-                    a.ui.primary.button Sign Up
-    //Sidebar Menu
-
-    div.ui.vertical.inverted.sidebar.menu
-        a.item(href='/') 首页
-        a.item(href='/books') 书库博览
-        a.item(href='/recommend/history') 读者荐购
-        a.item.active 管理中心
-        a.item Log In
-        a.item Sign Up
-
-    //Page Contents
-    div.pusher
-        div.ui.inverted.main.menu#navbar
-            div.ui.container
-                div.ui.large.secondary.inverted.pointing.menu
-                    a.toc.item
-                        i.sidebar.icon
-                    a.item(href='/') 首页
-                    a.item(href='/books') 书库博览
-                    a.item(href='/recommend/history') 读者荐购
-                    a.item.active 管理中心
-                div.right.menu
-                    div.item
-                        a.ui.inverted.button Log In
-                    div.item
-                        a.ui.inverted.button Sign Up
-        div.ui.tabular.menu
-            a.item.active 借阅管理
-            a.item(href='/admin/appoint') 预约管理
-            a.item(href='/admin/recommend') 荐购管理
-        div.full.height
-            div.toc
-                div.ui.vertical.sticky.accordion.menu
-                    div.item
-                        div.ui.icon.input
-                            input(type='text', placeholder='搜索')
-                            i.search.icon
-                    a.item 借阅中
-                    a.item 已超期
-                    a.item 已归还
-            div.article
-                div.ui.header 借阅状态:借阅中
-                table.ui.celled.table
-                    thead
-                        tr
-                            th.collapsing
-                                div.ui.fitted.checkbox
-                                    input(type='checkbox')
-                            th 用户
-                            th 题名
-                            th 作者
-                            th 出版信息
-                            th 出版年份
-                            th ISBN
-                            th 借阅日期
-                            th 借阅期限
-                    tbody
-                        tr
-                            td.collapsing
-                                div.ui.fitted.checkbox
-                                    input(type='checkbox')
-                            td lulucici
-                            td lulucici
-                            td lulucici
-                            td lulucici
-                            td lulucici
-                            td lulucici
-                            td lulucici
-                            td lulucici
-                        tr
-                            td.collapsing
-                                div.ui.fitted.checkbox
-                                    input(type='checkbox')
-                            td lulucici
-                            td lulucici
-                            td lulucici
-                            td lulucici
-                            td lulucici
-                            td lulucici
-                            td lulucici
-                            td lulucici
-                        tr
-                            td.collapsing
-                                div.ui.fitted.checkbox
-                                    input(type='checkbox')
-                            td lulucici
-                            td lulucici
-                            td lulucici
-                            td lulucici
-                            td lulucici
-                            td lulucici
-                            td lulucici
-                            td lulucici
-                    tfoot
-                        tr
-                            th(colspan= 9)
-                                a.ui.small.button 收回
-                                a.ui.small.disabled.button 已收回
-                                div.ui.right.floated.pagination.menu
-                                    a.icon.item
-                                        i.left.chevron.icon
-                                    a.item 1
-                                    a.item 2
-                                    a.item 3
-                                    a.item 4
-                                    a.icon.item
-                                        i.right.chevron.icon
+                    div.ui.icon.input
+                        input(type='text', placeholder='搜索')
+                        i.search.icon
+                a.item 借阅中
+                a.item 已超期
+                a.item 已归还
+        div.article
+            div.ui.header 借阅状态:借阅中
+            table.ui.celled.table
+                thead
+                    tr
+                        th.collapsing
+                            div.ui.fitted.checkbox
+                                input(type='checkbox')
+                        th 用户
+                        th 题名
+                        th 作者
+                        th 出版信息
+                        th 出版年份
+                        th ISBN
+                        th 借阅日期
+                        th 借阅期限
+                tbody
+                    tr
+                        td.collapsing
+                            div.ui.fitted.checkbox
+                                input(type='checkbox')
+                        td lulucici
+                        td lulucici
+                        td lulucici
+                        td lulucici
+                        td lulucici
+                        td lulucici
+                        td lulucici
+                        td lulucici
+                    tr
+                        td.collapsing
+                            div.ui.fitted.checkbox
+                                input(type='checkbox')
+                        td lulucici
+                        td lulucici
+                        td lulucici
+                        td lulucici
+                        td lulucici
+                        td lulucici
+                        td lulucici
+                        td lulucici
+                    tr
+                        td.collapsing
+                            div.ui.fitted.checkbox
+                                input(type='checkbox')
+                        td lulucici
+                        td lulucici
+                        td lulucici
+                        td lulucici
+                        td lulucici
+                        td lulucici
+                        td lulucici
+                        td lulucici
+                tfoot
+                    tr
+                        th(colspan= 9)
+                            a.ui.small.button 收回
+                            a.ui.small.disabled.button 已收回
+                            div.ui.right.floated.pagination.menu
+                                a.icon.item
+                                    i.left.chevron.icon
+                                a.item 1
+                                a.item 2
+                                a.item 3
+                                a.item 4
+                                a.icon.item
+                                    i.right.chevron.icon
 
 
-
-    div.ui.black.inverted.vertical.footer.segment
-        div.ui.center.aligned.container
-            div Designed by Chen Yulu

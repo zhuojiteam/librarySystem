@@ -1,58 +1,97 @@
 doctype html
 html
-  head
-    meta(charset='utf-8')
-    meta(http-equiv='X-UA-Compatible', content='IE=edge,chrome=1')
-    meta(name='viewport', content='width=device-width, initial-scale=1.0, maximum-scale=1.0')
+    head
+        meta(charset='utf-8')
+        meta(http-equiv='X-UA-Compatible', content='IE=edge,chrome=1')
+        meta(name='viewport', content='width=device-width, initial-scale=1.0, maximum-scale=1.0')
 
-    title= title
-    link(rel='stylesheet', type='text/css', href='/semantic/dist/components/reset.css')
-    link(rel='stylesheet', type='text/css', href='/semantic/dist/components/site.css')
+        title= title
+        link(rel='stylesheet', type='text/css', href='/semantic/dist/components/reset.css')
+        link(rel='stylesheet', type='text/css', href='/semantic/dist/components/site.css')
 
-    link(rel='stylesheet', type='text/css', href='/semantic/dist/components/container.css')
-    link(rel='stylesheet', type='text/css', href='/semantic/dist/components/grid.css')
-    link(rel='stylesheet', type='text/css', href='/semantic/dist/components/header.css')
-    link(rel='stylesheet', type='text/css', href='/semantic/dist/components/image.css')
-    link(rel='stylesheet', type='text/css', href='/semantic/dist/components/menu.css')
+        link(rel='stylesheet', type='text/css', href='/semantic/dist/components/container.css')
+        link(rel='stylesheet', type='text/css', href='/semantic/dist/components/grid.css')
+        link(rel='stylesheet', type='text/css', href='/semantic/dist/components/header.css')
+        link(rel='stylesheet', type='text/css', href='/semantic/dist/components/image.css')
+        link(rel='stylesheet', type='text/css', href='/semantic/dist/components/menu.css')
 
 
-    link(rel='stylesheet', type='text/css', href='/semantic/dist/components/divider.css')
-    link(rel='stylesheet', type='text/css', href='/semantic/dist/components/dropdown.css')
-    link(rel='stylesheet', type='text/css', href='/semantic/dist/components/segment.css')
-    link(rel='stylesheet', type='text/css', href='/semantic/dist/components/icon.css')
-    link(rel='stylesheet', type='text/css', href='/semantic/dist/components/button.css')
-    link(rel='stylesheet', type='text/css', href='/semantic/dist/components/list.css')
-    link(rel='stylesheet', type='text/css', href='/semantic/dist/components/sidebar.css')
-    link(rel='stylesheet', type='text/css', href='/semantic/dist/components/card.css')
-    link(rel='stylesheet', type='text/css', href='/semantic/dist/components/label.css')
-    link(rel='stylesheet', type='text/css', href='/semantic/dist/components/dimmer.css')
-    link(rel='stylesheet', type='text/css', href='/semantic/dist/components/reveal.css')
-    link(rel='stylesheet', type='text/css', href='/semantic/dist/components/rating.css')
-    link(rel='stylesheet', type='text/css', href='/semantic/dist/components/transition.css')
-    link(rel='stylesheet', type='text/css', href='/semantic/dist/components/popup.css')
+        link(rel='stylesheet', type='text/css', href='/semantic/dist/components/divider.css')
+        link(rel='stylesheet', type='text/css', href='/semantic/dist/components/dropdown.css')
+        link(rel='stylesheet', type='text/css', href='/semantic/dist/components/segment.css')
+        link(rel='stylesheet', type='text/css', href='/semantic/dist/components/icon.css')
+        link(rel='stylesheet', type='text/css', href='/semantic/dist/components/button.css')
+        link(rel='stylesheet', type='text/css', href='/semantic/dist/components/list.css')
+        link(rel='stylesheet', type='text/css', href='/semantic/dist/components/sidebar.css')
+        link(rel='stylesheet', type='text/css', href='/semantic/dist/components/card.css')
+        link(rel='stylesheet', type='text/css', href='/semantic/dist/components/label.css')
+        link(rel='stylesheet', type='text/css', href='/semantic/dist/components/dimmer.css')
+        link(rel='stylesheet', type='text/css', href='/semantic/dist/components/reveal.css')
+        link(rel='stylesheet', type='text/css', href='/semantic/dist/components/rating.css')
+        link(rel='stylesheet', type='text/css', href='/semantic/dist/components/transition.css')
+        link(rel='stylesheet', type='text/css', href='/semantic/dist/components/popup.css')
 
-    link(rel='stylesheet', type='text/css', href='/semantic/dist/semantic.min.css')
-    link(rel='stylesheet', type='text/css', href='/semantic/dist/components/breadcrumb.css')
-    link(rel='stylesheet', type='text/css', href='/semantic/dist/components/accordion.css')
-    link(rel='stylesheet', type='text/css', href='/semantic/dist/components/label.css')
-    link(rel='stylesheet', type='text/css', href='/semantic/dist/components/checkbox.css')
+        link(rel='stylesheet', type='text/css', href='/semantic/dist/semantic.min.css')
+        link(rel='stylesheet', type='text/css', href='/semantic/dist/components/breadcrumb.css')
+        link(rel='stylesheet', type='text/css', href='/semantic/dist/components/accordion.css')
+        link(rel='stylesheet', type='text/css', href='/semantic/dist/components/label.css')
+        link(rel='stylesheet', type='text/css', href='/semantic/dist/components/checkbox.css')
 
-    link(rel='stylesheet', type='text/css', href='/stylesheets/style.css')
-    link(rel='stylesheet', type='text/css', href='/stylesheets/fonts.css')
+        link(rel='stylesheet', type='text/css', href='/stylesheets/style.css')
+        link(rel='stylesheet', type='text/css', href='/stylesheets/fonts.css')
 
-    script(src='/javascripts/jquery-2.1.4.min.js')
-    script(src='/semantic/dist/components/visibility.js')
-    script(src='/semantic/dist/components/sidebar.js')
-    script(src='/semantic/dist/components/popup.js')
-    script(src='/semantic/dist/components/dimmer.js')
-    script(src='/semantic/dist/components/rating.js')
-    script(src='/semantic/dist/components/transition.js')
-    script(src='/semantic/dist/components/accordion.js')
-    script(src='/semantic/dist/components/form.js')
-    script(src='/semantic/dist/components/checkbox.js')
-    script(src='/semantic/dist/semantic.min.js')
-    script(src='/javascripts/menu.js')
-    script(src='/javascripts/card.js')
+        script(src='/javascripts/jquery-2.1.4.min.js')
+        script(src='/semantic/dist/components/visibility.js')
+        script(src='/semantic/dist/components/sidebar.js')
+        script(src='/semantic/dist/components/popup.js')
+        script(src='/semantic/dist/components/dimmer.js')
+        script(src='/semantic/dist/components/rating.js')
+        script(src='/semantic/dist/components/transition.js')
+        script(src='/semantic/dist/components/accordion.js')
+        script(src='/semantic/dist/components/form.js')
+        script(src='/semantic/dist/components/checkbox.js')
+        script(src='/semantic/dist/semantic.min.js')
+        script(src='/javascripts/menu.js')
+        script(src='/javascripts/card.js')
 
-  body.pushable
-    block content
+    body.pushable
+        div.ui.large.top.fixed.hidden.menu
+            div.ui.container
+                a.item(href='/') 首页
+                a.active.item 书库博览
+                a.item(href='/recommend/history') 读者荐购
+                a.item(href='/users') 个人中心
+                div.right.menu
+                    div.item
+                        a.ui.button Log In
+                    div.item
+                        a.ui.primary.button Sign Up
+        //Sidebar Menu
+
+        div.ui.vertical.inverted.sidebar.menu
+            a.item(href='/') 首页
+            a.active.item 书库博览
+            a.item(href='/recommend/history') 读者荐购
+            a.item(href='/users') 个人中心
+            a.item Log In
+            a.item Sign Up
+
+        //Page Contents
+        div.pusher
+            div.ui.inverted.main.menu#navbar
+                div.ui.container
+                    div.ui.large.secondary.inverted.pointing.menu
+                        a.toc.item
+                            i.sidebar.icon
+                        a.item(href='/') 首页
+                        a.active.item 书库博览
+                        a.item(href='/recommend/history') 读者荐购
+                        a.item(href='/users') 个人中心
+                    div.right.menu
+                        div.item
+                            a.ui.inverted.button Log In
+                        div.item
+                            a.ui.inverted.button Sign Up
+            block content
+
+        include footer
