@@ -16,7 +16,7 @@ var knex = require('knex')({
 
 router.get('/signup', function(req, res, next) {
     //res.send('there are books.');
-    res.render('/signup', {
+    res.render('signup', {
 
     });
 
@@ -24,7 +24,7 @@ router.get('/signup', function(req, res, next) {
 
 router.get('/login', function(req, res, next) {
     //res.send('there are books.');
-    res.render('/login', {
+    res.render('login', {
 
     });
 
