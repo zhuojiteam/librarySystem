@@ -1,0 +1,30 @@
+//
+   Created by chenyulu on 15/12/27.
+extends layout
+
+block content
+
+    //Page Contents
+    div.pusher
+        div.full.height
+            div.article
+                div.ui.container
+                    h1.ui.header 登录
+                    div.ui.container
+                        form.ui.form
+                            h4.ui.dividing.header
+                            div.field
+                                div.four.fields
+                                    div.required.field
+                                        label 用户名
+                                        input(type='text', name='loginname', placeholder='昵称/邮箱')
+                            div.field
+                                div.four.fields
+                                    div.required.field
+                                        label 密码
+                                        input(type='password', name='loginname', placeholder='密码')
+                            button.ui.button(type='submit') 登录
+
+    div.ui.black.inverted.vertical.footer.segment
+        div.ui.center.aligned.container
+            div Designed by Chen Yulu
