@@ -3,18 +3,13 @@
  */
 var express = require('express');
 var router = express.Router();
-var knex = require('knex')({
-    client: 'mysql',
-    connection: {
-        host: 'localhost',
-        port: 3307,
-        user: 'library',
-        password: 'library',
-        database: 'library'
-    }
-});
+
+var models = require('../models');
 
 router.get('/history', function(req, res, next){
+
+    models.Book.where();
+
     res.render('recommend/history', {
 
     });
