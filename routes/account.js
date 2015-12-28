@@ -19,23 +19,45 @@ router.post('/signup', function(req, res, next) {
     //res.send('there are books.');
     console.log(req.body);
     models.User
-        .where(req.body)
+        .where({
+            name: req.body.name,
+        })
         .fetch()
         .then(function(user) {
+            console.log('=====');
+            console.log(user);
+            console.log('=====');
             if (user) {
                 res.render('signup', {
-                    error: '用户已经存在!'
+                    error: '用户名已经存在!'
                 });
             } else {
-                var formData = req.body;
-                formData.password = bcrypt.hashSync(formData.password);
+
                 models.User
-                    .forge(formData)
-                    .save()
+                    .where({
+                        email: req.body.email,
+                    })
+                    .fetch()
                     .then(function(user) {
+                        console.log('=====');
                         console.log(user);
-                        res.render('signup', {
-                        });
+                        console.log('=====');
+                        if (user) {
+                            res.render('signup', {
+                                error: 'Email 已经存在!'
+                            });
+                        } else {
+                            var formData = req.body;
+                            formData.password = bcrypt.hashSync(formData.password);
+                            models.User
+                                .forge(formData)
+                                .save()
+                                .then(function(user) {
+                                    console.log(user);
+                                    res.render('signup', {
+                                    });
+                                });
+                        }
                     });
             }
         });
