@@ -32,11 +32,7 @@ router.get('/setting', function(req, res, next) {
   });
 });
 
-router.get('/mailchange', function(req, res, next) {
-  res.render('users/mailchange', {
 
-  });
-});
 
 router.get('/pwchange', function(req, res, next) {
   res.render('users/pwchange', {
