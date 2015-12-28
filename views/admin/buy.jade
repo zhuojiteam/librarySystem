@@ -48,7 +48,32 @@ block content
                         div.required.field
                             label 数目
                             input(type='text', name='amount', placeholder='数目')
-
+                        div.required.field
+                            label 类别
+                            select.ui.dropdown
+                                option(value='') 类别
+                                option(value='A') A 马列主义、毛泽东思想、邓小平理论
+                                option(value='B') B 哲学、宗教
+                                option(value='C') C 社会科学总论
+                                option(value='D') D 政治、法律
+                                option(value='E') E 军事
+                                option(value='F') F 经济
+                                option(value='G') G 文化、科学、教育、体育
+                                option(value='H') H 语言、文字
+                                option(value='I') I 文学
+                                option(value='J') J 艺术
+                                option(value='K') K 历史、地理
+                                option(value='N') N 自然科学总论
+                                option(value='O') O 数理科学与化学
+                                option(value='P') P 天文学、地球科学
+                                option(value='Q') Q 生物科学
+                                option(value='R') R 医药、卫生
+                                option(value='S') S 农业科学
+                                option(value='T') T 工业技术
+                                option(value='U') U 交通运输
+                                option(value='V') V 航空、航天
+                                option(value='X') X 环境科学,安全科学
+                                option(value='Z') Z 综合性图书
                 div.required.field
                     label 摘要
                     textarea

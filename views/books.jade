@@ -1,14 +1,14 @@
 extends layout
 
 block content
-    div.ui.tabular.menu
-        a.active.item 分类浏览
-        //a.item(href='/books/hot') 热门图书
-        a.item(href='/books/new') 新书速递
+    //div.ui.tabular.menu
+    //    //a.active.item 分类浏览
+    //    ////a.item(href='/books/hot') 热门图书
+    //    //a.item(href='/books/new') 新书速递
 
     div.full.height
         div.toc
-            div.ui.vertical.sticky.accordion.menu
+            div.ui.vertical.sticky.accordion.menu(style='margin-top:1em;')
                 //div.item
                 //    div.ui.icon.input
                 //        input(type='text', placeholder='搜索')
@@ -52,6 +52,7 @@ block content
                         th 出版年份
                         th ISBN
                         th 馆藏
+                        th 可借
                 tbody
                     tr
                         td lulucici
@@ -60,14 +61,17 @@ block content
                         td lulucici
                         td lulucici
                         td lulucici
-                    tr
-                        td lulucici
-                        td lulucici
-                        td lulucici
-                        td lulucici
-                        td lulucici
                         td lulucici
                     tr
+                        td lulucici
+                        td lulucici
+                        td lulucici
+                        td lulucici
+                        td lulucici
+                        td lulucici
+                        td lulucici
+                    tr
+                        td lulucici
                         td lulucici
                         td lulucici
                         td lulucici
@@ -76,7 +80,7 @@ block content
                         td lulucici
                 tfoot
                     tr
-                        th(colspan= 6)
+                        th(colspan= 7)
                             div.ui.right.floated.pagination.menu
                                 a.icon.item
                                     i.left.chevron.icon

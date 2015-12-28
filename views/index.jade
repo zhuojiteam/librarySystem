@@ -5,56 +5,59 @@ block content
         div.ui.text.container
             h1.ui.inverted.header 一个 图书馆
             h2 想经历一百种人生，不必亲自活上一百次。
+            div.ui.hidden.divider
+            a.ui.huge.inverted.button 浏览图书
+            a.ui.huge.inverted.basic.button 荐购图书
             //div.ui.remote.search#search
             //  div.ui.icon.input
             //    input.prompt(type='text',placeholder='搜索')
             //    i.search.icon
             //  div.results
 
-    div.ui.vertical.stripe.segment
-        div.ui.three.column.stackable.grid.container
-            div.column
-                div.ui.one.cards
-                    div.ui.card
-                        div.dimmable.image
-                            div.ui.blurring.inverted.dimmer
-                                div.content
-                                    div.center
-                                        div.ui.teal.button 热门图书
-                            img(src='images/hot.png')
-                        div.content
-                            a.header 热门图书
-                            div.meta
-                                span.group 一个月内
-                            div.ui.link.list
-                                each book in hotBookList
-                                    a.item
-                                        i.right.triangle.icon
-                                        div.content
-                                            div.headr=book.name
-                        div.extra.content
-                            a.right.floated.created More +
-            div.column
-                div.ui.one.cards
-                    div.ui.card
-                        div.blurring.dimmable.image
-                            div.ui.dimmer
-                                div.content
-                                    div.center
-                                        div.ui.inverted.button 新书速递
-                            img(src='images/new.png')
-                        div.content
-                            a.header 新书速递
-                            div.meta
-                                span.group 最近一周
-                            div.ui.link.list
-                                each book in newBookList
-                                    a.item
-                                        i.right.triangle.icon
-                                        div.content
-                                            div.header=book.name
-                        div.extra.content
-                            a.right.floated.created More +
+    //div.ui.vertical.stripe.segment
+    //    div.ui.three.column.stackable.grid.container
+    //        div.column
+            //    div.ui.one.cards
+            //        div.ui.card
+            //            div.dimmable.image
+            //                div.ui.blurring.inverted.dimmer
+            //                    div.content
+            //                        div.center
+            //                            div.ui.teal.button 热门图书
+            //                img(src='images/hot.png')
+            //            div.content
+            //                a.header 热门图书
+            //                div.meta
+            //                    span.group 一个月内
+            //                div.ui.link.list
+            //                    each book in hotBookList
+            //                        a.item
+            //                            i.right.triangle.icon
+            //                            div.content
+            //                                div.headr=book.name
+            //            div.extra.content
+            //                a.right.floated.created More +
+            //div.column
+            //    div.ui.one.cards
+            //        div.ui.card
+            //            div.blurring.dimmable.image
+            //                div.ui.dimmer
+            //                    div.content
+            //                        div.center
+            //                            div.ui.inverted.button 新书速递
+            //                img(src='images/new.png')
+            //            div.content
+            //                a.header 新书速递
+            //                div.meta
+            //                    span.group 最近一周
+            //                div.ui.link.list
+            //                    each book in newBookList
+            //                        a.item
+            //                            i.right.triangle.icon
+            //                            div.content
+            //                                div.header=book.name
+            //            div.extra.content
+            //                a.right.floated.created More +
             div.column
                 div.ui.one.cards
                     div.ui.card
