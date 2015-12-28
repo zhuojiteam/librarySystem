@@ -3,16 +3,9 @@
  */
 var express = require('express');
 var router = express.Router();
-var knex = require('knex')({
-    client: 'mysql',
-    connection: {
-        host: 'localhost',
-        port: 3307,
-        user: 'library',
-        password: 'library',
-        database: 'library'
-    }
-});
+var bcrypt = require('bcrypt-nodejs');
+
+var models = require('../models');
 
 router.get('/signup', function(req, res, next) {
     //res.send('there are books.');
@@ -20,6 +13,32 @@ router.get('/signup', function(req, res, next) {
 
     });
 
+});
+
+router.post('/signup', function(req, res, next) {
+    //res.send('there are books.');
+    console.log(req.body);
+    models.User
+        .where(req.body)
+        .fetch()
+        .then(function(user) {
+            if (user) {
+                res.render('signup', {
+                    error: '用户已经存在!'
+                });
+            } else {
+                var formData = req.body;
+                formData.password = bcrypt.hashSync(formData.password);
+                models.User
+                    .forge(formData)
+                    .save()
+                    .then(function(user) {
+                        console.log(user);
+                        res.render('signup', {
+                        });
+                    });
+            }
+        });
 });
 
 router.get('/login', function(req, res, next) {

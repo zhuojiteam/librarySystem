@@ -12,13 +12,13 @@ block content
                 div.ui.container
                     h1.ui.header 注册
                     div.ui.container
-                        form.ui.form
+                        form.ui.form(method='post')
                             h4.ui.dividing.header
                             div.field
                                 div.four.fields
                                     div.required.field
                                         label 昵称
-                                        input(type='text', name='username', placeholder='昵称')
+                                        input(type='text', name='name', placeholder='昵称')
                             div.field
                                 div.four.fields
                                     div.required.field
@@ -29,8 +29,6 @@ block content
                                     div.required.field
                                         label 密码
                                         input(type='password', name='password', placeholder='密码')
-                            button.ui.button(type='submit') 注册
-
-    div.ui.black.inverted.vertical.footer.segment
-        div.ui.center.aligned.container
-            div Designed by Chen Yulu
+                            button.ui.button.submit(type='submit') 注册
+block script
+    script(src='/javascripts/signup.js')
