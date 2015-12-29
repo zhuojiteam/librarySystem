@@ -78,6 +78,10 @@ html
                             a.ui.inverted.button Log In
                         div.item
                             a.ui.inverted.button Sign Up
+            if message
+                div= message
+            if error
+                div= error
             block content
 
         include footer

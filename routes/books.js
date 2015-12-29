@@ -1,15 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var knex = require('knex')({
-    client: 'mysql',
-    connection: {
-        host: 'localhost',
-        port: 3307,
-        user: 'library',
-        password: 'library',
-        database: 'library'
-    }
-});
+var models = require('../models');
 
 router.get('/', function(req, res, next) {
     //res.send('there are books.');
@@ -26,6 +17,27 @@ router.get('/:id(\\d+)/', function(req, res) {
     res.render('books/detail/detail', {
 
     });
+});
+
+router.get('/:category([A-Z])', function(req, res, next) {
+
+    models.Category.where({char: req.params.category})
+        .fetch()
+        .then(function (category) {
+            /**
+             * If category exists, directly render the page.
+             * Otherwise, show error message.
+             */
+            if (category) {
+                res.render('books', {
+
+                });
+            } else {
+                res.render('books', {
+                    error: '没有这个分类~'
+                });
+            }
+        });
 });
 
 router.get('/index', function(req, res, next) {
