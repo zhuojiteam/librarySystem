@@ -7,13 +7,17 @@ block content
         a.item(href='/recommend/history') 荐购历史
         a.active.item 我要荐购
     div.ui.container(style='width: 60em;')
-        form.ui.form
+        if message
+            div= message
+        if error
+            div= error
+        form.ui.form(method='post')
             h4.ui.dividing.header 请填入您要荐购的图书的信息
             div.field
                 div.three.fields
                     div.required.field
                         label 题名
-                        input(type='text', name='bookname', placeholder='图书全称')
+                        input(type='text', name='title', placeholder='图书全称')
             div.field
                 div.three.fields
                     div.required.field
@@ -25,9 +29,9 @@ block content
                         label 出版信息
                         div.fields
                             div.eleven.wide.field
-                                input(type='text', name='publisher', placeholder='出版方')
+                                input(type='text', name='pub_info', placeholder='出版方')
                             div.five.wide.field
-                                input(type='text', name='publishtime', placeholder='出版年份')
+                                input(type='text', name='pub_year', placeholder='出版年份')
             div.field
                 div.three.fields
                     div.required.field

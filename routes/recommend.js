@@ -22,4 +22,31 @@ router.get('/create', function(req, res) {
    });
 });
 
+router.post('/create', function(req, res) {
+    models.Book
+        .where({
+            isbn: req.body.isbn
+        })
+        .fetch()
+        .then(function(book) {
+            if (book) {
+                res.render('recommend/create', {
+                    error: '已经有~'
+                });
+            } else {
+                var recommendation = req.body;
+                recommendation.created_at = new Date();
+                recommendation.status = 0;
+                models.Recommendation
+                    .forge(recommendation)
+                    .save();
+            }
+            res.render('recommend/create', {
+                message: '成功~'
+            });
+        })
+
+
+});
+
 module.exports = router;
