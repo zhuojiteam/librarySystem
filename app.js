@@ -21,16 +21,17 @@ var account = require('./routes/account');
 var models = require('./models');
 
 var app = express();
+var router = express.Router();
 
 passport.use(new LocalStrategy(function(email, password, done) {
     new model.User({email: email}).fetch().then(function(data) {
         var user = data;
         if(user === null) {
-            return done(null, false, {message: 'Invalid username or password'});
+            return done(null, false, {message: 'Invalid email or password'});
         } else {
             user = data.toJSON();
             if(!bcrypt.compareSync(password, user.password)) {
-                return done(null, false, {message: 'Invalid username or password'});
+                return done(null, false, {message: 'Invalid email or password'});
             } else {
                 return done(null, user);
             }
@@ -82,7 +83,7 @@ app.use('/books', books);
 app.use('/recommend', recommend);
 app.use('/admin', admin);
 app.use('/test', test);
-app.use('/account', account);
+app.use('/account', router);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
@@ -109,6 +110,73 @@ app.use(function (req, res, next) {
         });
     });
 //}
+
+
+router.get('/signup', function (req, res, next) {
+    //res.send('there are books.');
+    res.render('signup', {});
+
+});
+
+router.post('/signup', function (req, res, next) {
+    //res.send('there are books.');
+    console.log(req.body);
+    models.User
+        .where({
+            name: req.body.name,
+        })
+        .fetch()
+        .then(function (user) {
+            console.log('=====');
+            console.log(user);
+            console.log('=====');
+            if (user) {
+                res.render('signup', {
+                    error: '用户名已经存在!'
+                });
+            } else {
+
+                models.User
+                    .where({
+                        email: req.body.email,
+                    })
+                    .fetch()
+                    .then(function (user) {
+                        console.log('=====');
+                        console.log(user);
+                        console.log('=====');
+                        if (user) {
+                            res.render('signup', {
+                                error: 'Email 已经存在!'
+                            });
+                        } else {
+                            var formData = req.body;
+                            formData.password = bcrypt.hashSync(formData.password);
+                            models.User
+                                .forge(formData)
+                                .save()
+                                .then(function (user) {
+                                    console.log(user);
+                                    res.render('signup', {});
+                                });
+                        }
+                    });
+            }
+        });
+});
+
+router.get('/login', function (req, res, next) {
+    //res.send('there are books.');
+    res.render('login', {
+    });
+});
+
+router.post('/login', passport.authenticate('local'), function (req, res, next) {
+    //res.send('there are books.');
+    res.render('login', {
+        message: '登录成功!'
+    });
+});
 
 // production error handler
 // no stacktraces leaked to user

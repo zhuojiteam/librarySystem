@@ -11,18 +11,20 @@ block content
                 div.ui.container
                     h1.ui.header 登录
                     div.ui.container
-                        form.ui.form
+                        if message
+                            .error= message
+                        form.ui.form(method='post')
                             h4.ui.dividing.header
                             div.field
                                 div.four.fields
                                     div.required.field
-                                        label 用户名
-                                        input(type='text', name='loginname', placeholder='昵称/邮箱')
+                                        label 邮箱
+                                        input(type='text', name='email', placeholder='邮箱')
                             div.field
                                 div.four.fields
                                     div.required.field
                                         label 密码
-                                        input(type='password', name='loginname', placeholder='密码')
+                                        input(type='password', name='password', placeholder='密码')
                             button.ui.button(type='submit') 登录
 
     div.ui.black.inverted.vertical.footer.segment
