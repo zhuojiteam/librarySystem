@@ -21,19 +21,30 @@ router.get('/:id(\\d+)/', function(req, res) {
 
 router.get('/:category([A-Z])', function(req, res, next) {
 
-    models.Category.where({char: req.params.category})
-        .fetch()
-        .then(function (category) {
+    var fetchCategory = models.Category
+        .where({char: req.params.category})
+        .fetch();
+    var fetchAllCategory = models.Category
+        .collection()
+        .fetch();
+
+    Promise.all([fetchCategory, fetchAllCategory])
+        .then(function(data) {
+            var category = data[0];
+            var allCategories = data[1];
+            console.log(category);
+            console.log(allCategories);
             /**
              * If category exists, directly render the page.
              * Otherwise, show error message.
              */
             if (category) {
                 res.render('books', {
-
+                    categories: allCategories.toJSON()
                 });
             } else {
                 res.render('books', {
+                    categories: allCategories.toJSON(),
                     error: '没有这个分类~'
                 });
             }

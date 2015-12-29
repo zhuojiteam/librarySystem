@@ -1,0 +1,9 @@
+div.toc
+    div.ui.vertical.sticky.accordion.menu(style='margin-top:1em;')
+        //div.item
+        //    div.ui.icon.input
+        //        input(type='text', placeholder='搜索')
+        //        i.search.icon
+        a.item.header 全部分类
+        each category in categories
+            a.item(href='/books/' + category.char)= category.char + ' ' + category.name

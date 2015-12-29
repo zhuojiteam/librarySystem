@@ -7,36 +7,7 @@ block content
     //    //a.item(href='/books/new') 新书速递
 
     div.full.height
-        div.toc
-            div.ui.vertical.sticky.accordion.menu(style='margin-top:1em;')
-                //div.item
-                //    div.ui.icon.input
-                //        input(type='text', placeholder='搜索')
-                //        i.search.icon
-                a.item.header 全部分类
-                a.item A 马列主义、毛泽东思想、邓小平理论
-                a.item B 哲学、宗教
-                a.item C 社会科学总论
-                a.item D 政治、法律
-                a.item E 军事
-                a.item F 经济
-                a.item G 文化、科学、教育、体育
-                a.item H 语言、文字
-                a.item I 文学
-                a.item J 艺术
-                a.item K 历史、地理
-                a.item N 自然科学总论
-                a.item O 数理科学与化学
-                a.item P 天文学、地球科学
-                a.item Q 生物科学
-                a.item R 医药、卫生
-                a.item S 农业科学
-                a.item T 工业技术
-                a.item U 交通运输
-                a.item V 航空、航天
-                a.item X 环境科学,安全科学
-                a.item Z 综合性图书
-
+        include partials/book_list
         div.article
             //div.ui.masthead.vertical.segment
             div.ui.header#navbar 分类: B 哲学、宗教
