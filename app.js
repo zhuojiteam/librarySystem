@@ -74,6 +74,7 @@ app.use(session({
 }));
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(require('flash')());
 
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -171,12 +172,19 @@ router.get('/login', function (req, res, next) {
     });
 });
 
-router.post('/login', passport.authenticate('local'), function (req, res, next) {
-    //res.send('there are books.');
-    res.render('login', {
-        message: '登录成功!'
-    });
-});
+//router.post('/login', passport.authenticate('local'), function (req, res, next) {
+//    //res.send('there are books.');
+//    res.render('login', {
+//        message: '登录成功!'
+//    });
+//});
+
+router.post('/login', passport.authenticate('local', {
+    successRedirect: '/',
+    failureRedirect: '/account/login',
+    failureFlash: 'Invalid username or password.',
+    successFlash: 'Welcome!'
+}));
 
 // production error handler
 // no stacktraces leaked to user
