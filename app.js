@@ -40,11 +40,15 @@ passport.use(new LocalStrategy(function(email, password, done) {
 }));
 
 passport.serializeUser(function(user, done) {
-    done(null, user.username);
+    console.log('Serializing user!');
+    console.log(user);
+    done(null, user.name);
 });
 
-passport.deserializeUser(function(username, done) {
-    new Model.User({username: username}).fetch().then(function(user) {
+passport.deserializeUser(function(name, done) {
+    console.log('Deserializing user!');
+    console.log(name);
+    new models.User({name: name}).fetch().then(function(user) {
         done(null, user);
     });
 });
@@ -60,6 +64,7 @@ var server = app.listen(11011, function () {
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
+app.use(express.static(path.join(__dirname, 'public')));
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -75,8 +80,6 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(require('flash')());
-
-app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 app.use('/users', users);
@@ -158,7 +161,13 @@ router.post('/signup', function (req, res, next) {
                                 .save()
                                 .then(function (user) {
                                     console.log(user);
-                                    res.render('signup', {});
+                                    //res.render('signup', {});
+                                    req.login(formData, function(err) {
+                                        if (err) {
+                                            console.log(err)
+                                        }
+                                        return res.redirect('/')
+                                    })
                                 });
                         }
                     });
