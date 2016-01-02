@@ -26,6 +26,7 @@ exports.up = function (knex, Promise) {
             table.integer('pub_year');
             table.string('isbn');
             table.string('author');
+            table.integer('count');
         })
         .createTable('appointments', function (table) {
             table.increments('id').primary();

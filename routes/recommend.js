@@ -3,7 +3,7 @@
  */
 var express = require('express');
 var router = express.Router();
-
+var _ = require('lodash');
 var models = require('../models');
 var middlewares = require('../middlewares');
 
@@ -74,22 +74,30 @@ router.post('/create', middlewares.userAuth, function (req, res) {
         })
         .fetch()
         .then(function (book) {
-            if (book) {
+            if (book && book.get('status') === 10) {
                 res.render('recommend/create', {
                     error: '已经有~'
                 });
             } else {
-                var recommendation = req.body;
+                var recommendation = _.assign({}, req.body);
                 recommendation.created_at = new Date();
-                recommendation.status = 0;
-                models.Recommendation
-                    .forge(recommendation)
-                    .save()
-                    .then(function(data) {
-                        res.render('recommend/create', {
-                            message: '成功~'
-                        });
+                recommendation.status = 0; // 0 is unfulfilled.
+
+                var book = _.assign({}, req.body);
+                book.status = 10;
+                // The category is left to the admin to add.
+
+                var createRecommendationPromise = models
+                    .Recommendation.forge(recommendation).save();
+                var createBookRecommendation = models
+                    .Book.forge(book).save();
+
+                Promise.all([createBookRecommendation, createRecommendationPromise]).then(function (data) {
+                    res.render('recommend/create', {
+                        message: '成功~'
                     });
+                })
+
             }
         })
 

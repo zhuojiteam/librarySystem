@@ -1,3 +1,11 @@
+/**
+ * Status:
+ *   0: In stock
+ *   10: Recommended
+ *
+ * @param knex
+ * @param Promise
+ */
 exports.seed = function (knex, Promise) {
     return Promise.join(
         // Deletes ALL existing entries
@@ -29,6 +37,7 @@ exports.seed = function (knex, Promise) {
             category_char: 'A', status: 0
         }),
         knex('books').insert({
+            id: 3,
             title: '记',
             pub_info: '这是处的书',
             isbn: '1231-321-312312',
@@ -37,9 +46,10 @@ exports.seed = function (knex, Promise) {
             author: '设计复',
             stock: 33,
             pub_year: 1994,
-            category_char: 'A', status: 0
+            category_char: 'A', status: 10
         }),
         knex('books').insert({
+            id: 4,
             title: '记',
             pub_info: '这是处的书',
             isbn: '1231-321-312312',
@@ -48,9 +58,10 @@ exports.seed = function (knex, Promise) {
             author: '设计复',
             stock: 33,
             pub_year: 1994,
-            category_char: 'A', status: 0
+            category_char: 'A', status: 10
         }),
         knex('books').insert({
+            id: 5,
             title: '记',
             pub_info: '这是处的书',
             isbn: '1231-321-312312',
@@ -59,7 +70,7 @@ exports.seed = function (knex, Promise) {
             author: '设计复',
             stock: 33,
             pub_year: 1994,
-            category_char: 'A', status: 0
+            category_char: 'A', status: 10
         }),
         knex('books').insert({
             title: '记',
