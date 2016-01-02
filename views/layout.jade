@@ -74,10 +74,16 @@ html
                         a.item(href='/recommend/history') 读者荐购
                         a.item(href='/users') 个人中心
                     div.right.menu
-                        div.item
-                            a.ui.inverted.button Log In
-                        div.item
-                            a.ui.inverted.button Sign Up
+                        if user
+                            //div.user= JSON.stringify(user)
+                            div.user= 'Hello ' + user.name
+                            div.item
+                                a.ui.inverted.button(href='/account/login') Log out
+                        else
+                            div.item
+                                a.ui.inverted.button(href='/account/login') Log In
+                            div.item
+                                a.ui.inverted.button(href='/account/signup') Sign Up
             if message
                 div= message
             if error

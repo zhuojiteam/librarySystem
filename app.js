@@ -23,34 +23,53 @@ var models = require('./models');
 var app = express();
 var router = express.Router();
 
-passport.use(new LocalStrategy(function(email, password, done) {
-    new model.User({email: email}).fetch().then(function(data) {
-        var user = data;
-        if(user === null) {
-            return done(null, false, {message: 'Invalid email or password'});
-        } else {
-            user = data.toJSON();
-            if(!bcrypt.compareSync(password, user.password)) {
-                return done(null, false, {message: 'Invalid email or password'});
+passport.use(new LocalStrategy({
+    usernameField: 'email',
+    passwordField: 'password'
+}, function (email, password, done) {
+    'use strict'
+    console.log('======\nLogging in!\n======');
+    console.log(email);
+    console.log(password);
+    new models.User({email: email})
+        .fetch()
+        .then(function (user) {
+            console.log('feteched user: ');
+            console.log(user);
+            if (!user) {
+                return done(null, false);
             } else {
-                return done(null, user);
+                var fetchedPassword = user.get('password');
+                console.log('Fetched password is ', fetchedPassword);
+                if (!bcrypt.compareSync(password, fetchedPassword)) {
+                    return done(null, false);
+                } else {
+                    var userData = {
+                        name: user.get('name'),
+                        email: user.get('email')
+                    }
+                    console.log('User data is: ');
+                    console.log(userData);
+                    return done(null, userData);
+                }
             }
-        }
-    });
+        });
 }));
 
-passport.serializeUser(function(user, done) {
+passport.serializeUser(function (user, done) {
     console.log('Serializing user!');
     console.log(user);
-    done(null, user.name);
+    done(null, user);
+    //done(null, user.name);
 });
 
-passport.deserializeUser(function(name, done) {
+passport.deserializeUser(function (user, done) {
     console.log('Deserializing user!');
-    console.log(name);
-    new models.User({name: name}).fetch().then(function(user) {
-        done(null, user);
-    });
+    console.log(user);
+    done(null, user)
+    //new models.User({name: name}).fetch().then(function(user) {
+    //    done(null, user);
+    //});
 });
 
 // view engine setup
@@ -80,6 +99,7 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(require('flash')());
+app.use(require('./middlewares').user)
 
 app.use('/', routes);
 app.use('/users', users);
@@ -105,14 +125,14 @@ app.use(function (req, res, next) {
 // development error handler
 // will print stacktrace
 //if (app.get('env') === 'development') {
-    app.use(function (err, req, res, next) {
-        res.status(err.status || 500);
-        console.log(err);
-        res.render('error', {
-            message: err.message,
-            error: err
-        });
+app.use(function (err, req, res, next) {
+    res.status(err.status || 500);
+    console.log(err.stack);
+    res.render('error', {
+        message: err.message,
+        error: err
     });
+});
 //}
 
 
@@ -154,15 +174,21 @@ router.post('/signup', function (req, res, next) {
                                 error: 'Email 已经存在!'
                             });
                         } else {
-                            var formData = req.body;
-                            formData.password = bcrypt.hashSync(formData.password);
+                            var formData = {
+                                name: req.body.name,
+                                email: req.body.password
+                            };
+                            formData.password = bcrypt.hashSync(req.body.password);
+                            req.body.password = undefined;
                             models.User
                                 .forge(formData)
                                 .save()
                                 .then(function (user) {
                                     console.log(user);
                                     //res.render('signup', {});
-                                    req.login(formData, function(err) {
+                                    console.log('Logining after signing up with: ');
+                                    console.log(req.body);
+                                    req.login(req.body, function (err) {
                                         if (err) {
                                             console.log(err)
                                         }
@@ -177,8 +203,7 @@ router.post('/signup', function (req, res, next) {
 
 router.get('/login', function (req, res, next) {
     //res.send('there are books.');
-    res.render('login', {
-    });
+    res.render('login', {});
 });
 
 //router.post('/login', passport.authenticate('local'), function (req, res, next) {
@@ -192,7 +217,8 @@ router.post('/login', passport.authenticate('local', {
     successRedirect: '/',
     failureRedirect: '/account/login',
     failureFlash: 'Invalid username or password.',
-    successFlash: 'Welcome!'
+    successFlash: 'Welcome!',
+    session: true
 }));
 
 // production error handler
