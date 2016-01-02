@@ -18,9 +18,9 @@ block content
                 //        i.search.icon
                 div.item
                     div.item
-                a.item 待处理
-                a.item 不订购
-                a.item 已订购
+                a.item(href='/users/r_history?status=0') 待处理
+                a.item(href='/users/r_history?status=1') 不订购
+                a.item(href='/users/r_history?status=2') 已订购
         div.article
             div.ui.header 荐购状态: 待处理
             table.ui.celled.table
@@ -34,30 +34,15 @@ block content
                         th 荐购日期
                         th 荐购状态
                 tbody
-                    tr
-                        td lulucici
-                        td lulucici
-                        td lulucici
-                        td lulucici
-                        td lulucici
-                        td lulucici
-                        td lulucici
-                    tr
-                        td lulucici
-                        td lulucici
-                        td lulucici
-                        td lulucici
-                        td lulucici
-                        td lulucici
-                        td lulucici
-                    tr
-                        td lulucici
-                        td lulucici
-                        td lulucici
-                        td lulucici
-                        td lulucici
-                        td lulucici
-                        td lulucici
+                    each recommendation in recommendations
+                        tr
+                            td= recommendation.title
+                            td= recommendation.author
+                            td= recommendation.pub_info
+                            td= recommendation.pub_year
+                            td= recommendation.isbn
+                            td= recommendation.created_at
+                            td= recommendation.status
                 tfoot
                     tr
                         th(colspan= 7)

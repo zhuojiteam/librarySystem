@@ -9,7 +9,7 @@ exports.seed = function (knex, Promise) {
             user_id: 1,
             book_id: 3,
             created_at: new Date(),
-            status: 0
+            status: 0 // 0 for pending, 1 for rejected, 2 for done.
         }),
         knex('recommendations').insert({
             id: 2,
@@ -52,6 +52,20 @@ exports.seed = function (knex, Promise) {
             book_id: 4,
             created_at: new Date(),
             status: 0
+        }),
+        knex('recommendations').insert({
+            id: 8,
+            user_id: 4,
+            book_id: 1,
+            created_at: new Date(),
+            status: 1
+        }),
+        knex('recommendations').insert({
+            id: 9,
+            user_id: 4,
+            book_id: 2,
+            created_at: new Date(),
+            status: 2
         })
     );
 };
