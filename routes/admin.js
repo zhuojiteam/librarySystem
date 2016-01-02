@@ -14,35 +14,26 @@ var knex = require('knex')({
     }
 });
 
-router.get('/', function(req, res, next) {
+var middlewares = require('../middlewares');
+router.use(middlewares.userAuth);
+router.get('/', function (req, res, next) {
     //res.send('there are books.');
-    res.render('admin/admin', {
-
-    });
+    res.render('admin/admin', {});
 
 });
-
-router.get('/appoint', function(req, res, next) {
+router.get('/appoint', function (req, res, next) {
     //res.send('there are books.');
-    res.render('admin/appoint', {
-
-    });
+    res.render('admin/appoint', {});
 
 });
-
-router.get('/recommend', function(req, res, next) {
+router.get('/recommend', function (req, res, next) {
     //res.send('there are books.');
-    res.render('admin/recommend', {
-
-    });
+    res.render('admin/recommend', {});
 
 });
-
-router.get('/buy', function(req, res, next) {
+router.get('/buy', function (req, res, next) {
     //res.send('there are books.');
-    res.render('admin/buy', {
-
-    });
+    res.render('admin/buy', {});
 
 });
 

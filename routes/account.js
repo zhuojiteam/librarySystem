@@ -7,6 +7,7 @@ var bcrypt = require('bcrypt-nodejs');
 var passport = require('passport');
 
 var models = require('../models');
+var middlewares = require('../middlewares');
 
 
 

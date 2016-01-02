@@ -5,30 +5,27 @@ var express = require('express');
 var router = express.Router();
 
 var models = require('../models');
+var middlewares = require('../middlewares');
 
-router.get('/history', function(req, res, next){
+router.get('/history', function (req, res, next) {
 
     models.Book.where();
 
-    res.render('recommend/history', {
-
-    });
+    res.render('recommend/history', {});
 });
 
 
-router.get('/create', function(req, res) {
-   res.render('recommend/create', {
-
-   });
+router.get('/create', middlewares.userAuth, function (req, res) {
+    res.render('recommend/create', {});
 });
 
-router.post('/create', function(req, res) {
+router.post('/create', middlewares.userAuth, function (req, res) {
     models.Book
         .where({
             isbn: req.body.isbn
         })
         .fetch()
-        .then(function(book) {
+        .then(function (book) {
             if (book) {
                 res.render('recommend/create', {
                     error: '已经有~'

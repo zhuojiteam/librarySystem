@@ -213,13 +213,16 @@ router.get('/login', function (req, res, next) {
 //    });
 //});
 
-router.post('/login', passport.authenticate('local', {
-    successRedirect: '/',
-    failureRedirect: '/account/login',
-    failureFlash: 'Invalid username or password.',
-    successFlash: 'Welcome!',
-    session: true
-}));
+router.post('/login', function (req, res, next) {
+    var redirectUrl = (req.query.redirect) ? req.query.redirect : '/';
+    passport.authenticate('local', {
+        successRedirect: redirectUrl,
+        failureRedirect: '/account/login',
+        failureFlash: 'Invalid username or password.',
+        successFlash: 'Welcome!',
+        session: true
+    })(req, res, next)
+});
 
 // production error handler
 // no stacktraces leaked to user

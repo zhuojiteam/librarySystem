@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var middlewares = require('../middlewares');
 
 /* GET users listing. */
 //router.get('/shelf', function(req, res, next) {
