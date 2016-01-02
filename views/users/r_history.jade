@@ -2,6 +2,7 @@
    Created by chenyulu on 15/12/24.
 
 extends ../layout
+include ../mixins/pagination
 
 block content
     div.ui.tabular.menu
@@ -17,10 +18,11 @@ block content
                 //        input(type='text', placeholder='搜索')
                 //        i.search.icon
                 div.item
-                    div.item
-                a.item(href='/users/r_history?status=0') 待处理
-                a.item(href='/users/r_history?status=1') 不订购
-                a.item(href='/users/r_history?status=2') 已订购
+                    each status, key in stata
+                        if status.active
+                            a.item.active(href='/users/r_history?status=' + status.code)= status.text
+                        else
+                            a.item(href='/users/r_history?status=' + status.code)= status.text
         div.article
             div.ui.header 荐购状态: 待处理
             table.ui.celled.table
@@ -43,16 +45,4 @@ block content
                             td= recommendation.isbn
                             td= recommendation.created_at
                             td= recommendation.status
-                tfoot
-                    tr
-                        th(colspan= 7)
-                            div.ui.right.floated.pagination.menu
-                                a.icon.item
-                                    i.left.chevron.icon
-                                a.item 1
-                                a.item 2
-                                a.item 3
-                                a.item 4
-                                a.icon.item
-                                    i.right.chevron.icon
-
+                +pagination('/users/r_history', activeStatus? 'status=' + activeStatus : '')

@@ -4,6 +4,7 @@ var _ = require('lodash');
 
 var middlewares = require('../middlewares');
 var models = require('../models');
+var utils = require('../utils');
 
 /* GET users listing. */
 //router.get('/shelf', function(req, res, next) {
@@ -42,12 +43,12 @@ router.get('/r_history', function (req, res, next) {
         }
         console.log('promise all!');
         Promise.all(getBookInfoPromises).then(function (_data) {
-            var recommendationData = [];
+            var data = [];
             for (var i = 0; i < recommendations.length; ++i) {
                 var datum = _data[i].toJSON();
                 console.log(datum);
                 datum.created_at = recommendations[i].created_at;
-                recommendationData.push({
+                data.push({
                     title: datum.title,
                     author: datum.author,
                     pub_info: datum.pub_info,
@@ -57,16 +58,43 @@ router.get('/r_history', function (req, res, next) {
                     created_at: recommendations[i].created_at
                 });
             }
-            console.log(recommendationData);
+            console.log(data);
+            var stata = {
+                0: {
+                    code: 0,
+                    text: '待处理'
+                },
+                1: {
+                    code: 1,
+                    text: '不订购'
+                },
+                2: {
+                    code: 2,
+                    text: '已订购'
+                }
+            }
+            var viewData = {};
             if (req.query.status) {
                 var status = parseInt(req.query.status);
-                recommendationData = _.filter(recommendationData, function(entry) {
+                data = _.filter(data, function (entry) {
                     return entry.status == status;
                 });
+                console.log(status);
+                stata[status].active = true;
+                viewData.activeStatus = status;
             }
-            res.render('users/r_history', {
-                recommendations: recommendationData
-            });
+            console.log(stata);
+
+            var pageNumber = (req.query.page) ? parseInt(req.query.page) : 1;
+            var pageSize = 20;
+            var pages = utils.paginate(pageSize, data.length, pageNumber);
+            if (data.length > pageSize) {
+                data = data.slice((pageNumber - 1) * pageSize, (pageNumber) * pageSize)
+            }
+            viewData.pages = pages;
+            viewData.stata = stata;
+            viewData.recommendations = data;
+            res.render('users/r_history', viewData);
         })
     });
 
