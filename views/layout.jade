@@ -43,24 +43,37 @@ html
     body.pushable
         div.ui.large.top.fixed.hidden.menu
             div.ui.container
-                a.item(href='/') 首页
-                a.active.item(href='/books') 书库博览
-                a.item(href='/recommend/history') 读者荐购
-                a.item(href='/users') 个人中心
+                each link in links
+                    if link.active
+                        a.active.item(href=link.url)= link.text
+                    else
+                        a.item(href=link.url)= link.text
                 div.right.menu
-                    div.item
-                        a.ui.button Log In
-                    div.item
-                        a.ui.primary.button Sign Up
+                    if user
+                        //div.user= JSON.stringify(user)
+                        div.item= 'Hello ' + user.name
+                        div.item
+                            a.ui.button(href='/account/login') Log out
+                    else
+                        div.item
+                            a.ui.primary.button(href='/account/login') Log In
+                        div.item
+                            a.ui.button(href='/account/signup') Sign Up
         //Sidebar Menu
 
         div.ui.vertical.inverted.sidebar.menu
-            a.item(href='/') 首页
-            a.active.item(href='/books') 书库博览
-            a.item(href='/recommend/history') 读者荐购
-            a.item(href='/users') 个人中心
-            a.item Log In
-            a.item Sign Up
+            each link in links
+                if link.active
+                    a.active.item(href=link.url)= link.text
+                else
+                    a.item(href=link.url)= link.text
+            if user
+                //div.user= JSON.stringify(user)
+                div.item= 'Hello ' + user.name
+                a.item(href='/account/login') Log out
+            else
+                a.item(href='/account/login') Log In
+                a.item(href='/account/signup') Sign Up
 
         //Page Contents
         div.pusher
