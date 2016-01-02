@@ -11,6 +11,7 @@ exports.up = function (knex, Promise) {
             table.integer('total_lend_count');
             //table.integer('author_id');
             table.integer('stock');
+            table.integer('status');
         })
         .createTable('categories', function (table) {
             table.increments('id').primary();

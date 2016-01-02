@@ -14,7 +14,7 @@ exports.seed = function (knex, Promise) {
             author: '设计复',
             stock: 33,
             pub_year: 1994,
-            category_char: 'A'
+            category_char: 'A', status: 0
         }),
         knex('books').insert({
             id: 2,
@@ -26,7 +26,7 @@ exports.seed = function (knex, Promise) {
             author: '设计复',
             stock: 33,
             pub_year: 1994,
-            category_char: 'A'
+            category_char: 'A', status: 0
         }),
         knex('books').insert({
             title: '记',
@@ -37,7 +37,7 @@ exports.seed = function (knex, Promise) {
             author: '设计复',
             stock: 33,
             pub_year: 1994,
-            category_char: 'A'
+            category_char: 'A', status: 0
         }),
         knex('books').insert({
             title: '记',
@@ -48,7 +48,7 @@ exports.seed = function (knex, Promise) {
             author: '设计复',
             stock: 33,
             pub_year: 1994,
-            category_char: 'A'
+            category_char: 'A', status: 0
         }),
         knex('books').insert({
             title: '记',
@@ -59,7 +59,7 @@ exports.seed = function (knex, Promise) {
             author: '设计复',
             stock: 33,
             pub_year: 1994,
-            category_char: 'A'
+            category_char: 'A', status: 0
         }),
         knex('books').insert({
             title: '记',
@@ -70,7 +70,7 @@ exports.seed = function (knex, Promise) {
             author: '设计复',
             stock: 33,
             pub_year: 1994,
-            category_char: 'A'
+            category_char: 'A', status: 0
         }),
         knex('books').insert({
             title: '记',
@@ -81,7 +81,7 @@ exports.seed = function (knex, Promise) {
             author: '设计复',
             stock: 33,
             pub_year: 1994,
-            category_char: 'A'
+            category_char: 'A', status: 0
         }),
         knex('books').insert({
             title: '记',
@@ -92,7 +92,7 @@ exports.seed = function (knex, Promise) {
             author: '设计复',
             stock: 33,
             pub_year: 1994,
-            category_char: 'A'
+            category_char: 'A', status: 0
         }),
         knex('books').insert({
             title: '记',
@@ -103,7 +103,7 @@ exports.seed = function (knex, Promise) {
             author: '设计复',
             stock: 33,
             pub_year: 1994,
-            category_char: 'A'
+            category_char: 'A', status: 0
         }),
         knex('books').insert({
             title: '记',
@@ -114,7 +114,7 @@ exports.seed = function (knex, Promise) {
             author: '设计复',
             stock: 33,
             pub_year: 1994,
-            category_char: 'A'
+            category_char: 'A', status: 0
         }),
         knex('books').insert({
             title: '记',
@@ -125,7 +125,7 @@ exports.seed = function (knex, Promise) {
             author: '设计复',
             stock: 33,
             pub_year: 1994,
-            category_char: 'A'
+            category_char: 'A', status: 0
         }),
         knex('books').insert({
             title: '记',
@@ -136,7 +136,7 @@ exports.seed = function (knex, Promise) {
             author: '设计复',
             stock: 33,
             pub_year: 1994,
-            category_char: 'A'
+            category_char: 'A', status: 0
         }),
         knex('books').insert({
             title: '记',
@@ -147,7 +147,7 @@ exports.seed = function (knex, Promise) {
             author: '设计复',
             stock: 33,
             pub_year: 1994,
-            category_char: 'A'
+            category_char: 'A', status: 0
         }),
         knex('books').insert({
             title: '记',
@@ -158,7 +158,7 @@ exports.seed = function (knex, Promise) {
             author: '设计复',
             stock: 33,
             pub_year: 1994,
-            category_char: 'A'
+            category_char: 'A', status: 0
         }),
         knex('books').insert({
             title: '记',
@@ -169,7 +169,7 @@ exports.seed = function (knex, Promise) {
             author: '设计复',
             stock: 33,
             pub_year: 1994,
-            category_char: 'A'
+            category_char: 'A', status: 0
         }),
         knex('books').insert({
             title: '记',
@@ -180,7 +180,7 @@ exports.seed = function (knex, Promise) {
             author: '设计复',
             stock: 33,
             pub_year: 1994,
-            category_char: 'A'
+            category_char: 'A', status: 0
         }),
         knex('books').insert({
             title: '记',
@@ -191,7 +191,7 @@ exports.seed = function (knex, Promise) {
             author: '设计复',
             stock: 33,
             pub_year: 1994,
-            category_char: 'A'
+            category_char: 'A', status: 0
         }),
         knex('books').insert({
             title: '记',
@@ -202,7 +202,7 @@ exports.seed = function (knex, Promise) {
             author: '设计复',
             stock: 33,
             pub_year: 1994,
-            category_char: 'A'
+            category_char: 'A', status: 0
         }),
         knex('books').insert({
             title: '记',
@@ -213,7 +213,7 @@ exports.seed = function (knex, Promise) {
             author: '设计复',
             stock: 33,
             pub_year: 1994,
-            category_char: 'A'
+            category_char: 'A', status: 0
         }),
         knex('books').insert({
             title: '记',
@@ -224,7 +224,7 @@ exports.seed = function (knex, Promise) {
             author: '设计复',
             stock: 33,
             pub_year: 1994,
-            category_char: 'A'
+            category_char: 'A', status: 0
         }),
         knex('books').insert({
             title: '记',
@@ -235,7 +235,7 @@ exports.seed = function (knex, Promise) {
             author: '设计复',
             stock: 33,
             pub_year: 1994,
-            category_char: 'A'
+            category_char: 'A', status: 0
         }),
         knex('books').insert({
             title: '记',
@@ -246,7 +246,7 @@ exports.seed = function (knex, Promise) {
             author: '设计复',
             stock: 33,
             pub_year: 1994,
-            category_char: 'A'
+            category_char: 'A', status: 0
         }),
         knex('books').insert({
             title: '记',
@@ -257,7 +257,7 @@ exports.seed = function (knex, Promise) {
             author: '设计复',
             stock: 33,
             pub_year: 1994,
-            category_char: 'A'
+            category_char: 'A', status: 0
         }),
         knex('books').insert({
             title: '记',
@@ -268,7 +268,7 @@ exports.seed = function (knex, Promise) {
             author: '设计复',
             stock: 33,
             pub_year: 1994,
-            category_char: 'A'
+            category_char: 'A', status: 0
         }),
         knex('books').insert({
             title: '记',
@@ -279,7 +279,7 @@ exports.seed = function (knex, Promise) {
             author: '设计复',
             stock: 33,
             pub_year: 1994,
-            category_char: 'A'
+            category_char: 'A', status: 0
         }),
         knex('books').insert({
             title: '记',
@@ -290,7 +290,7 @@ exports.seed = function (knex, Promise) {
             author: '设计复',
             stock: 33,
             pub_year: 1994,
-            category_char: 'A'
+            category_char: 'A', status: 0
         }),
         knex('books').insert({
             title: '记',
@@ -301,7 +301,7 @@ exports.seed = function (knex, Promise) {
             author: '设计复',
             stock: 33,
             pub_year: 1994,
-            category_char: 'A'
+            category_char: 'A', status: 0
         }),
         knex('books').insert({
             title: '记',
@@ -312,7 +312,7 @@ exports.seed = function (knex, Promise) {
             author: '设计复',
             stock: 33,
             pub_year: 1994,
-            category_char: 'A'
+            category_char: 'A', status: 0
         }),
         knex('books').insert({
             title: '记',
@@ -323,7 +323,7 @@ exports.seed = function (knex, Promise) {
             author: '设计复',
             stock: 33,
             pub_year: 1994,
-            category_char: 'A'
+            category_char: 'A', status: 0
         }),
         knex('books').insert({
             title: '记',
@@ -334,7 +334,7 @@ exports.seed = function (knex, Promise) {
             author: '设计复',
             stock: 33,
             pub_year: 1994,
-            category_char: 'A'
+            category_char: 'A', status: 0
         }),
         knex('books').insert({
             title: '记',
@@ -345,7 +345,7 @@ exports.seed = function (knex, Promise) {
             author: '设计复',
             stock: 33,
             pub_year: 1994,
-            category_char: 'A'
+            category_char: 'A', status: 0
         }),
         knex('books').insert({
             title: '记',
@@ -356,7 +356,7 @@ exports.seed = function (knex, Promise) {
             author: '设计复',
             stock: 33,
             pub_year: 1994,
-            category_char: 'A'
+            category_char: 'A', status: 0
         }),
         knex('books').insert({
             title: '记',
@@ -367,7 +367,7 @@ exports.seed = function (knex, Promise) {
             author: '设计复',
             stock: 33,
             pub_year: 1994,
-            category_char: 'A'
+            category_char: 'A', status: 0
         }),
         knex('books').insert({
             title: '记',
@@ -378,7 +378,7 @@ exports.seed = function (knex, Promise) {
             author: '设计复',
             stock: 33,
             pub_year: 1994,
-            category_char: 'A'
+            category_char: 'A', status: 0
         }),
         knex('books').insert({
             title: '记',
@@ -389,7 +389,7 @@ exports.seed = function (knex, Promise) {
             author: '设计复',
             stock: 33,
             pub_year: 1994,
-            category_char: 'A'
+            category_char: 'A', status: 0
         }),
         knex('books').insert({
             title: '记',
@@ -400,7 +400,7 @@ exports.seed = function (knex, Promise) {
             author: '设计复',
             stock: 33,
             pub_year: 1994,
-            category_char: 'A'
+            category_char: 'A', status: 0
         }),
         knex('books').insert({
             title: '记',
@@ -411,7 +411,7 @@ exports.seed = function (knex, Promise) {
             author: '设计复',
             stock: 33,
             pub_year: 1994,
-            category_char: 'A'
+            category_char: 'A', status: 0
         }),
         knex('books').insert({
             title: '记',
@@ -422,7 +422,7 @@ exports.seed = function (knex, Promise) {
             author: '设计复',
             stock: 33,
             pub_year: 1994,
-            category_char: 'A'
+            category_char: 'A', status: 0
         }),
         knex('books').insert({
             title: '记',
@@ -433,7 +433,7 @@ exports.seed = function (knex, Promise) {
             author: '设计复',
             stock: 33,
             pub_year: 1994,
-            category_char: 'A'
+            category_char: 'A', status: 0
         }),
         knex('books').insert({
             title: '记',
@@ -444,7 +444,7 @@ exports.seed = function (knex, Promise) {
             author: '设计复',
             stock: 33,
             pub_year: 1994,
-            category_char: 'A'
+            category_char: 'A', status: 0
         }),
         knex('books').insert({
             title: '记',
@@ -455,7 +455,7 @@ exports.seed = function (knex, Promise) {
             author: '设计复',
             stock: 33,
             pub_year: 1994,
-            category_char: 'A'
+            category_char: 'A', status: 0
         }),
         knex('books').insert({
             title: '记',
@@ -466,7 +466,7 @@ exports.seed = function (knex, Promise) {
             author: '设计复',
             stock: 33,
             pub_year: 1994,
-            category_char: 'A'
+            category_char: 'A', status: 0
         }),
         knex('books').insert({
             title: '记',
@@ -477,7 +477,7 @@ exports.seed = function (knex, Promise) {
             author: '设计复',
             stock: 33,
             pub_year: 1994,
-            category_char: 'A'
+            category_char: 'A', status: 0
         }),
         knex('books').insert({
             title: '记',
@@ -488,7 +488,7 @@ exports.seed = function (knex, Promise) {
             author: '设计复',
             stock: 33,
             pub_year: 1994,
-            category_char: 'A'
+            category_char: 'A', status: 0
         }),
         knex('books').insert({
             title: '记',
@@ -499,7 +499,7 @@ exports.seed = function (knex, Promise) {
             author: '设计复',
             stock: 33,
             pub_year: 1994,
-            category_char: 'A'
+            category_char: 'A', status: 0
         }),
         knex('books').insert({
             title: '记',
@@ -510,7 +510,7 @@ exports.seed = function (knex, Promise) {
             author: '设计复',
             stock: 33,
             pub_year: 1994,
-            category_char: 'A'
+            category_char: 'A', status: 0
         }),
         knex('books').insert({
             title: '记',
@@ -521,7 +521,7 @@ exports.seed = function (knex, Promise) {
             author: '设计复',
             stock: 33,
             pub_year: 1994,
-            category_char: 'A'
+            category_char: 'A', status: 0
         }),
         knex('books').insert({
             title: '记',
@@ -532,7 +532,7 @@ exports.seed = function (knex, Promise) {
             author: '设计复',
             stock: 33,
             pub_year: 1994,
-            category_char: 'A'
+            category_char: 'A', status: 0
         }),
         knex('books').insert({
             title: '记',
@@ -543,7 +543,7 @@ exports.seed = function (knex, Promise) {
             author: '设计复',
             stock: 33,
             pub_year: 1994,
-            category_char: 'A'
+            category_char: 'A', status: 0
         }),
         knex('books').insert({
             title: '记',
@@ -554,7 +554,7 @@ exports.seed = function (knex, Promise) {
             author: '设计复',
             stock: 33,
             pub_year: 1994,
-            category_char: 'A'
+            category_char: 'A', status: 0
         }),
         knex('books').insert({
             title: '记',
@@ -565,7 +565,7 @@ exports.seed = function (knex, Promise) {
             author: '设计复',
             stock: 33,
             pub_year: 1994,
-            category_char: 'A'
+            category_char: 'A', status: 0
         }),
         knex('books').insert({
             title: '记',
@@ -576,7 +576,7 @@ exports.seed = function (knex, Promise) {
             author: '设计复',
             stock: 33,
             pub_year: 1994,
-            category_char: 'A'
+            category_char: 'A', status: 0
         }),
         knex('books').insert({
             title: '记',
@@ -587,7 +587,7 @@ exports.seed = function (knex, Promise) {
             author: '设计复',
             stock: 33,
             pub_year: 1994,
-            category_char: 'A'
+            category_char: 'A', status: 0
         }),
         knex('books').insert({
             title: '记',
@@ -598,7 +598,7 @@ exports.seed = function (knex, Promise) {
             author: '设计复',
             stock: 33,
             pub_year: 1994,
-            category_char: 'A'
+            category_char: 'A', status: 0
         }),
         knex('books').insert({
             title: '记',
@@ -609,7 +609,7 @@ exports.seed = function (knex, Promise) {
             author: '设计复',
             stock: 33,
             pub_year: 1994,
-            category_char: 'A'
+            category_char: 'A', status: 0
         }),
         knex('books').insert({
             title: '记',
@@ -620,7 +620,7 @@ exports.seed = function (knex, Promise) {
             author: '设计复',
             stock: 33,
             pub_year: 1994,
-            category_char: 'A'
+            category_char: 'A', status: 0
         }),
         knex('books').insert({
             title: '记',
@@ -631,7 +631,7 @@ exports.seed = function (knex, Promise) {
             author: '设计复',
             stock: 33,
             pub_year: 1994,
-            category_char: 'A'
+            category_char: 'A', status: 0
         }),
         knex('books').insert({
             title: '记',
@@ -642,7 +642,7 @@ exports.seed = function (knex, Promise) {
             author: '设计复',
             stock: 33,
             pub_year: 1994,
-            category_char: 'A'
+            category_char: 'A', status: 0
         }),
         knex('books').insert({
             title: '记',
@@ -653,7 +653,7 @@ exports.seed = function (knex, Promise) {
             author: '设计复',
             stock: 33,
             pub_year: 1994,
-            category_char: 'A'
+            category_char: 'A', status: 0
         }),
         knex('books').insert({
             title: '记',
@@ -664,7 +664,7 @@ exports.seed = function (knex, Promise) {
             author: '设计复',
             stock: 33,
             pub_year: 1994,
-            category_char: 'A'
+            category_char: 'A', status: 0
         }),
         knex('books').insert({
             title: '记',
@@ -675,7 +675,7 @@ exports.seed = function (knex, Promise) {
             author: '设计复',
             stock: 33,
             pub_year: 1994,
-            category_char: 'A'
+            category_char: 'A', status: 0
         }),
         knex('books').insert({
             title: '记',
@@ -686,7 +686,7 @@ exports.seed = function (knex, Promise) {
             author: '设计复',
             stock: 33,
             pub_year: 1994,
-            category_char: 'A'
+            category_char: 'A', status: 0
         }),
         knex('books').insert({
             title: '记',
@@ -697,7 +697,7 @@ exports.seed = function (knex, Promise) {
             author: '设计复',
             stock: 33,
             pub_year: 1994,
-            category_char: 'A'
+            category_char: 'A', status: 0
         }),
         knex('books').insert({
             title: '记',
@@ -708,7 +708,7 @@ exports.seed = function (knex, Promise) {
             author: '设计复',
             stock: 33,
             pub_year: 1994,
-            category_char: 'A'
+            category_char: 'A', status: 0
         }),
         knex('books').insert({
             title: '记',
@@ -719,7 +719,7 @@ exports.seed = function (knex, Promise) {
             author: '设计复',
             stock: 33,
             pub_year: 1994,
-            category_char: 'A'
+            category_char: 'A', status: 0
         }),
         knex('books').insert({
             title: '记',
@@ -730,7 +730,7 @@ exports.seed = function (knex, Promise) {
             author: '设计复',
             stock: 33,
             pub_year: 1994,
-            category_char: 'A'
+            category_char: 'A', status: 0
         }),
         knex('books').insert({
             title: '记',
@@ -741,7 +741,7 @@ exports.seed = function (knex, Promise) {
             author: '设计复',
             stock: 33,
             pub_year: 1994,
-            category_char: 'A'
+            category_char: 'A', status: 0
         }),
         knex('books').insert({
             title: '记',
@@ -752,7 +752,7 @@ exports.seed = function (knex, Promise) {
             author: '设计复',
             stock: 33,
             pub_year: 1994,
-            category_char: 'A'
+            category_char: 'A', status: 0
         }),
         knex('books').insert({
             title: '记',
@@ -763,7 +763,7 @@ exports.seed = function (knex, Promise) {
             author: '设计复',
             stock: 33,
             pub_year: 1994,
-            category_char: 'A'
+            category_char: 'A', status: 0
         }),
         knex('books').insert({
             title: '记',
@@ -774,7 +774,7 @@ exports.seed = function (knex, Promise) {
             author: '设计复',
             stock: 33,
             pub_year: 1994,
-            category_char: 'A'
+            category_char: 'A', status: 0
         })
     );
 };

@@ -12,6 +12,7 @@ block content
             div.ui.container
                 div.ui.header 书目信息
             if book
+                div= JSON.stringify(book)
                 div.ui.segment.piled.container
                     h2.ui.header 梵高传
                     div.ui.relaxed.divided.list
@@ -50,5 +51,7 @@ block content
                                 h4.header 摘要
                                 div.description= book.detail
                         div.item
-                            button.ui.button 预约
-                            button.ui.disabled.button 已预约
+                            if book.status === 0
+                                button.ui.button 预约
+                            else
+                                button.ui.disabled.button 已预约
