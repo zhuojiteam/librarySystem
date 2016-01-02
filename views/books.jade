@@ -1,4 +1,5 @@
 extends layout
+include ./mixins/pagination
 
 block content
     //div.ui.tabular.menu
@@ -39,20 +40,4 @@ block content
                                 td= book.isbn
                                 td= book.stock
                                 td= book.stock - book.lend_count
-                if pages
-                    tfoot
-                        tr
-                            th(colspan= 7)
-                                div.ui.right.floated.pagination.menu
-                                    if pages.prev.if
-                                        a.icon.item(href='/books/'+category.char+'?page='+pages.prev.number)
-                                            i.left.chevron.icon
-                                    if pages.current
-                                        each page in pages.current
-                                            if page.active
-                                                a.item.active(href='/books/'+category.char+'?page='+page.number)= page.number
-                                            else
-                                                a.item(href='/books/'+category.char+'?page='+page.number)= page.number
-                                    if pages.next.if
-                                        a.icon.item(href='/books/'+category.char+'?page='+pages.next.number)
-                                            i.right.chevron.icon
+                +pagination('/books/' + category.char)

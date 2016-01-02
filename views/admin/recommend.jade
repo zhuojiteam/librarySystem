@@ -1,6 +1,7 @@
 //
    Created by chenyulu on 15/12/27.
 extends ../layout
+include ../mixins/pagination
 
 block content
     div.ui.tabular.menu
@@ -70,21 +71,7 @@ block content
                         td lulucici
                         td lulucici
                         td lulucici
-                tfoot
-                    tr
-                        th(colspan= 9)
-                            a.ui.small.button 订购
-                            a.ui.small.grey.button 不订购
-                            div.ui.right.floated.pagination.menu
-                                a.icon.item
-                                    i.left.chevron.icon
-                                a.item 1
-                                a.item 2
-                                a.item 3
-                                a.item 4
-                                a.icon.item
-                                    i.right.chevron.icon
-
+                +pagination('/recommend/history')
 
 
 
