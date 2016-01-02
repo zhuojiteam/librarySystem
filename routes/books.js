@@ -2,15 +2,15 @@ var express = require('express');
 var router = express.Router();
 var models = require('../models');
 
-router.get('/', function(req, res, next) {
-    //res.send('there are books.');
-    res.render('books', {
-
-    });
-
-
-
-});
+//router.get('/', function(req, res, next) {
+//    //res.send('there are books.');
+//    res.render('books', {
+//
+//    });
+//
+//
+//
+//});
 
 router.get('/:id(\\d+)/', function(req, res) {
 
@@ -19,35 +19,47 @@ router.get('/:id(\\d+)/', function(req, res) {
     });
 });
 
-router.get('/:category([A-Z])', function(req, res, next) {
+router.get('/:category([A-Z]?)', function(req, res, next) {
 
-    var fetchCategory = models.Category
-        .where({char: req.params.category})
-        .fetch();
     var fetchAllCategory = models.Category
         .collection()
         .fetch();
+    var promiseArray = [fetchAllCategory];
+    if (req.params.category) {
+        var fetchCategory = models.Category
+            .where({char: req.params.category})
+            .fetch();
+        promiseArray.push(fetchCategory);
+    };
 
-    Promise.all([fetchCategory, fetchAllCategory])
+    Promise.all(promiseArray)
         .then(function(data) {
-            var category = data[0];
-            var allCategories = data[1];
-            console.log(category);
+
+            var allCategories = data[0];
             console.log(allCategories);
-            /**
-             * If category exists, directly render the page.
-             * Otherwise, show error message.
-             */
-            if (category) {
+            if (!req.params.category) {
+                var category = data[0];
+                console.log(category);
                 res.render('books', {
                     categories: allCategories.toJSON()
                 });
             } else {
-                res.render('books', {
-                    categories: allCategories.toJSON(),
-                    error: '没有这个分类~'
-                });
+                /**
+                 * If category exists, directly render the page.
+                 * Otherwise, show error message.
+                 */
+                if (category) {
+                    res.render('books', {
+                        categories: allCategories.toJSON()
+                    });
+                } else {
+                    res.render('books', {
+                        categories: allCategories.toJSON(),
+                        error: '没有这个分类~'
+                    });
+                }
             }
+
         });
 });
 

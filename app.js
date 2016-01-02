@@ -100,14 +100,28 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(require('flash')());
 app.use(require('./middlewares').user)
+app.use(require('./middlewares').initLink)
 
 app.use('/', routes);
-app.use('/users', users);
-app.use('/books', books);
-app.use('/recommend', recommend);
-app.use('/admin', admin);
+app.use('/users', function (req, res, next) {
+    res.locals.links[3].active = true;
+    next();
+}, users);
+app.use('/books', function (req, res, next) {
+    res.locals.links[1].active = true;
+    next();
+}, books);
+app.use('/recommend', function (req, res, next) {
+    res.locals.links[2].active = true;
+    next();
+}, recommend);
+app.use('/admin', function (req, res, next) {
+    next();
+}, admin);
 app.use('/test', test);
-app.use('/account', router);
+app.use('/account', function (req, res, next) {
+    next();
+}, router);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
@@ -145,20 +159,20 @@ router.get('/signup', function (req, res, next) {
 router.post('/signup', function (req, res, next) {
     //res.send('there are books.');
     console.log(req.body);
-    models.User
-        .where({
-            name: req.body.name,
-        })
-        .fetch()
-        .then(function (user) {
-            console.log('=====');
-            console.log(user);
-            console.log('=====');
-            if (user) {
-                res.render('signup', {
-                    error: '用户名已经存在!'
-                });
-            } else {
+    //models.User
+    //    .where({
+    //        name: req.body.name,
+    //    })
+    //    .fetch()
+    //    .then(function (user) {
+    //        console.log('=====');
+    //        console.log(user);
+    //        console.log('=====');
+    //        if (user) {
+    //            res.render('signup', {
+    //                error: '用户名已经存在!'
+    //            });
+    //        } else {
 
                 models.User
                     .where({
@@ -197,8 +211,8 @@ router.post('/signup', function (req, res, next) {
                                 });
                         }
                     });
-            }
-        });
+        //    }
+    //});
 });
 
 router.get('/login', function (req, res, next) {

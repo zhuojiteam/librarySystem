@@ -13,5 +13,29 @@ module.exports = {
         } else {
             next();
         }
+    },
+    initLink: function(req, res, next) {
+        var newLink = function() {
+            return [
+                {
+                    url: '/',
+                    text: '首页'
+                },
+                {
+                    url: '/books',
+                    text: '书库博览'
+                },
+                {
+                    url: '/recommend/history',
+                    text: '读者荐购'
+                },
+                {
+                    url: '/users',
+                    text: '个人中心'
+                }
+            ]
+        };
+        res.locals.links = newLink();
+        next();
     }
 }
