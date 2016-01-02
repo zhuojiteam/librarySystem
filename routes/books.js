@@ -34,23 +34,22 @@ router.get('/:category([A-Z]?)', function(req, res, next) {
 
     Promise.all(promiseArray)
         .then(function(data) {
-
             var allCategories = data[0];
-            console.log(allCategories);
             if (!req.params.category) {
-                var category = data[0];
-                console.log(category);
                 res.render('books', {
                     categories: allCategories.toJSON()
                 });
             } else {
+                var category = data[1];
+                console.log(category);
                 /**
                  * If category exists, directly render the page.
                  * Otherwise, show error message.
                  */
                 if (category) {
                     res.render('books', {
-                        categories: allCategories.toJSON()
+                        categories: allCategories.toJSON(),
+                        category: category.toJSON()
                     });
                 } else {
                     res.render('books', {

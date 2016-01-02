@@ -10,7 +10,7 @@ block content
         include partials/book_list
         div.article
             //div.ui.masthead.vertical.segment
-            div.ui.header#navbar 分类: B 哲学、宗教
+            div.ui.header#navbar= '分类: ' + category.char + ' ' + category.name
                 div.ui.text.menu#navbar
                     a.header.item(style='padding-left: 0;') 结果
                     a.active.item 5
