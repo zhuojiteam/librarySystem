@@ -85,10 +85,14 @@ html
                                 a.ui.inverted.button(href='/account/login') Log In
                             div.item
                                 a.ui.inverted.button(href='/account/signup') Sign Up
-            if message
-                div= message
-            if error
-                div= error
+            div.ui.header
+                if message
+                    div= message
+                if error
+                    div= error
+                each message in flash
+                    a.alert(class='alert-' + message.type)
+                        p= message.message
             block content
 
         include footer

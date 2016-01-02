@@ -38,6 +38,7 @@ block content
                                 td= book.isbn
                                 td= book.stock
                                 td= book.stock - book.lend_count
+                if pages
                     tfoot
                         tr
                             th(colspan= 7)

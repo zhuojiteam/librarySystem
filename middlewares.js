@@ -1,3 +1,4 @@
+var models = require('./models');
 module.exports = {
     user: function (req, res, next) {
         //console.log(req);
@@ -49,5 +50,14 @@ module.exports = {
         };
         res.locals.links = newLink();
         next();
+    },
+    categoryList: function (req, res, next) {
+        models.Category
+            .collection()
+            .fetch()
+            .then(function(allCategories) {
+                res.locals.categories = allCategories.toJSON()
+                next();
+            });
     }
 }

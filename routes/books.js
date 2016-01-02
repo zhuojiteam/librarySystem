@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var models = require('../models');
+var middlewares = require('../middlewares');
 
 //router.get('/', function(req, res, next) {
 //    //res.send('there are books.');
@@ -12,9 +13,26 @@ var models = require('../models');
 //
 //});
 
-router.get('/:id(\\d+)/', function (req, res) {
+router.get('/:id(\\d+)/', middlewares.categoryList ,function (req, res) {
+    models.Book
+        .where({
+            id: req.params.id
+        })
+        .fetch()
+        .then(function (book) {
+            if (book) {
+                res.render('books/detail', {
+                    book: book.toJSON()
+                });
+            } else {
+                req.flash('error', '没有这本书!');
+                res.render('books/detail', {
+                });
+            }
 
-    res.render('books/detail/detail', {});
+        })
+
+
 });
 
 router.get('/:category([A-Z]?)', function (req, res, next) {
@@ -83,15 +101,18 @@ router.get('/:category([A-Z]?)', function (req, res, next) {
                             categories: allCategories.toJSON(),
                             books: data,
                             count: count,
-                            pages: {
+
+                        }
+                        if (pages.length > 0) {
+                            viewData.pages = {
                                 prev: {
                                     if: (pages[0].number - 1 >= 1),
-                                    number: pages[0].number - 1
+                                        number: pages[0].number - 1
                                 },
                                 current: pages,
-                                next: {
+                                    next: {
                                     if: (pages[pages.length - 1].number + 1 <= totalPageNumber),
-                                    number: pages[pages.length - 1].number + 1
+                                        number: pages[pages.length - 1].number + 1
                                 }
                             }
                         }
