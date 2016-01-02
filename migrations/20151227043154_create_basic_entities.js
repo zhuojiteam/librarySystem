@@ -20,6 +20,12 @@ exports.up = function (knex, Promise) {
         })
         .createTable('recommendations', function (table) {
             table.increments('id').primary();
+            table.string('title');
+            table.string('detail');
+            table.string('pub_info');
+            table.integer('pub_year');
+            table.string('isbn');
+            table.string('author');
         })
         .createTable('appointments', function (table) {
             table.increments('id').primary();

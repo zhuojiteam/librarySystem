@@ -9,9 +9,57 @@ var middlewares = require('../middlewares');
 
 router.get('/history', function (req, res, next) {
 
-    models.Book.where();
+    models.Recommendation
+        .collection()
+        .fetch()
+        .then(function (recommendations) {
+            var data = recommendations.toJSON();
+            //console.log(books.toJSON());
+            var count = data.length;
+            var pageSize = 20;
+            var pageNumber = (req.query.page) ? parseInt(req.query.page) : 1;
 
-    res.render('recommend/history', {});
+            var pages = [];
+            var totalPageNumber = Math.floor(parseInt(count - 1) / parseInt(pageSize)) + 1;
+            if (pageNumber > pageSize) pageNumber = pageSize;
+            if (pageNumber < 1) pageNumber = 1;
+            var i, j
+            console.log('pushing!', pageNumber, totalPageNumber);
+            for (
+                i = (pageNumber - 2 >= 1) ? pageNumber - 2 : 1, j = 0;
+                i <= totalPageNumber && j < 5;
+                ++i, ++j
+            ) {
+
+                pages.push({
+                    active: (i == pageNumber),
+                    number: i
+                })
+            }
+
+            if (data.length > pageSize) {
+                data = data.slice((pageNumber - 1) * pageSize, (pageNumber) * pageSize)
+            }
+            var viewData = {
+                recommendations: data,
+
+            }
+            if (pages.length > 0) {
+                viewData.pages = {
+                    prev: {
+                        if: (pages[0].number - 1 >= 1),
+                        number: pages[0].number - 1
+                    },
+                    current: pages,
+                    next: {
+                        if: (pages[pages.length - 1].number + 1 <= totalPageNumber),
+                        number: pages[pages.length - 1].number + 1
+                    }
+                }
+            }
+            res.render('recommend/history', viewData);
+        })
+
 });
 
 
@@ -36,11 +84,13 @@ router.post('/create', middlewares.userAuth, function (req, res) {
                 recommendation.status = 0;
                 models.Recommendation
                     .forge(recommendation)
-                    .save();
+                    .save()
+                    .then(function(data) {
+                        res.render('recommend/create', {
+                            message: '成功~'
+                        });
+                    });
             }
-            res.render('recommend/create', {
-                message: '成功~'
-            });
         })
 
 

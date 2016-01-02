@@ -31,7 +31,8 @@ block content
                         each book in books
                             //div= book
                             tr
-                                td= book.title
+                                td
+                                    a(href='/books/'+book.id)= book.title
                                 td= book.author
                                 td= book.pub_info
                                 td= book.pub_year

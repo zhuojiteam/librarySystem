@@ -18,30 +18,15 @@ block content
                         th 荐购日期
                         th 荐购状态
                 tbody
-                    tr
-                        td lulucici
-                        td lulucici
-                        td lulucici
-                        td lulucici
-                        td lulucici
-                        td lulucici
-                        td lulucici
-                    tr
-                        td lulucici
-                        td lulucici
-                        td lulucici
-                        td lulucici
-                        td lulucici
-                        td lulucici
-                        td lulucici
-                    tr
-                        td lulucici
-                        td lulucici
-                        td lulucici
-                        td lulucici
-                        td lulucici
-                        td lulucici
-                        td lulucici
+                    each recommendation in recommendations
+                        tr
+                            td= recommendation.title
+                            td= recommendation.author
+                            td= recommendation.pub_info
+                            td= recommendation.pub_year
+                            td= recommendation.isbn
+                            td= recommendation.created_at
+                            td= recommendation.status
                 tfoot
                     tr
                         th(colspan= 7)
