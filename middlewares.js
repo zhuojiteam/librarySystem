@@ -1,12 +1,12 @@
 module.exports = {
-    user: function(req, res, next) {
+    user: function (req, res, next) {
         //console.log(req);
         if (req.user) {
             res.locals.user = req.user;
         }
         next();
     },
-    userAuth: function(req, res, next) {
+    userAuth: function (req, res, next) {
         if (!(req.user)) {
             console.log(req);
             res.redirect('/account/login?redirect=' + req.originalUrl);
@@ -14,8 +14,20 @@ module.exports = {
             next();
         }
     },
-    initLink: function(req, res, next) {
-        var newLink = function() {
+    adminAuth: function (req, res, next) {
+        if (!(req.user)) {
+            console.log(req);
+            req.flash('info', '请先登录!');
+            res.redirect('/account/login?redirect=' + req.originalUrl);
+        } else if (req.user.permission == 0) {
+            req.flash('info', '管理员才能访问噢!');
+            res.redirect('/account/login?redirect=' + req.originalUrl);
+        } else {
+            next();
+        }
+    },
+    initLink: function (req, res, next) {
+        var newLink = function () {
             return [
                 {
                     url: '/',

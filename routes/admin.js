@@ -15,7 +15,7 @@ var knex = require('knex')({
 });
 
 var middlewares = require('../middlewares');
-router.use(middlewares.userAuth);
+router.use(middlewares.adminAuth);
 router.get('/', function (req, res, next) {
     //res.send('there are books.');
     res.render('admin/admin', {});

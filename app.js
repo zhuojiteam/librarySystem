@@ -46,7 +46,8 @@ passport.use(new LocalStrategy({
                 } else {
                     var userData = {
                         name: user.get('name'),
-                        email: user.get('email')
+                        email: user.get('email'),
+                        permission: user.get('permission')
                     }
                     console.log('User data is: ');
                     console.log(userData);
@@ -192,6 +193,7 @@ router.post('/signup', function (req, res, next) {
                                 name: req.body.name,
                                 email: req.body.password
                             };
+                            formData.permission = 0;
                             formData.password = bcrypt.hashSync(req.body.password);
                             req.body.password = undefined;
                             models.User

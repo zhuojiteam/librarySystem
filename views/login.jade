@@ -8,9 +8,10 @@ block content
     div.pusher
         div.full.height
             div.article
-                for message in flash
-                    a.alert(class='alert-' + message.type)
-                        p= message.message
+                div.ui.header
+                    each message in flash
+                        a.alert(class='alert-' + message.type)
+                            p= message.message
                 div.ui.container
                     h1.ui.header 登录
                     div.ui.container

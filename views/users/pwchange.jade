@@ -17,16 +17,16 @@ block content
                 a.active.item 更改密码
         div.article
             div.ui.header 更改密码
-            form.ui.form(style='width: 20em;')
+            form.ui.form(style='width: 20em;', method='post')
                 div.field
                     label 当前密码
-                    input(type='password')
+                    input(type='password', name='old_password')
                 div.field
                     label 新密码
-                    input(type='password')
+                    input(type='password', name='new_password')
                 div.field
                     label 确认密码
-                    input(type='password')
+                    input(type='password', name='re_new_password')
                 button.ui.button(type='submit') 确认更改
 
 

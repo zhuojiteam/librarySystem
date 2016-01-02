@@ -10,10 +10,12 @@ block content
         include partials/book_list
         div.article
             //div.ui.masthead.vertical.segment
-            div.ui.header#navbar= '分类: ' + category.char + ' ' + category.name
-                div.ui.text.menu#navbar
-                    a.header.item(style='padding-left: 0;') 结果
-                    a.active.item 5
+            if category.name
+                div.ui.header#navbar= '分类: ' + category.char + ' ' + category.name
+                if books
+                    div.ui.text.menu#navbar
+                        a.header.item(style='padding-left: 0;') 结果
+                        a.active.item= count
             table.ui.celled.table
                 thead
                     tr
@@ -24,40 +26,31 @@ block content
                         th ISBN
                         th 馆藏
                         th 可借
-                tbody
-                    tr
-                        td lulucici
-                        td lulucici
-                        td lulucici
-                        td lulucici
-                        td lulucici
-                        td lulucici
-                        td lulucici
-                    tr
-                        td lulucici
-                        td lulucici
-                        td lulucici
-                        td lulucici
-                        td lulucici
-                        td lulucici
-                        td lulucici
-                    tr
-                        td lulucici
-                        td lulucici
-                        td lulucici
-                        td lulucici
-                        td lulucici
-                        td lulucici
-                        td lulucici
-                tfoot
-                    tr
-                        th(colspan= 7)
-                            div.ui.right.floated.pagination.menu
-                                a.icon.item
-                                    i.left.chevron.icon
-                                a.item 1
-                                a.item 2
-                                a.item 3
-                                a.item 4
-                                a.icon.item
-                                    i.right.chevron.icon
+                if books
+                    tbody
+                        each book in books
+                            //div= book
+                            tr
+                                td= book.title
+                                td= book.author
+                                td= book.pub_info
+                                td= book.pub_year
+                                td= book.isbn
+                                td= book.stock
+                                td= book.stock - book.lend_count
+                    tfoot
+                        tr
+                            th(colspan= 7)
+                                div.ui.right.floated.pagination.menu
+                                    if pages.prev.if
+                                        a.icon.item(href='/books/'+category.char+'?page='+pages.prev.number)
+                                            i.left.chevron.icon
+                                    if pages.current
+                                        each page in pages.current
+                                            if page.active
+                                                a.item.active(href='/books/'+category.char+'?page='+page.number)= page.number
+                                            else
+                                                a.item(href='/books/'+category.char+'?page='+page.number)= page.number
+                                    if pages.next.if
+                                        a.icon.item(href='/books/'+category.char+'?page='+pages.next.number)
+                                            i.right.chevron.icon
