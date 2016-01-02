@@ -7,6 +7,7 @@ exports.up = function (knex, Promise) {
             table.string('pub_info');
             table.string('isbn');
             table.integer('lend_count');
+            table.integer('total_lend_count');
             //table.integer('author_id');
             table.integer('stock');
         })
