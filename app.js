@@ -18,6 +18,8 @@ var admin = require('./routes/admin');
 var test = require('./routes/test');
 var account = require('./routes/account');
 
+var middlewares = require('./middlewares');
+
 var models = require('./models');
 
 var app = express();
@@ -104,7 +106,7 @@ app.use(require('./middlewares').user)
 app.use(require('./middlewares').initLink)
 
 app.use('/', routes);
-app.use('/users', function (req, res, next) {
+app.use('/users', middlewares.userAuth ,function (req, res, next) {
     res.locals.links[3].active = true;
     next();
 }, users);
@@ -116,7 +118,8 @@ app.use('/recommend', function (req, res, next) {
     res.locals.links[2].active = true;
     next();
 }, recommend);
-app.use('/admin', function (req, res, next) {
+app.use('/admin',middlewares.adminAuth ,function (req, res, next) {
+    res.locals.links[4].active = true;
     next();
 }, admin);
 app.use('/test', test);

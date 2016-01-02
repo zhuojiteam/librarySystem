@@ -29,7 +29,7 @@ module.exports = {
     },
     initLink: function (req, res, next) {
         var newLink = function () {
-            return [
+            var links = [
                 {
                     url: '/',
                     text: '首页'
@@ -46,7 +46,14 @@ module.exports = {
                     url: '/users',
                     text: '个人中心'
                 }
-            ]
+            ];
+            if (req.user && req.user.permission > 0) {
+                links.push({
+                    url: '/admin',
+                    text: '后台管理'
+                })
+            }
+            return links;
         };
         res.locals.links = newLink();
         next();

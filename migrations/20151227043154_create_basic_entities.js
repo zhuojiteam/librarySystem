@@ -29,6 +29,7 @@ exports.up = function (knex, Promise) {
         })
         .createTable('appointments', function (table) {
             table.increments('id').primary();
+            table.integer('user_id');
             table.integer('book_id');
             table.integer('status');
             table.datetime('created_at');
@@ -37,6 +38,7 @@ exports.up = function (knex, Promise) {
         .createTable('borrows', function (table) {
             table.increments('id').primary();
             table.integer('book_id');
+            table.integer('user_id');
             table.integer('status');
             table.datetime('borrowed_at');
             table.datetime('returned_at');

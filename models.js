@@ -26,8 +26,28 @@ var Category = bookshelf.Model.extend({
 
 var Recommendation = bookshelf.Model.extend({
     tableName: 'recommendations',
-    users: function () {
+    user: function () {
         return this.belongsTo(User);
+    }
+});
+
+var Borrow = bookshelf.Model.extend({
+    tableName: 'borrows',
+    user: function () {
+        return this.belongsTo(User);
+    },
+    book: function() {
+        return this.hasOne(User);
+    }
+});
+
+var Appointment = bookshelf.Model.extend({
+    tableName: 'appointments',
+    user: function () {
+        return this.belongsTo(User);
+    },
+    book: function() {
+        return this.hasOne(User);
     }
 });
 
@@ -43,5 +63,7 @@ module.exports = {
     User: User,
     Category: Category,
     Recommendation: Recommendation,
+    Borrow: Borrow,
+    Appointment: Appointment,
     Author: Author,
 };
