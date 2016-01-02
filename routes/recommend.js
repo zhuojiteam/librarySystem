@@ -75,12 +75,15 @@ router.post('/create', middlewares.userAuth, function (req, res) {
         .fetch()
         .then(function (book) {
             if (book && book.get('status') === 10) {
+
+
                 res.render('recommend/create', {
                     error: '已经有~'
                 });
             } else {
                 var recommendation = _.assign({}, req.body);
                 recommendation.created_at = new Date();
+                recommendation.user_id = req.user.id;
                 recommendation.status = 0; // 0 is unfulfilled.
 
                 var book = _.assign({}, req.body);

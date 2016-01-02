@@ -1,7 +1,10 @@
 var express = require('express');
 var router = express.Router();
+var _ = require('lodash');
+
 var models = require('../models');
 var middlewares = require('../middlewares');
+
 
 //router.get('/', function(req, res, next) {
 //    //res.send('there are books.');
@@ -70,7 +73,9 @@ router.get('/:category([A-Z]?)', function (req, res, next) {
                     .where(where)
                     .fetchAll()
                     .then(function (books) {
-                        var data = books.toJSON();
+                        var data = _.filter(books.toJSON(), function(book) {
+                            return book.status != 10;
+                        });
                         //console.log(books.toJSON());
                         var count = data.length;
                         var pageSize = 20;

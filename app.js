@@ -47,6 +47,7 @@ passport.use(new LocalStrategy({
                     return done(null, false);
                 } else {
                     var userData = {
+                        id: user.get('id'),
                         name: user.get('name'),
                         email: user.get('email'),
                         permission: user.get('permission')
