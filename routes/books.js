@@ -85,13 +85,13 @@ router.get('/:category([A-Z]?)', function (req, res, next) {
                             count: count,
                             pages: {
                                 prev: {
-                                    if: (pages[0] - 1 >= 1),
-                                    number: pages[0] - 1
+                                    if: (pages[0].number - 1 >= 1),
+                                    number: pages[0].number - 1
                                 },
                                 current: pages,
                                 next: {
-                                    if: (pages[pages.length] + 1 <= totalPageNumber),
-                                    number: pages[pages.length]
+                                    if: (pages[pages.length - 1].number + 1 <= totalPageNumber),
+                                    number: pages[pages.length - 1].number + 1
                                 }
                             }
                         }
