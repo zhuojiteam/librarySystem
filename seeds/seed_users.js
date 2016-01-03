@@ -45,6 +45,6 @@ exports.seed = function (knex, Promise) {
             email: 'xiaolizi@lulucici.me',
             password: '$2a$10$NwCM5zI1CGGt4RYJMb6wteKqzXQH81lk1pqJge.w.hWA5STny1SPS',
             permission: 0
-        })
+        }),
     );
 };
