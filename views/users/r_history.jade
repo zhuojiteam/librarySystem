@@ -24,7 +24,8 @@ block content
                         else
                             a.item(href='/users/r_history?status=' + status.code)= status.text
         div.article
-            div.ui.header 荐购状态: 待处理
+            if activeStatus
+                div.ui.header= '荐购状态: ' + stata[activeStatus].text
             table.ui.celled.table
                 thead
                     tr

@@ -1,0 +1,7 @@
+mixin status(stata, baseUrl)
+    div.item
+        each status, key in stata
+            if status.active
+                a.item.active(href= baseUrl +  '?status=' + status.code)= status.text
+            else
+                a.item(href= baseUrl + '?status=' + status.code)= status.text
