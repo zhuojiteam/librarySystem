@@ -18,30 +18,46 @@ var middlewares = require('../middlewares');
 
 router.post('/:id(\\d+)/', middlewares.userAuth, middlewares.categoryList, function (req, res) {
     var action = req.body.action;
+    console.log(action);
     var book_id = req.body.book_id;
-    
-    var formData = {
-        book_id: book_id,
-        user_id: req.user.id
-    };
-    
-    models.Appointment
-        .where(formData).fetch()
-        .then(function(data) {
-           if (data) {
-               req.flash('error', '已经预约啦!');
-               res.render('books/detail', {});
-           } else {
-               formData.created_at = new Date();
-               formData.status = 0;
-               models.Appointment
-                   .forge(formData).save()
-                   .then(function (appointment) {
-                       req.flash('error', '预约成功!');
-                       res.redirect('/books/' + book_id);
-                   })
-           }
-        });
+    if (action === 'appoint') {
+        var formData = {
+            book_id: book_id,
+            user_id: req.user.id
+        };
+        models.Appointment
+            .where(formData).fetch()
+            .then(function (data) {
+                if (data) {
+                    req.flash('error', '已经预约啦!');
+                    res.render('books/detail', {});
+                } else {
+                    formData.created_at = new Date();
+                    formData.status = 0;
+                    models.Appointment
+                        .forge(formData).save()
+                        .then(function (appointment) {
+                            req.flash('error', '预约成功!');
+                            res.redirect('/books/' + book_id);
+                        })
+                }
+            });
+    } else if (action === 'delete') {
+        models.Book.where({
+            id: book_id
+        }).fetch().then(function (data) {
+            if (data) {
+                console.log(data)
+                data.destroy().then(function (_data) {
+                    req.flash('info', '已经删除啦!');
+                    res.redirect('/books');
+                });
+            } else {
+                req.flash('error', '没有这本书');
+                res.redirect('/books');
+            }
+        })
+    }
 });
 
 router.get('/:id(\\d+)/', middlewares.categoryList, function (req, res) {
@@ -69,7 +85,7 @@ router.get('/:id(\\d+)/', middlewares.categoryList, function (req, res) {
                         }).fetch();
 
                     Promise.all([borrowPromise, appointPromise])
-                        .then(function(bOrA) {
+                        .then(function (bOrA) {
                             if (bOrA[0]) {
                                 bOrAStatus.b = 1;
                             }
@@ -122,7 +138,7 @@ router.post('/:id(\\d+)/edit', middlewares.adminAuth, middlewares.categoryList, 
         .then(function (book) {
             if (book) {
                 book.set(req.body).save()
-                    .then(function(book) {
+                    .then(function (book) {
                         res.render('books/edit', {
                             book: book.toJSON()
                         });

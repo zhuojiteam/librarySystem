@@ -46,5 +46,9 @@ block content
                                     h4.header 摘要
                                     input(value= book.detail, name='detail')
                             div.item
-                                button.ui.button(type='submit') 应用
-                                button.ui.disabled.button 删除
+                                button.ui.positive.button(type='submit') 应用
+                    form.ui.form(method='post',style='display: inline-block',action='/books/' + book.id)
+                        input(type='hidden', value=book.id, name='book_id')
+                        input(type='hidden', value='delete', name='action')
+                        button.ui.negative.button(type='submit') 删除
+
