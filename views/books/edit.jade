@@ -13,7 +13,7 @@ block content
                 div.ui.header 书目信息
             if book
                 div.ui.segment.piled.container
-                    div.ui.form(action='post')
+                    form.ui.form(method='post')
                         h2.ui.header= book.title
                         div.ui.relaxed.divided.list
                             div.item
@@ -39,11 +39,6 @@ block content
                                     span  本
                             div.item
                                 div.content
-                                    h4.header 可借
-                                    input(value= book.stock - book.lend_count, name='stock - book.lend_count')
-                                    span  本
-                            div.item
-                                div.content
                                     h4.header 类别
                                     input(value= book.category_char, name='category_char')
                             div.item
@@ -51,5 +46,5 @@ block content
                                     h4.header 摘要
                                     input(value= book.detail, name='detail')
                             div.item
-                                button.ui.button 应用
+                                button.ui.button(type='submit') 应用
                                 button.ui.disabled.button 删除

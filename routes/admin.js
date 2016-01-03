@@ -4,6 +4,7 @@
 var express = require('express');
 var _ = require('lodash');
 var router = express.Router();
+var moment = require('moment');
 
 var middlewares = require('../middlewares');
 var models = require('../models');
@@ -38,6 +39,8 @@ var action = function (model, stata, req) {
                     var users = _data[i + 1].toJSON();
                     console.log(datum);
                     datum.created_at = all[i].created_at;
+
+                    var time = moment(all[i].created_at);
                     data.push({
                         id: all[i].id,
                         email: users.email,
@@ -47,7 +50,7 @@ var action = function (model, stata, req) {
                         pub_year: datum.pub_year,
                         isbn: datum.isbn,
                         status: all[i].status,
-                        created_at: all[i].created_at
+                        created_at: time.format('YYYY-MM-DD, hh:mm:ss')
                     });
                 }
                 console.log('promise all data!');
