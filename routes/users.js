@@ -33,8 +33,9 @@ router.get('/', function (req, res, next) {
         }
         console.log('promise all!');
         Promise.all(getBookInfoPromises).then(function (_data) {
+            console.log('promise all!2', _data);
             var data = [];
-            for (var i = 0; i < borrows.length; ++i) {
+            for (var i = 0; i < _data.length; ++i) {
                 var datum = _data[i].toJSON();
                 console.log(datum);
                 datum.created_at = borrows[i].created_at;
@@ -59,6 +60,7 @@ router.get('/', function (req, res, next) {
                     text: '已归还'
                 },
             }
+            console.log(stata);
             var viewData = {};
             if (req.query.status) {
                 var status = parseInt(req.query.status);
@@ -107,7 +109,7 @@ router.get('/a_history', function (req, res, next) {
         console.log('promise all!');
         Promise.all(getBookInfoPromises).then(function (_data) {
             var data = [];
-            for (var i = 0; i < appointments.length; ++i) {
+            for (var i = 0; i < _data.length; ++i) {
                 var datum = _data[i].toJSON();
                 console.log(datum);
                 datum.created_at = appointments[i].created_at;
@@ -181,7 +183,7 @@ router.get('/r_history', function (req, res, next) {
         console.log('promise all!');
         Promise.all(getBookInfoPromises).then(function (_data) {
             var data = [];
-            for (var i = 0; i < recommendations.length; ++i) {
+            for (var i = 0; i < _data.length; ++i) {
                 var datum = _data[i].toJSON();
                 console.log(datum);
                 datum.created_at = recommendations[i].created_at;

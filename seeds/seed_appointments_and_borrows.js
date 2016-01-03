@@ -21,73 +21,73 @@ exports.seed = function (knex, Promise) {
 
         knex('appointments').insert({
             user_id: 1,
-            book_id: 20,
+            book_id: 10,
             created_at: new Date(),
             status: 0
         }),
         knex('appointments').insert({
             user_id: 1,
-            book_id: 21,
+            book_id: 1,
             created_at: new Date(),
             status: 0
         }),
         knex('appointments').insert({
             user_id: 3,
-            book_id: 22,
+            book_id: 2,
             created_at: new Date(),
             status: 0
         }),
         knex('appointments').insert({
             user_id: 4,
-            book_id: 23,
+            book_id: 3,
             created_at: new Date(),
             status: 0
         }),
         knex('appointments').insert({
             user_id: 1,
-            book_id: 24,
+            book_id: 4,
             created_at: new Date(),
             status: 0
         }),
         knex('appointments').insert({
             user_id: 1,
-            book_id: 25,
+            book_id: 5,
             created_at: new Date(),
             status: 0
         }),
         knex('appointments').insert({
             user_id: 3,
-            book_id: 26,
+            book_id: 6,
             created_at: new Date(),
             status: 1
         }),
         knex('appointments').insert({
             user_id: 2,
-            book_id: 27,
+            book_id: 7,
             created_at: new Date(),
             status: 1
         }),
         knex('appointments').insert({
             user_id: 2,
-            book_id: 28,
+            book_id: 8,
             created_at: new Date(),
             status: 1
         }),
         knex('appointments').insert({
             user_id: 4,
-            book_id: 29,
+            book_id: 9,
             created_at: new Date(),
             status: 1
         }),
         knex('appointments').insert({
             user_id: 2,
-            book_id: 30,
+            book_id: 0,
             created_at: new Date(),
             status: 1
         }),
         knex('appointments').insert({
             user_id: 3,
-            book_id: 31,
+            book_id: 1,
             created_at: new Date(),
             status: 1
         }),
@@ -111,89 +111,89 @@ exports.seed = function (knex, Promise) {
             status: 0
         }),
         /**
-         * Created by chenyulu on 16/1/3.
+         * Created by chenyulu on 6/1/3.
          */
         knex('borrows').insert({
             user_id: 3,
-            book_id: 35,
+            book_id: 5,
             created_at: new Date(),
             status: 0
         }),
         knex('borrows').insert({
             user_id: 3,
-            book_id: 36,
+            book_id: 6,
             created_at: new Date(),
             status: 1
         }),
         knex('borrows').insert({
             user_id: 3,
-            book_id: 37,
+            book_id: 7,
             created_at: new Date(),
             status: 0
         }),
         knex('borrows').insert({
             user_id: 5,
-            book_id: 38,
+            book_id: 8,
             created_at: new Date(),
             status: 1
         }),
         knex('borrows').insert({
             user_id: 6,
-            book_id: 39,
+            book_id: 9,
             created_at: new Date(),
             status: 0
         }),
         knex('borrows').insert({
             user_id: 6,
-            book_id: 39,
+            book_id: 9,
             created_at: new Date(),
             status: 1
         }),
         knex('borrows').insert({
             user_id: 5,
-            book_id: 38,
+            book_id: 8,
             created_at: new Date(),
             status: 0
         }),
         knex('borrows').insert({
             user_id: 1,
-            book_id: 39,
+            book_id: 9,
             created_at: new Date(),
             status: 0
         }),
         knex('borrows').insert({
             user_id: 1,
-            book_id: 40,
+            book_id: 0,
             created_at: new Date(),
             status: 0
         }),
         knex('borrows').insert({
             user_id: 1,
-            book_id: 41,
+            book_id: 1,
             created_at: new Date(),
             status: 1
         }),
         knex('borrows').insert({
             user_id: 2,
-            book_id: 42,
+            book_id: 2,
             created_at: new Date(),
             status: 0
         }),
         knex('borrows').insert({
             user_id: 2,
-            book_id: 43,
+            book_id: 3,
             created_at: new Date(),
             status: 0
         }),
         knex('borrows').insert({
             user_id: 2,
-            book_id: 44,
+            book_id: 4,
             created_at: new Date(),
             status: 1
         }),
         knex('borrows').insert({
             user_id: 5,
-            book_id: 45,
+            book_id: 5,
             created_at: new Date(),
             status: 0
         })
