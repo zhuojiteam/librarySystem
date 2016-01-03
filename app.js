@@ -196,7 +196,7 @@ router.post('/signup', function (req, res, next) {
                         } else {
                             var formData = {
                                 name: req.body.name,
-                                email: req.body.password
+                                email: req.body.email
                             };
                             formData.permission = 0;
                             formData.password = bcrypt.hashSync(req.body.password);
