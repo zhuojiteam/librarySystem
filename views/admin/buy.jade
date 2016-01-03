@@ -23,7 +23,6 @@ block content
             table.ui.celled.table
                 thead
                     tr
-                        th 用户
                         th 题名
                         th 作者
                         th 出版信息
@@ -33,15 +32,14 @@ block content
                         th 荐购状态
                 tbody
                     tr
-                        td lulucici
-                        td lulucici
-                        td lulucici
-                        td lulucici
-                        td lulucici
-                        td lulucici
-                        td lulucici
-                        td lulucici
-            form.ui.form
+                        td= book.title
+                        td= book.author
+                        td= book.pub_info
+                        td= book.pub_year
+                        td= book.isbn
+                        td= recommendation.created_at
+                        td= recommendation.status
+            form.ui.form(method='post')
                 h3.ui.header 添加书籍详情
                 div.field
                     div.six.fields
@@ -50,7 +48,7 @@ block content
                             input(type='text', name='amount', placeholder='数目')
                         div.required.field
                             label 类别
-                            select.ui.dropdown
+                            select.ui.dropdown(name='category')
                                 option(value='') 类别
                                 option(value='A') A 马列主义、毛泽东思想、邓小平理论
                                 option(value='B') B 哲学、宗教
@@ -76,6 +74,6 @@ block content
                                 option(value='Z') Z 综合性图书
                 div.required.field
                     label 摘要
-                    textarea
+                    textarea(name='detail')
                 button.ui.button(type='submit') 确认订购
 

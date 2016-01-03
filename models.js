@@ -66,4 +66,5 @@ module.exports = {
     Borrow: Borrow,
     Appointment: Appointment,
     Author: Author,
+    relations: [Recommendation, Appointment, Borrow]
 };

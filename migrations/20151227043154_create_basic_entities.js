@@ -21,6 +21,7 @@ exports.up = function (knex, Promise) {
         .createTable('recommendations', function (table) {
             table.increments('id').primary();
             table.integer('count');
+            table.datetime('fullfilled_at');
         })
         .createTable('appointments', function (table) {
             table.increments('id').primary();

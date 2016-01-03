@@ -60,7 +60,11 @@ block content
                                                 input(type='hidden', value=-1, name='incoming')
                                             button.ui.positive.button(type='submit') 取消不订购
                             td= entry.email
-                            td= entry.title
+                            if entry.status === 2
+                                td
+                                    a(href='/books/'+entry.book_id)= entry.title
+                            else
+                                td= entry.title
                             td= entry.author
                             td= entry.pub_info
                             td= entry.pub_year

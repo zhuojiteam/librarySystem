@@ -49,8 +49,20 @@ router.post('/:id(\\d+)/', middlewares.userAuth, middlewares.categoryList, funct
             if (data) {
                 console.log(data)
                 data.destroy().then(function (_data) {
-                    req.flash('info', '已经删除啦!');
-                    res.redirect('/books');
+                    var promises = models.relations.map(function(a) {
+                        return a.where({
+                            book_id: book_id
+                        })
+                    });
+                    Promise.all(promises).then(function (data) {
+                        var destroyPromises = _.flatten(data).map(function(elem) {
+                           return elem.destroy();
+                        });
+                        Promise.all(destroyPromises).then(function(_data) {
+                            req.flash('info', '已经删除啦!');
+                            res.redirect('/books');
+                        })
+                    })
                 });
             } else {
                 req.flash('error', '没有这本书');
