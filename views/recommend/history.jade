@@ -19,14 +19,14 @@ block content
                         th 荐购日期
                         th 荐购状态
                 tbody
-                    each recommendation in recommendations
+                    each entry in entries
                         tr
-                            td= recommendation.title
-                            td= recommendation.author
-                            td= recommendation.pub_info
-                            td= recommendation.pub_year
-                            td= recommendation.isbn
-                            td= recommendation.created_at
-                            td= recommendation.status
+                            td= entry.title
+                            td= entry.author
+                            td= entry.pub_info
+                            td= entry.pub_year
+                            td= entry.isbn
+                            td= entry.created_at
+                            td= entry.status
                 +pagination('/recommend/history')
 

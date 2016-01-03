@@ -5,61 +5,62 @@ var express = require('express');
 var router = express.Router();
 var _ = require('lodash');
 var models = require('../models');
+var utils = require('../utils');
 var middlewares = require('../middlewares');
 
-router.get('/history', function (req, res, next) {
+var action = function (model, req) {
+    var getAllPromise = model.collection()
+        .fetch();
 
-    models.Recommendation
-        .collection()
-        .fetch()
-        .then(function (recommendations) {
-            var data = recommendations.toJSON();
-            //console.log(books.toJSON());
-            var count = data.length;
-            var pageSize = 20;
-            var pageNumber = (req.query.page) ? parseInt(req.query.page) : 1;
-
-            var pages = [];
-            var totalPageNumber = Math.floor(parseInt(count - 1) / parseInt(pageSize)) + 1;
-            if (pageNumber > pageSize) pageNumber = pageSize;
-            if (pageNumber < 1) pageNumber = 1;
-            var i, j
-            console.log('pushing!', pageNumber, totalPageNumber);
-            for (
-                i = (pageNumber - 2 >= 1) ? pageNumber - 2 : 1, j = 0;
-                i <= totalPageNumber && j < 5;
-                ++i, ++j
-            ) {
-
-                pages.push({
-                    active: (i == pageNumber),
-                    number: i
-                })
+    return getAllPromise
+        .then(function (_all) {
+            var all = _all.toJSON();
+            var promises = [];
+            for (var i = 0; i < all.length; ++i) {
+                var getRawBookInfoPromise = models.Book.where({
+                    id: all[i].book_id
+                }).fetch();
+                promises.push(getRawBookInfoPromise);
             }
-
-            if (data.length > pageSize) {
-                data = data.slice((pageNumber - 1) * pageSize, (pageNumber) * pageSize)
-            }
-            var viewData = {
-                recommendations: data,
-
-            }
-            if (pages.length > 0) {
-                viewData.pages = {
-                    prev: {
-                        if: (pages[0].number - 1 >= 1),
-                        number: pages[0].number - 1
-                    },
-                    current: pages,
-                    next: {
-                        if: (pages[pages.length - 1].number + 1 <= totalPageNumber),
-                        number: pages[pages.length - 1].number + 1
-                    }
+            console.log('promise all!');
+            return Promise.all(promises).then(function (_data) {
+                console.log('promise all done!');
+                var data = [];
+                for (var i = 0; i < all.length; i += 1) {
+                    var datum = _data[i].toJSON();
+                    console.log(datum);
+                    datum.created_at = all[i].created_at;
+                    data.push({
+                        title: datum.title,
+                        author: datum.author,
+                        pub_info: datum.pub_info,
+                        pub_year: datum.pub_year,
+                        isbn: datum.isbn,
+                        status: all[i].status,
+                        created_at: all[i].created_at
+                    });
                 }
-            }
-            res.render('recommend/history', viewData);
+                console.log('promise all data!');
+                var viewData = {};
+                var pageNumber = (req.query.page) ? parseInt(req.query.page) : 1;
+                var pageSize = 20;
+                var pages = utils.paginate(pageSize, data.length, pageNumber);
+                if (data.length > pageSize) {
+                    data = data.slice((pageNumber - 1) * pageSize, (pageNumber) * pageSize)
+                }
+                viewData.pages = pages;
+                viewData.entries = data;
+                return viewData;
+            })
         })
+}
 
+router.get('/history', function (req, res, next) {
+    action(models.Recommendation, req)
+        .then(function (viewData) {
+            console.log(viewData);
+            res.render('recommend/history', viewData)
+        })
 });
 
 
@@ -74,37 +75,44 @@ router.post('/create', middlewares.userAuth, function (req, res) {
         })
         .fetch()
         .then(function (book) {
-            if (book && book.get('status') === 10) {
-
-
+            if (book && book.get('status') === 0) {
+                var error = '已经有了~'
                 res.render('recommend/create', {
-                    error: '已经有~'
+                    error: error
                 });
             } else {
-                var recommendation = _.assign({}, req.body);
-                recommendation.created_at = new Date();
-                recommendation.user_id = req.user.id;
-                recommendation.status = 0; // 0 is unfulfilled.
+                var promise;
+                if (book) {
+                    promise = Promise.resolve(book);
+                } else {
+                    var newBook = _.assign({}, req.body);
+                    newBook.status = 10;
+                    // The category is left to the admin to add.
+                    promise = models
+                        .Book.forge(newBook).save();
+                    console.log('Creating books:', newBook);
+                }
 
-                var book = _.assign({}, req.body);
-                book.status = 10;
-                // The category is left to the admin to add.
+                promise.then(function (book) {
+                    var recommendation = {};
+                    recommendation.book_id = book.get('id')
+                    recommendation.created_at = new Date();
+                    recommendation.user_id = req.user.id;
+                    recommendation.status = 0; // 0 is unfulfilled.
 
-                var createRecommendationPromise = models
-                    .Recommendation.forge(recommendation).save();
-                var createBookRecommendation = models
-                    .Book.forge(book).save();
-
-                Promise.all([createBookRecommendation, createRecommendationPromise]).then(function (data) {
-                    res.render('recommend/create', {
-                        message: '成功~'
-                    });
+                    console.log('Creating recommendation:', recommendation);
+                    var createRecommendationPromise = models
+                        .Recommendation.forge(recommendation).save();
+                    createRecommendationPromise.then(function (data) {
+                        console.log(data);
+                        res.render('recommend/create', {
+                            message: '成功~'
+                        });
+                    })
                 })
-
             }
         })
-
-
 });
+
 
 module.exports = router;
