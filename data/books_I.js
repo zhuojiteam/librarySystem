@@ -10,7 +10,8 @@ knex('books').insert({
     author: '俞越',
     stock: 20,
     pub_year: 2015
-    category_char: 'I'
+    category_char: 'I',
+    status: 0
 })
 knex('books').insert({
     title: '斯通纳  ',
@@ -21,7 +22,8 @@ knex('books').insert({
     author: '约翰·威廉斯',
     stock: 20,
     pub_year: 2016,
-    category_char: 'I'
+    category_char: 'I',
+    status: 0
 })
 knex('books').insert({
     title: '一个人的朝圣（套装共2册 京东专供）  ',
@@ -32,7 +34,8 @@ knex('books').insert({
     author: '蕾秋·乔伊斯',
     stock: 20,
     pub_year: 2015,
-    category_char: 'I'
+    category_char: 'I',
+    status: 0
 })
 knex('books').insert({
     title: '马尔克斯:世上最美的溺水者  ',
@@ -43,7 +46,8 @@ knex('books').insert({
     author: '〔哥伦比亚〕加西亚·马尔克斯',
     stock: 20,
     pub_year: 2015,
-    category_char: 'I'
+    category_char: 'I',
+    status: 0
 })
 knex('books').insert({
     title: '青青子衿  ',
@@ -54,7 +58,8 @@ knex('books').insert({
     author: '胡马依',
     stock: 20,
     pub_year: 2015,
-    category_char: 'I'
+    category_char: 'I',
+    status: 0
 })
 knex('books').insert({
     title: '芈月传（典藏套装版 共6册）  ',
@@ -65,7 +70,8 @@ knex('books').insert({
     author: '蒋胜男',
     stock: 20,
     pub_year: 2015,
-    category_char: 'I'
+    category_char: 'I',
+    status: 0
 })
 knex('books').insert({
     title: '谢谢自己够勇敢（京东定制版，附赠张皓宸/杨杨勇气旅行纪念影册）  ',
@@ -76,7 +82,8 @@ knex('books').insert({
     author: '张皓宸',
     stock: 20,
     pub_year: 2015,
-    category_char: 'I'
+    category_char: 'I',
+    status: 0
 })
 knex('books').insert({
     title: '且将生活一饮而尽  ',
@@ -87,7 +94,8 @@ knex('books').insert({
     author: '李座峰',
     stock: 20,
     pub_year: 2015,
-    category_char: 'I'
+    category_char: 'I',
+    status: 0
 })
 knex('books').insert({
     title: '白岩松：白说（京东版本，随机附赠同封笔记本并随书带二维码下载白岩松珍贵音频）  ',
@@ -98,7 +106,8 @@ knex('books').insert({
     author: '白岩松',
     stock: 20,
     pub_year: 2015,
-    category_char: 'I'
+    category_char: 'I',
+    status: 0
 })
 knex('books').insert({
     title: '高铁风云录/首部世界高铁发展史  ',
@@ -109,7 +118,8 @@ knex('books').insert({
     author: '高铁见闻',
     stock: 20,
     pub_year: 2015,
-    category_char: 'I'
+    category_char: 'I',
+    status: 0
 })
 knex('books').insert({
     title: '孤独是生命的礼物  ',
@@ -120,7 +130,8 @@ knex('books').insert({
     author: '余秋雨',
     stock: 20,
     pub_year: 2015,
-    category_char: 'I'
+    category_char: 'I',
+    status: 0
 })
 knex('books').insert({
     title: '坐在路边鼓掌的人  ',
@@ -131,7 +142,8 @@ knex('books').insert({
     author: '刘继荣',
     stock: 20,
     pub_year: 2015,
-    category_char: 'I'
+    category_char: 'I',
+    status: 0
 })
 
 knex('books').insert({
@@ -143,7 +155,8 @@ knex('books').insert({
     author: '银谷',
     stock: 20,
     pub_year: 2016,
-    category_char: 'I'
+    category_char: 'I',
+    status: 0
 })
 knex('books').insert({
     title: '小井想要一部时光机（京东签章版 附赠井柏然超值续写故事本）  ',
@@ -154,7 +167,8 @@ knex('books').insert({
     author: '井柏然',
     stock: 20,
     pub_year: 2015,
-    category_char: 'I'
+    category_char: 'I',
+    status: 0
 })
 knex('books').insert({
     title: '曾少年（套装上下册）  ',
@@ -165,7 +179,8 @@ knex('books').insert({
     author: '九夜茴',
     stock: 20,
     pub_year: 2015,
-    category_char: 'I'
+    category_char: 'I',
+    status: 0
 })
 knex('books').insert({
     title: '这世界，缺你不可（随机赠送吴大伟亲笔签名本）  ',
@@ -176,7 +191,8 @@ knex('books').insert({
     author: '吴大伟',
     stock: 20,
     pub_year: 2015,
-    category_char: 'I'
+    category_char: 'I',
+    status: 0
 })
 knex('books').insert({
     title: '失眠书  ',
@@ -187,7 +203,8 @@ knex('books').insert({
     author: '魏小河',
     stock: 20,
     pub_year: 2015,
-    category_char: 'I'
+    category_char: 'I',
+    status: 0
 })
 knex('books').insert({
     title: '无法直视  ',
@@ -198,7 +215,8 @@ knex('books').insert({
     author: '夏茗悠',
     stock: 20,
     pub_year: 2015,
-    category_char: 'I'
+    category_char: 'I',
+    status: 0
 })
 knex('books').insert({
     title: '当你生病时，你会想起谁？  ',
@@ -209,7 +227,8 @@ knex('books').insert({
     author: '病房',
     stock: 20,
     pub_year: 2015,
-    category_char: 'I'
+    category_char: 'I',
+    status: 0
 })
 knex('books').insert({
     title: '我只是敢和别人不一样  ',
@@ -220,7 +239,8 @@ knex('books').insert({
     author: '周宏翔',
     stock: 20,
     pub_year: 2015,
-    category_char: 'I'
+    category_char: 'I',
+    status: 0
 })
 knex('books').insert({
     title: '刘晓庆：人生不怕从头再来  ',
@@ -231,7 +251,8 @@ knex('books').insert({
     author: '刘晓庆',
     stock: 20,
     pub_year: 2015,
-    category_char: 'I'
+    category_char: 'I',
+    status: 0
 })
 knex('books').insert({
     title: '那些年，我们一起追的球星：我们的青春，我们的足球时代（全彩，天下足球 开播15周年典藏版）  ',
@@ -242,7 +263,8 @@ knex('books').insert({
     author: '《天下足球》',
     stock: 20,
     pub_year: 2015,
-    category_char: 'I'
+    category_char: 'I',
+    status: 0
 })
 knex('books').insert({
     title: '亚历克斯·弗格森：我的自传（增补版）  ',
@@ -253,7 +275,8 @@ knex('books').insert({
     author: '亚历克斯·弗格森',
     stock: 20,
     pub_year: 2015,
-    category_char: 'I'
+    category_char: 'I',
+    status: 0
 })
 knex('books').insert({
     title: '曾国藩·曾文正公家书（套装上下册 附家训2卷）  ',
@@ -264,7 +287,8 @@ knex('books').insert({
     author: '曾国藩',
     stock: 20,
     pub_year: 2015,
-    category_char: 'I'
+    category_char: 'I',
+    status: 0
 })
 knex('books').insert({
     title: '成龙：还没长大就老了  ',
@@ -275,7 +299,8 @@ knex('books').insert({
     author: '成龙',
     stock: 20,
     pub_year: 2015,
-    category_char: 'I'
+    category_char: 'I',
+    status: 0
 })
 knex('books').insert({
     title: '宿命：孤独张艺谋（双封面版本）  ',
@@ -286,7 +311,8 @@ knex('books').insert({
     author: '周晓枫',
     stock: 20,
     pub_year: 2015,
-    category_char: 'I'
+    category_char: 'I',
+    status: 0
 })
 knex('books').insert({
     title: '幾米台历：月亮的记忆（正版授权幾米2016年台历套装《月亮忘记了》；含“最重要的80天”记事表单）  ',
@@ -297,7 +323,8 @@ knex('books').insert({
     author: '幾米',
     stock: 20,
     pub_year: 2015,
-    category_char: 'I'
+    category_char: 'I',
+    status: 0
 })
 
 knex('books').insert({
@@ -309,7 +336,8 @@ knex('books').insert({
     author: '幽.灵',
     stock: 20,
     pub_year: 2015,
-    category_char: 'I'
+    category_char: 'I',
+    status: 0
 })
 knex('books').insert({
     title: '阿兰的战争（套装1-3册）  ',
@@ -320,7 +348,8 @@ knex('books').insert({
     author: '埃曼努埃尔·吉贝尔',
     stock: 20,
     pub_year: 2015,
-    category_char: 'I'
+    category_char: 'I',
+    status: 0
 })
 knex('books').insert({
     title: '嗷大喵真棒：欢腾篇 一起来嗨  ',
@@ -331,7 +360,8 @@ knex('books').insert({
     author: '慕容嗷嗷',
     stock: 20,
     pub_year: 2015,
-    category_char: 'I'
+    category_char: 'I',
+    status: 0
 })
 knex('books').insert({
     title: '其实你很好，你自己却不知道  ',
@@ -342,7 +372,8 @@ knex('books').insert({
     author: '失控的Saner',
     stock: 20,
     pub_year: 2015,
-    category_char: 'I'
+    category_char: 'I',
+    status: 0
 })
 
 knex('books').insert({
@@ -354,7 +385,8 @@ knex('books').insert({
     author: '熊顿',
     stock: 20,
     pub_year: 2015,
-    category_char: 'I'
+    category_char: 'I',
+    status: 0
 })
 knex('books').insert({
     title: '忘记亲一下  ',
@@ -365,7 +397,8 @@ knex('books').insert({
     author: '几米',
     stock: 20,
     pub_year: 2015,
-    category_char: 'I'
+    category_char: 'I',
+    status: 0
 })
 knex('books').insert({
     title: '白岩松：白说（京东版本，随机附赠同封笔记本并随书带二维码下载白岩松珍贵音频）  ',
@@ -376,7 +409,8 @@ knex('books').insert({
     author: '白岩松',
     stock: 20,
     pub_year: 2015,
-    category_char: 'I'
+    category_char: 'I',
+    status: 0
 })
 
 knex('books').insert({
@@ -388,7 +422,8 @@ knex('books').insert({
     author: '蕾秋·乔伊斯',
     stock: 20,
     pub_year: 2015,
-    category_char: 'I'
+    category_char: 'I',
+    status: 0
 })
 knex('books').insert({
     title: '大冰新畅销作品 （套装共2册）  ',
@@ -399,7 +434,8 @@ knex('books').insert({
     author: '大冰',
     stock: 20,
     pub_year: 2015,
-    category_char: 'I'
+    category_char: 'I',
+    status: 0
 })
 
 knex('books').insert({
@@ -411,7 +447,8 @@ knex('books').insert({
     author: '冶文彪',
     stock: 20,
     pub_year: 2015,
-    category_char: 'I'
+    category_char: 'I',
+    status: 0
 })
 knex('books').insert({
     title: '而立·24  ',
@@ -422,7 +459,8 @@ knex('books').insert({
     author: '张艺兴',
     stock: 20,
     pub_year: 2015,
-    category_char: 'I'
+    category_char: 'I',
+    status: 0
 })
 knex('books').insert({
     title: '银河帝国：基地七部曲（新版）  ',
@@ -433,7 +471,8 @@ knex('books').insert({
     author: '艾萨克·阿西莫夫',
     stock: 20,
     pub_year: 2015,
-    category_char: 'I'
+    category_char: 'I',
+    status: 0
 })
 knex('books').insert({
     title: '东野圭吾天王套装（套装共4册）  ',
@@ -444,7 +483,8 @@ knex('books').insert({
     author: '东野圭吾',
     stock: 20,
     pub_year: 2015,
-    category_char: 'I'
+    category_char: 'I',
+    status: 0
 })
 knex('books').insert({
     title: '岛上书店  ',
@@ -455,7 +495,8 @@ knex('books').insert({
     author: '加布瑞埃拉·泽文',
     stock: 20,
     pub_year: 2015,
-    category_char: 'I'
+    category_char: 'I',
+    status: 0
 })
 knex('books').insert({
     title: '大冰新畅销作品 （套装共2册）  ',
@@ -466,7 +507,8 @@ knex('books').insert({
     author: '大冰',
     stock: 20,
     pub_year: 2015,
-    category_char: 'I'
+    category_char: 'I',
+    status: 0
 })
 knex('books').insert({
     title: '这边风景（套装上下册）  ',
@@ -477,7 +519,8 @@ knex('books').insert({
     author: '王蒙',
     stock: 20,
     pub_year: 2013,
-    category_char: 'I'
+    category_char: 'I',
+    status: 0
 })
 knex('books').insert({
     title: '繁花（全本珍藏版）  ',
@@ -488,7 +531,8 @@ knex('books').insert({
     author: '金宇澄',
     stock: 20,
     pub_year: 2014,
-    category_char: 'I'
+    category_char: 'I',
+    status: 0
 })
 knex('books').insert({
     title: '鲁迅全集（插图本 套装1-20卷）  ',
@@ -499,7 +543,8 @@ knex('books').insert({
     author: '鲁迅',
     stock: 20,
     pub_year: 2014,
-    category_char: 'I'
+    category_char: 'I',
+    status: 0
 })
 knex('books').insert({
     title: '唐宋词鉴赏辞典（第二版 套装共2册）  ',
@@ -510,7 +555,8 @@ knex('books').insert({
     author: '周汝昌',
     stock: 20,
     pub_year: 2014,
-    category_char: 'I'
+    category_char: 'I',
+    status: 0
 })
 knex('books').insert({
     title: '此生未完成  ',
@@ -521,7 +567,8 @@ knex('books').insert({
     author: '于娟',
     stock: 20,
     pub_year: 2011,
-    category_char: 'I'
+    category_char: 'I',
+    status: 0
 })
 knex('books').insert({
     title: '不忘初心，方得始终  ',
@@ -532,7 +579,8 @@ knex('books').insert({
     author: '凌茜',
     stock: 20,
     pub_year: 2013,
-    category_char: 'I'
+    category_char: 'I',
+    status: 0
 })
 knex('books').insert({
     title: '皮囊  ',
@@ -543,7 +591,8 @@ knex('books').insert({
     author: '蔡崇达',
     stock: 20,
     pub_year: 2014,
-    category_char: 'I'
+    category_char: 'I',
+    status: 0
 })
 knex('books').insert({
     title: '失眠书  ',
@@ -554,7 +603,8 @@ knex('books').insert({
     author: '魏小河',
     stock: 20,
     pub_year: 2015,
-    category_char: 'I'
+    category_char: 'I',
+    status: 0
 })
 knex('books').insert({
     title: '壹刻：李易峰最好的时光  ',
@@ -565,7 +615,8 @@ knex('books').insert({
     author: '李易峰',
     stock: 20,
     pub_year: 2014,
-    category_char: 'I'
+    category_char: 'I',
+    status: 0
 })
 knex('books').insert({
     title: '孤独是你的必修课  ',
@@ -576,7 +627,8 @@ knex('books').insert({
     author: '崔佳',
     stock: 20,
     pub_year: 2014,
-    category_char: 'I'
+    category_char: 'I',
+    status: 0
 })
 knex('books').insert({
     title: '来自星星的EXO  ',
@@ -587,7 +639,8 @@ knex('books').insert({
     author: '星星狂魔',
     stock: 20,
     pub_year: 2014,
-    category_char: 'I'
+    category_char: 'I',
+    status: 0
 })
 knex('books').insert({
     title: '三重门（纪念版）  ',
@@ -598,7 +651,8 @@ knex('books').insert({
     author: '韩寒',
     stock: 20,
     pub_year: 2007,
-    category_char: 'I'
+    category_char: 'I',
+    status: 0
 })
 knex('books').insert({
     title: '滚雪球：巴菲特和他的财富人生（套装共2册）  ',
@@ -609,7 +663,8 @@ knex('books').insert({
     author: '艾丽斯·施罗德',
     stock: 20,
     pub_year: 2013,
-    category_char: 'I'
+    category_char: 'I',
+    status: 0
 })
 knex('books').insert({
     title: '大清三重臣（套装共3册）  ',
@@ -620,7 +675,8 @@ knex('books').insert({
     author: '纪连海',
     stock: 20,
     pub_year: 2015,
-    category_char: 'I'
+    category_char: 'I',
+    status: 0
 })
 
 knex('books').insert({
@@ -632,7 +688,8 @@ knex('books').insert({
     author: '冯逸明',
     stock: 20,
     pub_year: 2015,
-    category_char: 'I'
+    category_char: 'I',
+    status: 0
 })
 
 knex('books').insert({
@@ -644,7 +701,8 @@ knex('books').insert({
     author: '克里斯安·布伦南',
     stock: 20,
     pub_year: 2015,
-    category_char: 'I'
+    category_char: 'I',
+    status: 0
 })
 
 knex('books').insert({
@@ -656,7 +714,8 @@ knex('books').insert({
     author: '大卫·贝克汉姆',
     stock: 20,
     pub_year: 2014,
-    category_char: 'I'
+    category_char: 'I',
+    status: 0
 })
 knex('books').insert({
     title: '群星闪耀时·这个时代的足坛巨星·红：内维尔自传  ',
@@ -667,7 +726,8 @@ knex('books').insert({
     author: '加里·内维尔',
     stock: 20,
     pub_year: 2015,
-    category_char: 'I'
+    category_char: 'I',
+    status: 0
 })
 
 knex('books').insert({
@@ -679,7 +739,8 @@ knex('books').insert({
     author: '梁晓岩',
     stock: 20,
     pub_year: 2012,
-    category_char: 'I'
+    category_char: 'I',
+    status: 0
 })
 knex('books').insert({
     title: '睡不着：Tango一日一画  ',
@@ -690,7 +751,8 @@ knex('books').insert({
     author: 'Tango',
     stock: 20,
     pub_year: 2014,
-    category_char: 'I'
+    category_char: 'I',
+    status: 0
 })
 knex('books').insert({
     title: '熊顿作品全集含滚蛋吧！肿瘤君纪念珍藏套装（套装共6册 熊顿作品全集）  ',
@@ -701,7 +763,8 @@ knex('books').insert({
     author: '熊顿',
     stock: 20,
     pub_year: 2015,
-    category_char: 'I'
+    category_char: 'I',
+    status: 0
 })
 
 knex('books').insert({
@@ -713,7 +776,8 @@ knex('books').insert({
     author: 'Hans',
     stock: 20,
     pub_year: 2013,
-    category_char: 'I'
+    category_char: 'I',
+    status: 0
 })
 
 knex('books').insert({
@@ -725,7 +789,8 @@ knex('books').insert({
     author: '加布瑞埃拉·泽文',
     stock: 20,
     pub_year: 2015,
-    category_char: 'I'
+    category_char: 'I',
+    status: 0
 })
 knex('books').insert({
     title: '琅琊榜（套装共3册）  ',
@@ -736,7 +801,8 @@ knex('books').insert({
     author: '海宴',
     stock: 20,
     pub_year: 2014,
-    category_char: 'I'
+    category_char: 'I',
+    status: 0
 })
 
 knex('books').insert({
@@ -748,7 +814,8 @@ knex('books').insert({
     author: '大冰',
     stock: 20,
     pub_year: 2015,
-    category_char: 'I'
+    category_char: 'I',
+    status: 0
 })
 
 knex('books').insert({
@@ -760,7 +827,8 @@ knex('books').insert({
     author: '白岩松',
     stock: 20,
     pub_year: 2015,
-    category_char: 'I'
+    category_char: 'I',
+    status: 0
 })
 
 knex('books').insert({
@@ -772,7 +840,8 @@ knex('books').insert({
     author: '南派三叔',
     stock: 20,
     pub_year: 2011,
-    category_char: 'I'
+    category_char: 'I',
+    status: 0
 })
 knex('books').insert({
     title: '严歌苓作品集（套装全10册）  ',
@@ -783,7 +852,8 @@ knex('books').insert({
     author: '严歌苓',
     stock: 20,
     pub_year: 2015,
-    category_char: 'I'
+    category_char: 'I',
+    status: 0
 })
 
 knex('books').insert({
@@ -795,7 +865,8 @@ knex('books').insert({
     author: '吴承恩',
     stock: 20,
     pub_year: 2008,
-    category_char: 'I'
+    category_char: 'I',
+    status: 0
 })
 knex('books').insert({
     title: '人生三书：孩子你慢慢来·亲爱的安德烈·目送（布面典藏版 套装共3册）  ',
@@ -806,7 +877,8 @@ knex('books').insert({
     author: '龙应台',
     stock: 20,
     pub_year: 2015,
-    category_char: 'I'
+    category_char: 'I',
+    status: 0
 })
 
 knex('books').insert({
@@ -818,7 +890,8 @@ knex('books').insert({
     author: '莎士比亚',
     stock: 20,
     pub_year: 2012,
-    category_char: 'I'
+    category_char: 'I',
+    status: 0
 })
 knex('books').insert({
     title: '二战德军三大文件：闪击英雄+失去的胜利+隆美尔战时文件（套装共3册）  ',
@@ -829,7 +902,8 @@ knex('books').insert({
     author: '冯·埃里希·曼施泰因',
     stock: 20,
     pub_year: 2015,
-    category_char: 'I'
+    category_char: 'I',
+    status: 0
 })
 knex('books').insert({
     title: '滚雪球：巴菲特和他的财富人生（套装共2册）  ',
@@ -840,7 +914,8 @@ knex('books').insert({
     author: '艾丽斯·施罗德',
     stock: 20,
     pub_year: 2013,
-    category_char: 'I'
+    category_char: 'I',
+    status: 0
 })
 
 knex('books').insert({
@@ -852,7 +927,8 @@ knex('books').insert({
     author: '沧月',
     stock: 20,
     pub_year: 2014,
-    category_char: 'I'
+    category_char: 'I',
+    status: 0
 })
 knex('books').insert({
     title: '魔兽世界·官方小说典藏版（套装共3册）  ',
@@ -863,7 +939,8 @@ knex('books').insert({
     author: '克里斯蒂·高登',
     stock: 20,
     pub_year: 2014,
-    category_char: 'I'
+    category_char: 'I',
+    status: 0
 })
 
 knex('books').insert({
@@ -875,5 +952,6 @@ knex('books').insert({
     author: '熊顿',
     stock: 20,
     pub_year: 2015,
-    category_char: 'I'
+    category_char: 'I',
+    status: 0
 })
