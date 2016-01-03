@@ -2,6 +2,8 @@
    Created by chenyulu on 15/12/24.
 
 extends ../layout
+include ../mixins/pagination
+include ../mixins/status
 
 block content
     div.ui.tabular.menu
@@ -17,9 +19,7 @@ block content
                 //        input(type='text', placeholder='搜索')
                 //        i.search.icon
                 div.item
-                    div.item
-                a.item 待处理
-                a.item 已借阅
+                    +status(stata, '/users/a_history')
         div.article
             div.ui.header 预约状态:待处理
             table.ui.celled.table
@@ -36,50 +36,17 @@ block content
                         th 预约日期
                         th 预约状态
                 tbody
-                    tr
-                        td.collapsing
-                            div.ui.fitted.checkbox
-                                input(type='checkbox')
-                        td lulucici
-                        td lulucici
-                        td lulucici
-                        td lulucici
-                        td lulucici
-                        td lulucici
-                        td lulucici
-                    tr
-                        td.collapsing
-                            div.ui.fitted.checkbox
-                                input(type='checkbox')
-                        td lulucici
-                        td lulucici
-                        td lulucici
-                        td lulucici
-                        td lulucici
-                        td lulucici
-                        td lulucici
-                    tr
-                        td.collapsing
-                            div.ui.fitted.checkbox
-                                input(type='checkbox')
-                        td lulucici
-                        td lulucici
-                        td lulucici
-                        td lulucici
-                        td lulucici
-                        td lulucici
-                        td lulucici
-                tfoot
-                    tr
-                        th(colspan= 8)
-                            a.ui.small.button 取消预约
-                            div.ui.right.floated.pagination.menu
-                                a.icon.item
-                                    i.left.chevron.icon
-                                a.item 1
-                                a.item 2
-                                a.item 3
-                                a.item 4
-                                a.icon.item
-                                    i.right.chevron.icon
+                    each appointment in appointments
+                        tr
+                            td.collapsing
+                                div.ui.fitted.checkbox
+                                    input(type='checkbox')
+                            td= appointment.title
+                            td= appointment.author
+                            td= appointment.pub_info
+                            td= appointment.pub_year
+                            td= appointment.isbn
+                            td= appointment.created_at
+                            td= appointment.status
+                +pagination('/users/a_history', activeStatus ? 'status=' + activeStatus : '')
 

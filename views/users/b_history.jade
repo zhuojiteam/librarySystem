@@ -1,6 +1,8 @@
 //
    Created by chenyulu on 15/12/24.
 extends ../layout
+include ../mixins/pagination
+include ../mixins/status
 
 block content
     div.ui.tabular.menu
@@ -15,12 +17,10 @@ block content
                 //    div.ui.icon.input
                 //        input(type='text', placeholder='搜索')
                 //        i.search.icon
-                div.item
-                    div.item
-                a.item 借阅中
-                a.item 已归还
+                +status(stata, '/users/b_history')
         div.article
-            div.ui.header 借阅状态: 已归还
+            if activeStatus
+                div.ui.header= '荐购状态: ' + stata[activeStatus].text
             table.ui.celled.table
                 thead
                     tr
@@ -32,40 +32,14 @@ block content
                         th 借阅日期
                         th 借阅状态
                 tbody
-                    tr
-                        td lulucici
-                        td lulucici
-                        td lulucici
-                        td lulucici
-                        td lulucici
-                        td lulucici
-                        td lulucici
-                    tr
-                        td lulucici
-                        td lulucici
-                        td lulucici
-                        td lulucici
-                        td lulucici
-                        td lulucici
-                        td lulucici
-                    tr
-                        td lulucici
-                        td lulucici
-                        td lulucici
-                        td lulucici
-                        td lulucici
-                        td lulucici
-                        td lulucici
-                tfoot
-                    tr
-                        th(colspan= 7)
-                            div.ui.right.floated.pagination.menu
-                                a.icon.item
-                                    i.left.chevron.icon
-                                a.item 1
-                                a.item 2
-                                a.item 3
-                                a.item 4
-                                a.icon.item
-                                    i.right.chevron.icon
+                    each borrow in borrows
+                        tr
+                            td= borrow.title
+                            td= borrow.author
+                            td= borrow.pub_info
+                            td= borrow.pub_year
+                            td= borrow.isbn
+                            td= borrow.created_at
+                            td= borrow.status
+                +pagination('/users/b_history', activeStatus ? 'status=' + activeStatus : '')
 
