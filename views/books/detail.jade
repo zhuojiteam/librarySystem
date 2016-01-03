@@ -57,7 +57,7 @@ block content
                                     if bOrA.a
                                         button.ui.disabled.button 已预约
                                     else
-                                        form.ui.form(method='post')
+                                        form.ui.form(method='post',style='display: inline-block')
                                             input(type='hidden', value=book.id, name='book_id')
                                             input(type='hidden', value='appoint', name='action')
                                             button.ui.button 预约
