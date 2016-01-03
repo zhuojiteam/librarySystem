@@ -47,6 +47,6 @@ block content
                             td= entry.isbn
                             td= entry.created_at
                             td= entry.status
-                    +pagination('/admin', activeStatus ? 'status=' + activeStatus : '')
+            +pagination('/admin', activeStatus ? 'status=' + activeStatus : '')
 
 

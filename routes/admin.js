@@ -39,6 +39,7 @@ var action = function (model, stata, req) {
                     console.log(datum);
                     datum.created_at = all[i].created_at;
                     data.push({
+                        id: all[i].id,
                         email: users.email,
                         title: datum.title,
                         author: datum.author,
@@ -110,6 +111,7 @@ router.get('/appoint', function (req, res, next) {
     })
 
 });
+
 router.get('/recommend', function (req, res, next) {
     //res.send('there are books.');
     var stata = {
@@ -130,13 +132,35 @@ router.get('/recommend', function (req, res, next) {
         console.log(viewData);
         res.render('admin/recommend', viewData);
     })
-
-
 });
-router.get('/buy', function (req, res, next) {
+
+router.post('/recommend/:id(\\d+)', function (req, res, next) {
+    // Discard or approve the recommendation.
+    var id = parseInt(req.params.id);
+    var action = parseInt(req.body.status);
+    console.log(id);
+    models.Recommendation.where({
+        id: id
+    }).fetch()
+        .then(function(recommendation) {
+           recommendation.set({
+               status: action
+           })
+               .save()
+               .then(function(recommendation) {
+                   console.log(req.body);
+                   var url = '/admin/recommend';
+                   if (req.body.incoming != '-1') {
+                       url += '?status=' + req.body.incoming;
+                   }
+                   res.redirect(url);
+               })
+        });
+});
+
+router.get('/buy/:id(\\d+)', function (req, res, next) {
     //res.send('there are books.');
     res.render('admin/buy', {});
-
 });
 
 

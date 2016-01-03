@@ -31,6 +31,7 @@ var action = function (model, req) {
                     console.log(datum);
                     datum.created_at = all[i].created_at;
                     data.push({
+                        id: all[i].id,
                         title: datum.title,
                         author: datum.author,
                         pub_info: datum.pub_info,
@@ -81,9 +82,10 @@ router.post('/create', middlewares.userAuth, function (req, res) {
                     error: error
                 });
             } else {
-                var promise;
+                var promise, message;
                 if (book) {
                     promise = Promise.resolve(book);
+                    message = '有人推荐过啦,但是已经记下了哦～';
                 } else {
                     var newBook = _.assign({}, req.body);
                     newBook.status = 10;
@@ -91,6 +93,7 @@ router.post('/create', middlewares.userAuth, function (req, res) {
                     promise = models
                         .Book.forge(newBook).save();
                     console.log('Creating books:', newBook);
+                    message = '成功~';
                 }
 
                 promise.then(function (book) {
@@ -106,7 +109,7 @@ router.post('/create', middlewares.userAuth, function (req, res) {
                     createRecommendationPromise.then(function (data) {
                         console.log(data);
                         res.render('recommend/create', {
-                            message: '成功~'
+                            message: message
                         });
                     })
                 })

@@ -16,7 +16,7 @@ var middlewares = require('../middlewares');
 //
 //});
 
-router.get('/:id(\\d+)/', middlewares.categoryList ,function (req, res) {
+router.get('/:id(\\d+)/', middlewares.categoryList, function (req, res) {
     models.Book
         .where({
             id: req.params.id
@@ -29,14 +29,13 @@ router.get('/:id(\\d+)/', middlewares.categoryList ,function (req, res) {
                 });
             } else {
                 req.flash('error', '没有这本书!');
-                res.render('books/detail', {
-                });
+                res.render('books/detail', {});
             }
 
         })
 });
 
-router.get('/:id(\\d+)/edit', middlewares.categoryList, middlewares.adminAuth ,function (req, res) {
+router.get('/:id(\\d+)/edit', middlewares.categoryList, middlewares.adminAuth, function (req, res) {
     models.Book
         .where({
             id: req.params.id
@@ -49,10 +48,20 @@ router.get('/:id(\\d+)/edit', middlewares.categoryList, middlewares.adminAuth ,f
                 });
             } else {
                 req.flash('error', '没有这本书!');
-                res.render('books/edit', {
-                });
+                res.render('books/edit', {});
             }
 
+        })
+});
+
+router.get('/:id(\\d+)/delete', middlewares.categoryList, middlewares.adminAuth, function (req, res) {
+    models.Book
+        .where({
+            id: req.params.id
+        })
+        .destroy()
+        .then(function (book) {
+            res.render('books', {});
         })
 });
 
@@ -91,7 +100,7 @@ router.get('/:category([A-Z]?)', function (req, res, next) {
                     .where(where)
                     .fetchAll()
                     .then(function (books) {
-                        var data = _.filter(books.toJSON(), function(book) {
+                        var data = _.filter(books.toJSON(), function (book) {
                             return book.status != 10;
                         });
                         //console.log(books.toJSON());
@@ -130,17 +139,17 @@ router.get('/:category([A-Z]?)', function (req, res, next) {
                             viewData.pages = {
                                 prev: {
                                     if: (pages[0].number - 1 >= 1),
-                                        number: pages[0].number - 1
+                                    number: pages[0].number - 1
                                 },
                                 current: pages,
-                                    next: {
+                                next: {
                                     if: (pages[pages.length - 1].number + 1 <= totalPageNumber),
-                                        number: pages[pages.length - 1].number + 1
+                                    number: pages[pages.length - 1].number + 1
                                 }
                             }
                         }
                         if (req.params.category) {
-                            viewData.category=  category.toJSON();
+                            viewData.category = category.toJSON();
                         } else {
                             viewData.category = {
                                 char: ''

@@ -18,13 +18,13 @@ block content
                         i.search.icon
                     +status(stata, '/admin/recommend')
         div.article
-            div.ui.header 荐购状态:待处理
+            if activeStatus || activeStatus == 0
+                div.ui.header= '荐购状态: ' + stata[activeStatus].text
             table.ui.celled.table
                 thead
                     tr
-                        th.collapsing
-                            div.ui.fitted.checkbox
-                                input(type='checkbox')
+                        if !activeStatus || activeStatus != 2
+                            th 操作
                         th 用户
                         th 题名
                         th 作者
@@ -32,13 +32,33 @@ block content
                         th 出版年份
                         th ISBN
                         th 荐购日期
-                        th 荐购状态
+                        if !activeStatus && activeStatus != 0
+                            th 荐购状态
                 tbody
                     each entry in entries
                         tr
-                            td.collapsing
-                                div.ui.fitted.checkbox
-                                    input(type='checkbox')
+                            if !activeStatus || activeStatus != 2
+                                td.collapsing
+                                    if entry.status == 0
+                                        div.ui.buttons
+                                            form.ui.form(method='get', action='/admin/buy/' + entry.id)
+                                                button.ui.primary.button(type='submit') 订购
+                                            div.or
+                                            form.ui.form(method='post', action='/admin/recommend/' + entry.id)
+                                                input(type='hidden', value=1, name='status')
+                                                if activeStatus || activeStatus === 0
+                                                    input(type='hidden', value=activeStatus, name='incoming')
+                                                else
+                                                    input(type='hidden', value=-1, name='incoming')
+                                                button.ui.negative.button(type='submit') 拒绝
+                                    if entry.status == 1
+                                        form.ui.form(method='post', action='/admin/recommend/'+entry.id)
+                                            input(type='hidden', value=0, name='status')
+                                            if activeStatus || activeStatus === 0
+                                                input(type='hidden', value=activeStatus, name='incoming')
+                                            else
+                                                input(type='hidden', value=-1, name='incoming')
+                                            button.ui.positive.button(type='submit') 取消不订购
                             td= entry.email
                             td= entry.title
                             td= entry.author
@@ -46,7 +66,13 @@ block content
                             td= entry.pub_year
                             td= entry.isbn
                             td= entry.created_at
-                            td= entry.status
+                            if !activeStatus && activeStatus != 0
+                                if entry.status == 0
+                                    td.warning= stata[entry.status].text
+                                if entry.status == 1
+                                    td.negative= stata[entry.status].text
+                                if entry.status == 2
+                                    td.positive= stata[entry.status].text
             +pagination('/recommend/history')
 
 
