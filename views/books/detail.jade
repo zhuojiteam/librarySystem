@@ -54,3 +54,7 @@ block content
                                 button.ui.button 预约
                             else
                                 button.ui.disabled.button 已预约
+                            if user
+                                if user.permission > 0
+                                    a(href='./edit')
+                                        button.ui.primary 编辑
