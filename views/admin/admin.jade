@@ -1,6 +1,8 @@
 //
    Created by chenyulu on 15/12/23.
 extends ../layout
+include ../mixins/pagination
+include ../mixins/status
 
 block content
     div.ui.tabular.menu
@@ -14,8 +16,7 @@ block content
                     div.ui.icon.input
                         input(type='text', placeholder='搜索')
                         i.search.icon
-                a.item 借阅中
-                a.item 已归还
+                    +status(stata, '/admin')
         div.article
             div.ui.header 借阅状态:借阅中
             table.ui.celled.table
@@ -33,54 +34,19 @@ block content
                         th 借阅日期
                         th 借阅期限
                 tbody
-                    tr
-                        td.collapsing
-                            div.ui.fitted.checkbox
-                                input(type='checkbox')
-                        td lulucici
-                        td lulucici
-                        td lulucici
-                        td lulucici
-                        td lulucici
-                        td lulucici
-                        td lulucici
-                        td lulucici
-                    tr
-                        td.collapsing
-                            div.ui.fitted.checkbox
-                                input(type='checkbox')
-                        td lulucici
-                        td lulucici
-                        td lulucici
-                        td lulucici
-                        td lulucici
-                        td lulucici
-                        td lulucici
-                        td lulucici
-                    tr
-                        td.collapsing
-                            div.ui.fitted.checkbox
-                                input(type='checkbox')
-                        td lulucici
-                        td lulucici
-                        td lulucici
-                        td lulucici
-                        td lulucici
-                        td lulucici
-                        td lulucici
-                        td lulucici
-                tfoot
-                    tr
-                        th(colspan= 9)
-                            a.ui.small.button 收回
-                            div.ui.right.floated.pagination.menu
-                                a.icon.item
-                                    i.left.chevron.icon
-                                a.item 1
-                                a.item 2
-                                a.item 3
-                                a.item 4
-                                a.icon.item
-                                    i.right.chevron.icon
+                    each entry in entries
+                        tr
+                            td.collapsing
+                                div.ui.fitted.checkbox
+                                    input(type='checkbox')
+                            td= entry.email
+                            td= entry.title
+                            td= entry.author
+                            td= entry.pub_info
+                            td= entry.pub_year
+                            td= entry.isbn
+                            td= entry.created_at
+                            td= entry.status
+                    +pagination('/admin', activeStatus ? 'status=' + activeStatus : '')
 
 

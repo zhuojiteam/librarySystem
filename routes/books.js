@@ -34,8 +34,26 @@ router.get('/:id(\\d+)/', middlewares.categoryList ,function (req, res) {
             }
 
         })
+});
 
+router.get('/:id(\\d+)/edit', middlewares.categoryList, middlewares.adminAuth ,function (req, res) {
+    models.Book
+        .where({
+            id: req.params.id
+        })
+        .fetch()
+        .then(function (book) {
+            if (book) {
+                res.render('books/edit', {
+                    book: book.toJSON()
+                });
+            } else {
+                req.flash('error', '没有这本书!');
+                res.render('books/edit', {
+                });
+            }
 
+        })
 });
 
 router.get('/:category([A-Z]?)', function (req, res, next) {

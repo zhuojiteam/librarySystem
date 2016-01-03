@@ -2,6 +2,7 @@
    Created by chenyulu on 15/12/27.
 extends ../layout
 include ../mixins/pagination
+include ../mixins/status
 
 block content
     div.ui.tabular.menu
@@ -15,9 +16,7 @@ block content
                     div.ui.icon.input
                         input(type='text', placeholder='搜索')
                         i.search.icon
-                a.item 待处理
-                a.item 不订购
-                a.item 已订购
+                    +status(stata, '/admin/recommend')
         div.article
             div.ui.header 荐购状态:待处理
             table.ui.celled.table
@@ -35,43 +34,20 @@ block content
                         th 荐购日期
                         th 荐购状态
                 tbody
-                    tr
-                        td.collapsing
-                            div.ui.fitted.checkbox
-                                input(type='checkbox')
-                        td lulucici
-                        td lulucici
-                        td lulucici
-                        td lulucici
-                        td lulucici
-                        td lulucici
-                        td lulucici
-                        td lulucici
-                    tr
-                        td.collapsing
-                            div.ui.fitted.checkbox
-                                input(type='checkbox')
-                        td lulucici
-                        td lulucici
-                        td lulucici
-                        td lulucici
-                        td lulucici
-                        td lulucici
-                        td lulucici
-                        td lulucici
-                    tr
-                        td.collapsing
-                            div.ui.fitted.checkbox
-                                input(type='checkbox')
-                        td lulucici
-                        td lulucici
-                        td lulucici
-                        td lulucici
-                        td lulucici
-                        td lulucici
-                        td lulucici
-                        td lulucici
-                +pagination('/recommend/history')
+                    each entry in entries
+                        tr
+                            td.collapsing
+                                div.ui.fitted.checkbox
+                                    input(type='checkbox')
+                            td= entry.email
+                            td= entry.title
+                            td= entry.author
+                            td= entry.pub_info
+                            td= entry.pub_year
+                            td= entry.isbn
+                            td= entry.created_at
+                            td= entry.status
+            +pagination('/recommend/history')
 
 
 

@@ -20,12 +20,6 @@ exports.up = function (knex, Promise) {
         })
         .createTable('recommendations', function (table) {
             table.increments('id').primary();
-            table.string('title');
-            table.string('detail');
-            table.string('pub_info');
-            table.integer('pub_year');
-            table.string('isbn');
-            table.string('author');
             table.integer('count');
         })
         .createTable('appointments', function (table) {
@@ -41,7 +35,7 @@ exports.up = function (knex, Promise) {
             table.integer('book_id');
             table.integer('user_id');
             table.integer('status');
-            table.datetime('borrowed_at');
+            table.datetime('created_at');
             table.datetime('returned_at');
         })
         .createTable('authors', function (table) {

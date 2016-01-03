@@ -1,0 +1,55 @@
+extends ../layout
+
+block content
+    //div.ui.tabular.menu
+    //    a.item(href='/books') 分类浏览
+    //    //a.item(href='/books/hot') 热门图书
+    //    a.item(href='/books/new') 新书速递
+
+    div.full.height
+        include ../partials/book_list
+        div.article
+            div.ui.container
+                div.ui.header 书目信息
+            if book
+                div.ui.segment.piled.container
+                    div.ui.form(action='post')
+                        h2.ui.header= book.title
+                        div.ui.relaxed.divided.list
+                            div.item
+                                div.content
+                                    h4.header 作者
+                                    input(value= book.author, name='author')
+                            div.item
+                                div.content
+                                    h4.header 出版方
+                                    input(value= book.pub_info, name='pub_info')
+                            div.item
+                                div.content
+                                    h4.header 出版年份
+                                    input(value= book.pub_year, name='pub_year')
+                            div.item
+                                div.content
+                                    h4.header ISBN
+                                    input(value= book.isbn, name='isbn')
+                            div.item
+                                div.content
+                                    h4.header 馆藏
+                                    input(value= book.stock, name='stock')
+                                    span  本
+                            div.item
+                                div.content
+                                    h4.header 可借
+                                    input(value= book.stock - book.lend_count, name='stock - book.lend_count')
+                                    span  本
+                            div.item
+                                div.content
+                                    h4.header 类别
+                                    input(value= book.category_char, name='category_char')
+                            div.item
+                                div.content
+                                    h4.header 摘要
+                                    input(value= book.detail, name='detail')
+                            div.item
+                                button.ui.button 应用
+                                button.ui.disabled.button 删除
