@@ -1,5 +1,10 @@
 var models = require('./models');
 module.exports = {
+    url: function (req, res, next) {
+        //console.log(req);
+        res.locals.url = req.originalUrl;
+        next();
+    },
     user: function (req, res, next) {
         //console.log(req);
         if (req.user) {

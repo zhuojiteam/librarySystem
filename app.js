@@ -103,6 +103,7 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(require('flash')());
+app.use(require('./middlewares').url)
 app.use(require('./middlewares').user)
 app.use(require('./middlewares').initLink)
 

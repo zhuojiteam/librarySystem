@@ -92,10 +92,10 @@ html
                             //div.user= JSON.stringify(user)
                             div.item= 'Hello ' + user.name
                             div.item
-                                a.ui.inverted.button(href='/account/login') Log out
+                                a.ui.inverted.button(href='/account/login?redirect=' + url) Log out
                         else
                             div.item
-                                a.ui.inverted.button(href='/account/login') Log In
+                                a.ui.inverted.button(href='/account/login?redirect=' + url) Log In
                             div.item
                                 a.ui.inverted.button(href='/account/signup') Sign Up
             div.ui.header
