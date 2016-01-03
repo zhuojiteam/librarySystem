@@ -35,12 +35,12 @@ block content
                             div.content
                                 h4.header 馆藏
                                 div.description= book.stock
-                                    span  本
+                                span  本
                         div.item
                             div.content
                                 h4.header 可借
                                 div.description= book.stock - book.lend_count
-                                    span  本
+                                span  本
                         div.item
                             div.content
                                 h4.header 类别
@@ -50,11 +50,18 @@ block content
                                 h4.header 摘要
                                 div.description= book.detail
                         div.item
-                            if book.status === 0
-                                button.ui.button 预约
-                            else
-                                button.ui.disabled.button 已预约
+                            if bOrA
+                                if bOrA.b
+                                    button.ui.disabled.button.positive 已借阅
+                                else
+                                    if bOrA.a
+                                        button.ui.disabled.button 已预约
+                                    else
+                                        form.ui.form(method='post')
+                                            input(type='hidden', value=book.id, name='book_id')
+                                            input(type='hidden', value='appoint', name='action')
+                                            button.ui.button 预约
                             if user
                                 if user.permission > 0
-                                    a(href='./edit')
-                                        button.ui.primary 编辑
+                                    a(href='/books/' + book.id + '/edit/')
+                                        button.ui.primary.button 编辑
